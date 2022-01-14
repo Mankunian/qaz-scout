@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { HttpService } from 'src/app/service/http.service';
+import { HttpService } from 'src/app/modules/dashboard/services/http.service';
 
 @Component({
 	selector: 'app-header',
