@@ -1,0 +1,27 @@
+{
+	"id": 1,
+	"fullName": "Dias Aidarkhan",
+	"firstName": "Dias",
+	"lastName": "Aidarkhan",
+	"middleName": "Nurlanuly",
+	"birthday": "07.04.1996",
+	"role": {
+		"id": 1,
+		"name": "Администратор клуба"
+	},
+	"social_links": [
+		{
+			"id": 1,
+			"tiktok": ""
+		},
+		{
+			"id": 2,
+			"instagram": ""
+		},
+		{
+			"id": 3,
+			"yourube": ""
+		}
+	],
+	"email": "dias.07.04@gmail.com"
+}

@@ -12,6 +12,10 @@ const routes: Routes = [
 		path: 'dashboard-admin', loadChildren: () =>
 			import('./modules/dashboard/dashboard.module').then((m) => m.DashboardModule)
 	},
+	{
+		path: 'dashboard-club', loadChildren: () =>
+			import('./modules/dashboard-club/dashboard-club.module').then((m) => m.DashboardClubModule)
+	}
 ];
 
 @NgModule({

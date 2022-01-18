@@ -12,10 +12,10 @@ import { HomeComponent } from './components/home/home.component';
 @NgModule({
 	declarations: [
 		DashboardComponent,
-  AsideComponent,
-  HeaderComponent,
-  FooterComponent,
-  HomeComponent
+		AsideComponent,
+		HeaderComponent,
+		FooterComponent,
+		HomeComponent
 	],
 	imports: [
 		CommonModule,
