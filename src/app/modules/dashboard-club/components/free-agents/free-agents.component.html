@@ -1,0 +1,57 @@
+<div class="pagetitle">
+	<h1>Cвободные агенты</h1>
+	<nav>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a>Главная</a></li>
+			<li class="breadcrumb-item active">Свободные агенты</li>
+		</ol>
+	</nav>
+</div>
+
+<section class="section" id="free-agents">
+	<div class="row">
+		<div class="col-xl-3">
+			<div class="card p-3">
+				<h5 class="title">Позиция</h5>
+				<div class="form-check" *ngFor="let item of positions">
+					<input [value]="item.code" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+					<label class="form-check-label" for="flexCheckDefault">
+						{{item.name}}
+					</label>
+				</div>
+				<br>
+				<h5>Возраст</h5>
+				<div class="form-check" *ngFor="let item of ageRange">
+					<input [value]="item.id" class="form-check-input" type="radio" name="ageRange" id="ageRange">
+					<label class="form-check-label" for="ageRange">
+						{{item.range}}
+					</label>
+				</div>
+				<br>
+				<h5>Уровень</h5>
+				<div class="form-check" *ngFor="let item of level">
+					<input [value]="item.id" class="form-check-input" type="radio" name="level" id="level">
+					<label class="form-check-label" for="level">
+						{{item.name}}
+					</label>
+				</div>
+				<div class="d-grid gap-2 mt-2">
+					<button class="btn btn-sm btn-primary" type="button">Поиск</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-3 col-lg-4 col-md-4 section profile" *ngFor="let item of freeAgents">
+			<div class="card">
+				<img src="assets/img/custom/free-agents/{{item.img}}" alt="Profile" class="">
+				<div class="card-body profile-card pt-2 d-flex flex-column align-items-center">
+					<h2>{{item.name}}</h2>
+					<h3>{{item.position}}</h3>
+					<div class="d-grid gap-2 w-100">
+						<button class="btn btn-sm btn-primary" type="button">Отправить заявку</button>
+						<button class="btn btn-sm btn-primary" type="button">Подробнее</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

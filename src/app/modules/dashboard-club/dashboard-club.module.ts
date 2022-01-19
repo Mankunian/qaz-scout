@@ -15,6 +15,11 @@ import { CoachesComponent } from './components/club/coaches/coaches.component';
 import { NewsComponent } from './components/news/news.component';
 import { AboutClubComponent } from './components/club/about-club/about-club.component';
 import { HistoryComponent } from './components/club/history/history.component';
+import { AchievementsComponent } from './components/club/achievements/achievements.component';
+import { HomeArenaComponent } from './components/club/home-arena/home-arena.component';
+import { FreeAgentsComponent } from './components/free-agents/free-agents.component';
+import { YouthAcademyComponent } from './components/club/youth-academy/youth-academy.component';
+import { AdministrationStaffComponent } from './components/club/administration-staff/administration-staff.component';
 /* Components */
 
 @NgModule({
@@ -29,8 +34,13 @@ import { HistoryComponent } from './components/club/history/history.component';
 		SquadsComponent,
 		CoachesComponent,
 		NewsComponent,
-  AboutClubComponent,
-  HistoryComponent
+		AboutClubComponent,
+		HistoryComponent,
+		AchievementsComponent,
+		HomeArenaComponent,
+		FreeAgentsComponent,
+  YouthAcademyComponent,
+  AdministrationStaffComponent,
 	],
 	imports: [
 		CommonModule,

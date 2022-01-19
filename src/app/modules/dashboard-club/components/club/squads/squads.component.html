@@ -8,3 +8,78 @@
 		</ol>
 	</nav>
 </div><!-- End Page Title -->
+
+
+<section class="section" id="team">
+	<div class="row">
+		<div class="col-xl-12">
+			<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+				<li class="nav-item" role="presentation">
+					<button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all"
+						type="button" role="tab" aria-controls="pills-all" aria-selected="true">Все игроки</button>
+				</li>
+				<li class="nav-item" role="presentation">
+					<button class="nav-link" id="pills-striker-tab" data-bs-toggle="pill" data-bs-target="#pills-striker"
+						type="button" role="tab" aria-controls="pills-striker" aria-selected="false">Нападающие</button>
+				</li>
+				<li class="nav-item" role="presentation">
+					<button class="nav-link" id="pills-defender-tab" data-bs-toggle="pill" data-bs-target="#pills-defender"
+						type="button" role="tab" aria-controls="pills-defender" aria-selected="false">Защитники</button>
+				</li>
+			</ul>
+
+
+
+			<div class="tab-content" id="pills-tabContent">
+				<div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+					<div class="row">
+						<div class="col-xl-3 col-lg-4 col-md-4 section profile" *ngFor="let item of strikers">
+							<div class="card">
+								<img src="assets/img/custom/free-agents/{{item.img}}" alt="Profile" class="">
+								<div class="card-body profile-card pt-2 d-flex flex-column align-items-center">
+									<h2>{{item.name}}</h2>
+									<h3>{{item.position}}</h3>
+									<div class="d-grid gap-2 w-100">
+										<button class="btn btn-sm btn-primary" type="button">Подробнее</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="pills-striker" role="tabpanel" aria-labelledby="pills-striker-tab">
+					<div class="row">
+						<div class="col-xl-3 col-lg-4 col-md-4 section profile" *ngFor="let item of strikers">
+							<div class="card">
+								<img src="assets/img/custom/free-agents/{{item.img}}" alt="Profile" class="">
+								<div class="card-body profile-card pt-2 d-flex flex-column align-items-center">
+									<h2>{{item.name}}</h2>
+									<h3>{{item.position}}</h3>
+									<div class="d-grid gap-2 w-100">
+										<button class="btn btn-sm btn-primary" type="button">Подробнее</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="pills-defender" role="tabpanel" aria-labelledby="pills-defender-tab">
+					<div class="row">
+						<div class="col-xl-3 col-lg-4 col-md-4 section profile" *ngFor="let item of defenders">
+							<div class="card">
+								<img src="assets/img/custom/free-agents/{{item.img}}" alt="Profile" class="">
+								<div class="card-body profile-card pt-2 d-flex flex-column align-items-center">
+									<h2>{{item.name}}</h2>
+									<h3>{{item.position}}</h3>
+									<div class="d-grid gap-2 w-100">
+										<button class="btn btn-sm btn-primary" type="button">Подробнее</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
