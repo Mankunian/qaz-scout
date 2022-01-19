@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MatDialog } from '@angular/material/dialog';
+import { AddPlayerComponent } from "../../dialog/add-player/add-player.component";
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
@@ -9,7 +10,8 @@ export class HomeComponent implements OnInit {
 	card_icon: string = 'emoji-heart-eyes-fill';
 	win_rate: number = 100;
 	teams: any;
-	constructor() { }
+
+	constructor(public dialog: MatDialog) { }
 
 	ngOnInit(): void {
 		this.getTeamList();
@@ -33,5 +35,13 @@ export class HomeComponent implements OnInit {
 			this.card_icon = 'emoji-frown-fill';
 			this.win_rate = 32
 		}
+	}
+
+	openAddPlayerDialog() {
+		const dialogRef = this.dialog.open(AddPlayerComponent);
+
+		dialogRef.afterClosed().subscribe(result => {
+			console.log(`Dialog result: ${result}`);
+		});
 	}
 }

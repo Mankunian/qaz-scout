@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { DashboardClubRoutingModule } from './dashboard-club-routing.module';
@@ -20,7 +20,18 @@ import { HomeArenaComponent } from './components/club/home-arena/home-arena.comp
 import { FreeAgentsComponent } from './components/free-agents/free-agents.component';
 import { YouthAcademyComponent } from './components/club/youth-academy/youth-academy.component';
 import { AdministrationStaffComponent } from './components/club/administration-staff/administration-staff.component';
+import { AddPlayerComponent } from './dialog/add-player/add-player.component';
+import { AddCoachComponent } from './dialog/add-coach/add-coach.component';
 /* Components */
+
+
+/* Angular Materials */
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+/* Angular Materials */
 
 @NgModule({
 	declarations: [
@@ -39,13 +50,22 @@ import { AdministrationStaffComponent } from './components/club/administration-s
 		AchievementsComponent,
 		HomeArenaComponent,
 		FreeAgentsComponent,
-  YouthAcademyComponent,
-  AdministrationStaffComponent,
+		YouthAcademyComponent,
+		AdministrationStaffComponent,
+		AddPlayerComponent,
+		AddCoachComponent,
 	],
 	imports: [
 		CommonModule,
 		DashboardClubRoutingModule,
-		RouterModule
-	]
+		RouterModule,
+		MatDialogModule,
+		MatButtonModule,
+		MatFormFieldModule,
+		MatInputModule
+	],
+	schemas: [
+		CUSTOM_ELEMENTS_SCHEMA
+	],
 })
 export class DashboardClubModule { }

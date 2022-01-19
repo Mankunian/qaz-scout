@@ -21,14 +21,14 @@ const routes: Routes = [
 			{ path: 'news', component: NewsComponent },
 			{ path: 'contacts', component: ContactsComponent },
 			{ path: 'free-agents', component: FreeAgentsComponent },
-			{ path: 'club/about', component: AboutClubComponent },
-			{ path: 'club/history', component: HistoryComponent },
-			{ path: 'club/achievements', component: AchievementsComponent },
-			{ path: 'club/home-arena', component: HomeArenaComponent },
-			{ path: 'club/squads', component: SquadsComponent },
-			{ path: 'club/coaches', component: CoachesComponent },
-			{ path: 'club/youth-academy', component: YouthAcademyComponent },
-			{ path: 'club/administration', component: AdministrationStaffComponent },
+			{ path: 'about', component: AboutClubComponent },
+			{ path: 'history', component: HistoryComponent },
+			{ path: 'achievements', component: AchievementsComponent },
+			{ path: 'home-arena', component: HomeArenaComponent },
+			{ path: 'squads', component: SquadsComponent },
+			{ path: 'coaches', component: CoachesComponent },
+			{ path: 'youth-academy', component: YouthAcademyComponent },
+			{ path: 'administration', component: AdministrationStaffComponent },
 		]
 	}
 ]
