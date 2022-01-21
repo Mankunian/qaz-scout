@@ -1,1 +1,62 @@
-<p>add-coach works!</p>
+<h2 mat-dialog-title>Добавить тренера</h2>
+<mat-dialog-content class="mat-typography">
+	<form class="example-form">
+
+		<div class="row">
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Имя</mat-label>
+					<input matInput placeholder="Введите имя">
+				</mat-form-field>
+			</div>
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Фамилия</mat-label>
+					<input matInput placeholder="Введите фамилию">
+				</mat-form-field>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Роль</mat-label>
+					<mat-select>
+						<mat-option value="head-coach">Главный тренер</mat-option>
+						<mat-option value="assistant">Ассистент главного тренера</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Контракт до</mat-label>
+					<input matInput [matDatepicker]="picker">
+					<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+					<mat-datepicker #picker></mat-datepicker>
+				</mat-form-field>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Возраст</mat-label>
+					<input matInput placeholder="Укажите возраст">
+				</mat-form-field>
+			</div>
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Email</mat-label>
+					<input type="email" matInput placeholder="Ex. pat@example.com">
+					<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+				</mat-form-field>
+			</div>
+		</div>
+	</form>
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+	<button mat-raised-button mat-dialog-close>Отмена</button>
+	<button mat-raised-button color="primary">Сохранить</button>
+</mat-dialog-actions>

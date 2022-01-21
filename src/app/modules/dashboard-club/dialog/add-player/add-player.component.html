@@ -1,17 +1,64 @@
-<h2 mat-dialog-title>Install Angular</h2>
+<h2 mat-dialog-title>Добавить игрока</h2>
 <mat-dialog-content class="mat-typography">
+	<form class="example-form">
 
+		<div class="row">
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Имя</mat-label>
+					<input matInput placeholder="Введите имя">
+				</mat-form-field>
+			</div>
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Фамилия</mat-label>
+					<input matInput placeholder="Введите фамилию">
+				</mat-form-field>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Позиция</mat-label>
+					<mat-select>
+						<mat-option value="striker">Нападающий</mat-option>
+						<mat-option value="defender">Защитник</mat-option>
+						<mat-option value="universal">Универсал</mat-option>
+						<mat-option value="goalkeeper">Вратарь</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Контракт до</mat-label>
+					<input matInput [matDatepicker]="picker">
+					<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+					<mat-datepicker #picker></mat-datepicker>
+				</mat-form-field>
 
-	<mat-form-field appearance="outline">
-		<mat-label>Outline form field</mat-label>
-		<input matInput placeholder="Placeholder">
-		<mat-hint>Hint</mat-hint>
-	</mat-form-field>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Возраст</mat-label>
+					<input matInput placeholder="Укажите возраст">
+				</mat-form-field>
+			</div>
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Email</mat-label>
+					<input type="email" matInput placeholder="Ex. pat@example.com">
+					<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+				</mat-form-field>
+			</div>
+		</div>
+	</form>
 
 
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-	<button mat-button mat-dialog-close>Cancel</button>
-	<button mat-button cdkFocusInitial>Install</button>
+	<button mat-raised-button mat-dialog-close>Отмена</button>
+	<button mat-raised-button color="primary">Сохранить</button>
 </mat-dialog-actions>

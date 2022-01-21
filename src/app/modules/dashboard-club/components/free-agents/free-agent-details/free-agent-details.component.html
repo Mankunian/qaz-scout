@@ -1,0 +1,86 @@
+<div class="pagetitle">
+	<h1>Детали профиля</h1>
+	<nav>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a routerLink="/">Главная</a></li>
+			<li class="breadcrumb-item"><a routerLink="/dashboard-club/free-agents">Свободные агенты</a></li>
+			<li class="breadcrumb-item active">Детали профиля</li>
+		</ol>
+	</nav>
+</div><!-- End Page Title -->
+
+<section class="section profile">
+	<div class="row">
+		<div class="col-xl-4">
+
+			<div class="card">
+				<img src="assets/img/custom/free-agents/{{userDetails.img}}" alt="Profile">
+				<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+					<h2>{{userDetails.name}}</h2>
+					<h3>{{userDetails.position}}</h3>
+					<div class="social-links mt-2">
+						<a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+						<a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+						<a href="#" class="tiktok"><i class="bi bi-tiktok"></i></a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-xl-8">
+
+			<div class="card">
+				<div class="card-body pt-3">
+					<!-- Bordered Tabs -->
+					<ul class="nav nav-tabs nav-tabs-bordered">
+
+						<li class="nav-item">
+							<button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">О клубе</button>
+						</li>
+
+						<li class="nav-item">
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#titles">Титулы</button>
+						</li>
+
+					</ul>
+					<div class="tab-content pt-2">
+
+						<div class="tab-pane fade show active profile-overview" id="profile-overview">
+							<h5 class="card-title">Об игроке</h5>
+							<p class="small fst-italic">{{userDetails.description}}</p>
+
+							<h5 class="card-title">Детали</h5>
+
+							<div class="row">
+								<div class="col-lg-3 col-md-4 label ">Возраст</div>
+								<div class="col-lg-9 col-md-8">{{userDetails.age}}</div>
+							</div>
+
+
+
+							<div class="row">
+								<div class="col-lg-3 col-md-4 label">Клуб</div>
+								<div class="col-lg-9 col-md-8">{{userDetails.club}}</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-3 col-md-4 label">Страна</div>
+								<div class="col-lg-9 col-md-8">{{userDetails.birthCountry}}</div>
+							</div>
+						</div>
+
+						<div class="tab-pane fade profile-edit pt-3" id="titles">
+							<p>Титулы</p>
+
+						</div>
+
+					</div><!-- End Bordered Tabs -->
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>

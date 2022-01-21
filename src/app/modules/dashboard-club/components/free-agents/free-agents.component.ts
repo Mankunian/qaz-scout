@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-free-agents',
@@ -10,7 +11,7 @@ export class FreeAgentsComponent implements OnInit {
 	ageRange: any;
 	level: any;
 	freeAgents: any;
-	constructor() { }
+	constructor(private router: Router) { }
 
 	ngOnInit(): void {
 		this.positions = [
@@ -32,10 +33,14 @@ export class FreeAgentsComponent implements OnInit {
 			{ id: 3, name: 'Профессионал' },
 		];
 		this.freeAgents = [
-			{ id: 1, name: 'Cristiano Ronaldo', img: '1.jpg', position: 'Нападающий', social_links: [] },
-			{ id: 2, name: 'Raul Jimenez', img: '2.jpg', position: 'Нападающий', social_links: [] },
+			{ id: 1, name: 'Cristiano Ronaldo', img: '1.jpg', position: 'Нападающий', social_links: [], description: 'Криштиа́ну Рона́лду душ Са́нтуш Аве́йру — португальский футболист, выступающий за английский клуб «Манчестер Юнайтед» и сборную Португалии, в которой является капитаном.', age: 36, club: 'Манчестер Юнайтед', birthCountry: 'Португалия' },
+			{ id: 2, name: 'Raul Jimenez', img: '2.jpg', position: 'Нападающий', social_links: [], description: 'Рау́ль Ало́нсо Химе́нес Родри́гес — мексиканский футболист. Нападающий клуба «Вулверхэмптон Уондерерс» и сборной Мексики. Олимпийский чемпион 2012 года. Участник чемпионатов мира 2014 и 2018 годов', age: 30, club: ' Вулверхэмптон Уондерерс', birthCountry: 'Мексика' },
 			{ id: 3, name: 'Mohamed Salah', img: '3.jpg', position: 'Нападающий', social_links: [] },
 		]
+	}
+
+	saveSessionStorage(item: any): void {
+		sessionStorage.setItem('userDetails', JSON.stringify(item));
 	}
 
 }

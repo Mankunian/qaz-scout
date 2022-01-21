@@ -19,9 +19,9 @@
 				<div class="filter">
 					<a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
 					<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-						<li class="dropdown-header text-start">
+						<!-- <li class="dropdown-header text-start">
 							<h6>Действие</h6>
-						</li>
+						</li> -->
 
 						<li><a class="dropdown-item" routerLink="/dashboard-club/squads">Показать весь список</a></li>
 						<li><a class="dropdown-item" (click)="openAddPlayerDialog()">Добавить</a></li>
@@ -54,13 +54,12 @@
 				<div class="filter">
 					<a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
 					<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-						<li class="dropdown-header text-start">
+						<!-- <li class="dropdown-header text-start">
 							<h6>Filter</h6>
-						</li>
+						</li> -->
 
-						<li><a class="dropdown-item" href="#">Today</a></li>
-						<li><a class="dropdown-item" href="#">This Month</a></li>
-						<li><a class="dropdown-item" href="#">This Year</a></li>
+						<li><a class="dropdown-item" routerLink="/dashboard-club/coaches">Показать весь список</a></li>
+						<li><a class="dropdown-item" (click)="openAddCoachDialog()">Добавить</a></li>
 					</ul>
 				</div>
 

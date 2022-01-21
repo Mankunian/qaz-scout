@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AddCoachComponent } from '../../dialog/add-coach/add-coach.component';
 import { AddPlayerComponent } from "../../dialog/add-player/add-player.component";
 @Component({
 	selector: 'app-home',
@@ -39,6 +40,13 @@ export class HomeComponent implements OnInit {
 
 	openAddPlayerDialog() {
 		const dialogRef = this.dialog.open(AddPlayerComponent);
+
+		dialogRef.afterClosed().subscribe(result => {
+			console.log(`Dialog result: ${result}`);
+		});
+	}
+	openAddCoachDialog() {
+		const dialogRef = this.dialog.open(AddCoachComponent);
 
 		dialogRef.afterClosed().subscribe(result => {
 			console.log(`Dialog result: ${result}`);

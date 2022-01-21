@@ -4,10 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { DashboardRoutingModule } from "./modules/dashboard/dashboard-routing.module";
+import { DashboardModule } from "./modules/dashboard/dashboard.module";
+import { DashboardClubModule } from "./modules/dashboard-club/dashboard-club.module";
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /* Angular Modules */
+
+
+/* Shared module */
+import { AngularMaterialModule } from './angular-material.module';
+/* Shared module */
+
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -27,8 +34,10 @@ import { LoginComponent } from "../app/landing-page/login/login.component";
 		BrowserModule,
 		AppRoutingModule,
 		HttpClientModule,
-		DashboardRoutingModule,
-		BrowserAnimationsModule
+		BrowserAnimationsModule,
+		DashboardClubModule,
+		DashboardModule,
+		AngularMaterialModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]

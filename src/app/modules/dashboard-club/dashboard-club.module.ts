@@ -1,7 +1,10 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+/* Routing module */
 import { DashboardClubRoutingModule } from './dashboard-club-routing.module';
+
 /* Components */
 import { AsideComponent } from "../dashboard-club/layouts/aside/aside.component";
 import { FooterComponent } from "../dashboard-club/layouts/footer/footer.component";
@@ -20,18 +23,15 @@ import { HomeArenaComponent } from './components/club/home-arena/home-arena.comp
 import { FreeAgentsComponent } from './components/free-agents/free-agents.component';
 import { YouthAcademyComponent } from './components/club/youth-academy/youth-academy.component';
 import { AdministrationStaffComponent } from './components/club/administration-staff/administration-staff.component';
-import { AddPlayerComponent } from './dialog/add-player/add-player.component';
-import { AddCoachComponent } from './dialog/add-coach/add-coach.component';
+import { FreeAgentDetailsComponent } from './components/free-agents/free-agent-details/free-agent-details.component';
 /* Components */
 
+/* Dialog */
+import { AddPlayerComponent } from "./dialog/add-player/add-player.component";
+import { AddCoachComponent } from './dialog/add-coach/add-coach.component';
+import { AngularMaterialModule } from 'src/app/angular-material.module';
+/* Dialog */
 
-/* Angular Materials */
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-
-/* Angular Materials */
 
 @NgModule({
 	declarations: [
@@ -52,17 +52,20 @@ import { MatInputModule } from '@angular/material/input';
 		FreeAgentsComponent,
 		YouthAcademyComponent,
 		AdministrationStaffComponent,
+		FreeAgentDetailsComponent,
+		/* Dialog Components */
 		AddPlayerComponent,
 		AddCoachComponent,
+		/* Dialog Components */
 	],
 	imports: [
 		CommonModule,
+		FormsModule,
+		AngularMaterialModule,
 		DashboardClubRoutingModule,
 		RouterModule,
-		MatDialogModule,
-		MatButtonModule,
-		MatFormFieldModule,
-		MatInputModule
+	],
+	exports: [
 	],
 	schemas: [
 		CUSTOM_ELEMENTS_SCHEMA

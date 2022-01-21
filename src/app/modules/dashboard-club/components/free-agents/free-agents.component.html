@@ -48,7 +48,8 @@
 					<h3>{{item.position}}</h3>
 					<div class="d-grid gap-2 w-100">
 						<button class="btn btn-sm btn-primary" type="button">Отправить заявку</button>
-						<button class="btn btn-sm btn-primary" type="button">Подробнее</button>
+						<button (click)="saveSessionStorage(item)" [routerLink]="['/free-agent', item.id]"
+							class="btn btn-sm btn-primary" type="button">Подробнее</button>
 					</div>
 				</div>
 			</div>

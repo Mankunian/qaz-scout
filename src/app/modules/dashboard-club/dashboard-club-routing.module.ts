@@ -13,6 +13,7 @@ import { HomeArenaComponent } from './components/club/home-arena/home-arena.comp
 import { FreeAgentsComponent } from './components/free-agents/free-agents.component';
 import { YouthAcademyComponent } from './components/club/youth-academy/youth-academy.component';
 import { AdministrationStaffComponent } from './components/club/administration-staff/administration-staff.component';
+import { FreeAgentDetailsComponent } from './components/free-agents/free-agent-details/free-agent-details.component';
 
 const routes: Routes = [
 	{
@@ -21,6 +22,7 @@ const routes: Routes = [
 			{ path: 'news', component: NewsComponent },
 			{ path: 'contacts', component: ContactsComponent },
 			{ path: 'free-agents', component: FreeAgentsComponent },
+			{ path: 'free-agent/:id', component: FreeAgentDetailsComponent },
 			{ path: 'about', component: AboutClubComponent },
 			{ path: 'history', component: HistoryComponent },
 			{ path: 'achievements', component: AchievementsComponent },
