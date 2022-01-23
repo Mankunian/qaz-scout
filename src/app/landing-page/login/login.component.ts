@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit {
 			this.router.navigate(['/dashboard-admin/home'])
 		} else if (userDetails.role == 'club') {
 			this.router.navigate(['/dashboard-club/home'])
+		} else if (userDetails.role == 'coach') {
+			this.router.navigate(['/dashboard-coach/home'])
 		}
 	}
 	register() {

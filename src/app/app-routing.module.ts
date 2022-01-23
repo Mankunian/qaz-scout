@@ -15,6 +15,10 @@ const routes: Routes = [
 	{
 		path: 'dashboard-club', loadChildren: () =>
 			import('./modules/dashboard-club/dashboard-club.module').then((m) => m.DashboardClubModule)
+	},
+	{
+		path: 'dashboard-coach', loadChildren: () =>
+			import('./modules/dashboard-coach/dashboard-coach.module').then((m) => m.DashboardCoachModule)
 	}
 ];
 
