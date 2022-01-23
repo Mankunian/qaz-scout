@@ -8,6 +8,9 @@ import { AsideComponent } from './layouts/aside/aside.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
+import { StatsComponent } from './components/stats/stats.component';
+import { EmailComponent } from './components/email/email.component';
+import { NewsComponent } from './components/news/news.component';
 
 @NgModule({
 	declarations: [
@@ -15,7 +18,10 @@ import { HomeComponent } from './components/home/home.component';
 		AsideComponent,
 		HeaderComponent,
 		FooterComponent,
-		HomeComponent
+		HomeComponent,
+  StatsComponent,
+  EmailComponent,
+  NewsComponent
 	],
 	imports: [
 		CommonModule,
