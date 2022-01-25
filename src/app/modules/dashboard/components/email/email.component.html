@@ -11,8 +11,78 @@
 <section class="section" id="email">
 	<div class="row">
 		<div class="col-xl-12">
-			<p>Тут будут заявки в виде таблицы либо list group от клубов официально о том что нужно добавить админа их клуба
-			</p>
+			<div class="card p-3">
+				<ol>
+					<li>Внизу в виде таблицы будут отображаться входящие заявки от представителей клубов. (Официально)</li>
+					<li>Можно просмотреть их данные на корректность и добавить, в противном случае отказать и указать причину
+						отказа</li>
+				</ol>
+			</div>
+		</div>
+		<div class="col-xl-12">
+			<table mat-table [dataSource]=" dataSource" class="mat-elevation-z8">
+				<!-- Position Column -->
+				<ng-container matColumnDef="position">
+					<th mat-header-cell *matHeaderCellDef> # </th>
+					<td mat-cell *matCellDef="let element"> {{element.position}} </td>
+				</ng-container>
+
+				<!-- Club Column -->
+				<ng-container matColumnDef="club">
+					<th mat-header-cell *matHeaderCellDef> Клуб </th>
+					<td mat-cell *matCellDef="let element"> {{element.club}} </td>
+				</ng-container>
+
+				<!-- Region Column -->
+				<ng-container matColumnDef="region">
+					<th mat-header-cell *matHeaderCellDef> Регион </th>
+					<td mat-cell *matCellDef="let element"> {{element.region}} </td>
+				</ng-container>
+
+				<!-- League Column -->
+				<ng-container matColumnDef="league">
+					<th mat-header-cell *matHeaderCellDef> Лига </th>
+					<td mat-cell *matCellDef="let element"> {{element.league}} </td>
+				</ng-container>
+
+				<!-- First name Column -->
+				<ng-container matColumnDef="firstName">
+					<th mat-header-cell *matHeaderCellDef> Имя </th>
+					<td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+				</ng-container>
+
+				<!-- Last name Column -->
+				<ng-container matColumnDef="lastName">
+					<th mat-header-cell *matHeaderCellDef> Фамилия</th>
+					<td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+				</ng-container>
+
+				<!-- Email Column -->
+				<ng-container matColumnDef="email">
+					<th mat-header-cell *matHeaderCellDef> Email</th>
+					<td mat-cell *matCellDef="let element"> {{element.email}} </td>
+				</ng-container>
+
+				<!-- Phone Column -->
+				<ng-container matColumnDef="phone">
+					<th mat-header-cell *matHeaderCellDef> Номер телефона</th>
+					<td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+				</ng-container>
+
+				<!-- Action Column -->
+				<ng-container matColumnDef="action">
+					<th mat-header-cell *matHeaderCellDef> Действие </th>
+					<td mat-cell *matCellDef="let element">
+						<button (click)="accept(element)" mat-button color="primary">Принять</button>
+						<button (click)="decline(element)" mat-button color="warn">Отказать</button>
+					</td>
+				</ng-container>
+
+				<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+				<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+			</table>
+
+
 		</div>
 	</div>
 </section>

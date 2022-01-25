@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
 			console.log(`Dialog result: ${result}`);
 		});
 	}
+
 	openAddCoachDialog() {
 		const dialogRef = this.dialog.open(AddCoachComponent);
 

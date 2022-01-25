@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardModule } from "./modules/dashboard/dashboard.module";
 import { DashboardClubModule } from "./modules/dashboard-club/dashboard-club.module";
+import { DashboardCoachModule } from "./modules/dashboard-coach/dashboard-coach.module";
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /* Angular Modules */
@@ -37,6 +38,7 @@ import { LoginComponent } from "../app/landing-page/login/login.component";
 		BrowserAnimationsModule,
 		DashboardClubModule,
 		DashboardModule,
+		DashboardCoachModule,
 		AngularMaterialModule,
 	],
 	providers: [],

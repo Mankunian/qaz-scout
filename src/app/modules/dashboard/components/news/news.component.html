@@ -1,19 +1,46 @@
 <div class="pagetitle">
-	<h1>Новости</h1>
-	<nav>
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a>Главная</a></li>
-			<li class="breadcrumb-item active">Новости</li>
-		</ol>
-	</nav>
+	<div class="row">
+		<div class="col">
+			<h1>Новости</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a>Главная</a></li>
+					<li class="breadcrumb-item active">Новости</li>
+				</ol>
+			</nav>
+		</div>
+		<div class="col text-end">
+			<button (click)="openAddNewsDialog()" mat-raised-button color="primary">Добавить</button>
+		</div>
+	</div>
+
+
 </div>
 
 
 <section class="section" id="news">
 	<div class="row">
-		<div class="col-xl-12">
-			<p>Тут будут новости от организаторов АФЛ, ЛЛФ и от самой платформы о новых фитчах</p>
-			<p>Будет админ по новостям который все это будет добавлять, изменять, удалять</p>
+		<div class="col-xl-12 mb-2">
+			<div class="card p-3">
+				<ol>
+					<li>Тут будут новости от организаторов АФЛ, ЛЛФ и от самой платформы о новых фитчах</li>
+					<li>Будет админ по новостям который все это будет добавлять, изменять, удалять</li>
+				</ol>
+			</div>
+
+		</div>
+		<div class="col-xl-3 col-lg-6 col-sm-6" *ngFor="let news of newsList">
+			<div class="card mb-3">
+				<img src="../../../../../assets/img/custom/news/{{news.imgUrl}}" class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">{{news.title}}</h5>
+					<p class="card-text">{{news.desc}}</p>
+					<div class="footer-news">
+						<p class="card-text"><small class="text-muted">{{news.createdDate}}</small></p>
+						<i (click)="openEditNewsDialog(news)" class="bi bi-pencil-fill"></i>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

@@ -1,0 +1,57 @@
+<h2 mat-dialog-title>Добавить пользователя</h2>
+<mat-dialog-content class="mat-typography">
+	<form class="example-form">
+
+		<div class="row">
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Имя</mat-label>
+					<input [(ngModel)]="data.firstName" [ngModelOptions]="{standalone: true}" matInput placeholder="Введите имя">
+				</mat-form-field>
+			</div>
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Фамилия</mat-label>
+					<input [(ngModel)]="data.lastName" [ngModelOptions]="{standalone: true}" matInput
+						placeholder="Введите фамилию">
+				</mat-form-field>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Клуб</mat-label>
+					<input [(ngModel)]="data.club" [ngModelOptions]="{standalone: true}" matInput placeholder="Ввыберите клуб">
+				</mat-form-field>
+			</div>
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Регион</mat-label>
+					<input [(ngModel)]="data.region" [ngModelOptions]="{standalone: true}" matInput placeholder="Введите регион">
+				</mat-form-field>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Email</mat-label>
+					<input [(ngModel)]="data.email" [ngModelOptions]="{standalone: true}" matInput placeholder="Введите email">
+				</mat-form-field>
+			</div>
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Номер телефона</mat-label>
+					<input [(ngModel)]="data.phone" [ngModelOptions]="{standalone: true}" matInput
+						placeholder="Введите номер телефона">
+				</mat-form-field>
+			</div>
+		</div>
+	</form>
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+	<button mat-raised-button mat-dialog-close>Отмена</button>
+	<button mat-raised-button color="primary">Сохранить</button>
+</mat-dialog-actions>
