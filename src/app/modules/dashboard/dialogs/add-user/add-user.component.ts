@@ -1,17 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
-export interface DialogData {
-	position: number;
-	club: any;
-	region: any;
-	league: any;
-	firstName: string;
-	lastName: string;
-	action: string;
-	email: string;
-	phone: string;
-}
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 @Component({
 	selector: 'app-add-user',
@@ -19,10 +8,12 @@ export interface DialogData {
 	styleUrls: ['./add-user.component.scss']
 })
 export class AddUserComponent implements OnInit {
-
+	horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+	verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 	constructor(
 		public dialogRef: MatDialogRef<AddUserComponent>,
-		@Inject(MAT_DIALOG_DATA) public data: DialogData
+		@Inject(MAT_DIALOG_DATA) public data: any,
+		private _snackBar: MatSnackBar
 	) { }
 
 	ngOnInit(): void {
@@ -31,6 +22,16 @@ export class AddUserComponent implements OnInit {
 
 	onNoClick(): void {
 		this.dialogRef.close();
+	}
+
+	addUser(element: any) {
+		this._snackBar.open('Добавлен пользователь', element.firstName + ' ' + element.lastName, {
+			horizontalPosition: this.horizontalPosition,
+			verticalPosition: this.verticalPosition,
+			duration: 3000
+		});
+
+		this.onNoClick()
 	}
 
 }
