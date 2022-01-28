@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationService } from "../../../../services/notification.service";
 
 @Component({
 	selector: 'app-free-agents',
@@ -11,7 +12,10 @@ export class FreeAgentsComponent implements OnInit {
 	ageRange: any;
 	level: any;
 	freeAgents: any;
-	constructor(private router: Router) { }
+	constructor(
+		private router: Router,
+		private notificationService: NotificationService
+	) { }
 
 	ngOnInit(): void {
 		this.positions = [
@@ -33,14 +37,20 @@ export class FreeAgentsComponent implements OnInit {
 			{ id: 3, name: 'Профессионал' },
 		];
 		this.freeAgents = [
-			{ id: 1, name: 'Cristiano Ronaldo', img: '1.jpg', position: 'Нападающий', social_links: [], description: 'Криштиа́ну Рона́лду душ Са́нтуш Аве́йру — португальский футболист, выступающий за английский клуб «Манчестер Юнайтед» и сборную Португалии, в которой является капитаном.', age: 36, club: 'Манчестер Юнайтед', birthCountry: 'Португалия' },
-			{ id: 2, name: 'Raul Jimenez', img: '2.jpg', position: 'Нападающий', social_links: [], description: 'Рау́ль Ало́нсо Химе́нес Родри́гес — мексиканский футболист. Нападающий клуба «Вулверхэмптон Уондерерс» и сборной Мексики. Олимпийский чемпион 2012 года. Участник чемпионатов мира 2014 и 2018 годов', age: 30, club: ' Вулверхэмптон Уондерерс', birthCountry: 'Мексика' },
-			{ id: 3, name: 'Mohamed Salah', img: '3.jpg', position: 'Нападающий', social_links: [] },
+			{ id: 1, name: 'Cristiano Ronaldo', img: '1.jpg', position: 'Нападающий', age: 36, club: 'Манчестер Юнайтед', birthCountry: 'Португалия', league: 'Premier league', status: 0 },
+			{ id: 2, name: 'Yerlan Uteulin', img: '8.jpg', position: 'Защитник', age: 30, club: 'Без клуба', birthCountry: 'Казахстан', league: '-', status: 0 },
+			{ id: 3, name: 'Mohamed Salah', img: '3.jpg', position: 'Нападающий', age: 30, club: ' Ливерпуль', birthCountry: 'Египет', league: 'Premier league', status: 0 },
+			{ id: 4, name: 'Alisher Kelgenbay', img: '7.png', position: 'Нападающий', age: 26, club: ' Shaurma food', birthCountry: 'Казахстан', league: 'Лига 1', status: 0 },
 		]
 	}
 
 	saveSessionStorage(item: any): void {
 		sessionStorage.setItem('userDetails', JSON.stringify(item));
+	}
+
+	invite(element: any) {
+		element.status = 1;
+		this.notificationService.showSnackBar('Заявка успешно отправлена')
 	}
 
 }

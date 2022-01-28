@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 
 @Component({
@@ -11,11 +12,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 export class LoginComponent implements OnInit {
 	loginForm!: FormGroup;
-	constructor(private router: Router) {
+	hide: boolean = false;
+	constructor(
+		private router: Router,
+		private tokenStorageService: TokenStorageService
+	) {
 		this.loginForm = new FormGroup({
 			"userEmail": new FormControl("", [Validators.required, Validators.email]),
 			"password": new FormControl("", Validators.required),
-			"role": new FormControl("", Validators.required)
+			"role": new FormControl("", Validators.required),
+			"hasClub": new FormControl(false)
 		})
 	}
 
@@ -23,6 +29,13 @@ export class LoginComponent implements OnInit {
 	}
 
 	logIn() {
+		// let userData = this.loginForm.value;
+		// let userDataFromStorage = this.tokenStorageService.getUser();
+		// if (userData.userEmail == userDataFromStorage.email && userData.password == userDataFromStorage.password) {
+		// 	alert('Совпадает')
+		// } else {
+		// 	alert('Не совпадает')
+		// }
 		let userDetails = this.loginForm.value;
 		console.log(userDetails);
 		if (userDetails.role == 'admin') {

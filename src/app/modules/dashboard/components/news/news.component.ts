@@ -18,7 +18,7 @@ export class NewsComponent implements OnInit {
 			{ id: 1, imgUrl: 'afl.jpg', title: 'Астана футбол лигасы', desc: 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', createdDate: '01.02.2022' },
 			{ id: 2, imgUrl: '1.jpg', title: 'Сборная Англия', desc: 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', createdDate: '05.02.2022' },
 			{ id: 3, imgUrl: '2.jpg', title: 'Сборная Англия', desc: 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', createdDate: '05.02.2022' },
-			{ id: 4, imgUrl: 'logo1.png', title: 'Платформа QazScout', desc: 'Недавно было добавлена новая фитча по добавлнию новых игроков, отправка заявки свободным агентам', createdDate: '05.02.2022' },
+			{ id: 4, imgUrl: 'afl.jpg', title: 'Платформа QazScout', desc: 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', createdDate: '05.02.2022' },
 		]
 	}
 

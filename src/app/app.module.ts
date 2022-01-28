@@ -21,6 +21,8 @@ import { AngularMaterialModule } from './angular-material.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from "../app/landing-page/login/login.component";
+import { RegisterComponent } from './landing-page/register/register.component';
+import { MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
 /* Components */
 
 @NgModule({
@@ -28,6 +30,7 @@ import { LoginComponent } from "../app/landing-page/login/login.component";
 		AppComponent,
 		LandingPageComponent,
 		LoginComponent,
+		RegisterComponent
 	],
 	imports: [
 		FormsModule,
@@ -41,7 +44,8 @@ import { LoginComponent } from "../app/landing-page/login/login.component";
 		DashboardCoachModule,
 		AngularMaterialModule,
 	],
-	providers: [],
+	providers: [{ provide: MAT_RADIO_DEFAULT_OPTIONS,
+    useValue: { color: 'primary' },}],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

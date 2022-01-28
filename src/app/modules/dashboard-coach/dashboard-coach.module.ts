@@ -17,6 +17,9 @@ import { HomeComponent } from './components/home/home.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { NewsComponent } from './components/news/news.component';
+import { TrainingComponent } from './components/training/training.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
+import { FixturesResultsComponent } from './components/fixtures-results/fixtures-results.component';
 /* Components */
 
 
@@ -29,7 +32,10 @@ import { NewsComponent } from './components/news/news.component';
   HomeComponent,
   IdeasComponent,
   FaqComponent,
-  NewsComponent
+  NewsComponent,
+  TrainingComponent,
+  ScheduleComponent,
+  FixturesResultsComponent
 	],
 	imports: [
 		CommonModule,

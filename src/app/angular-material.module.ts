@@ -11,19 +11,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatStepperModule } from '@angular/material/stepper';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
 	declarations: [],
 	imports: [
-		CommonModule,
-		MatButtonModule,
-		MatBadgeModule,
-		MatNativeDateModule,
-		MatDatepickerModule,
-		MatRippleModule,
-		MatDialogModule,
-		MatInputModule,
-		MatSelectModule
 	],
 	exports: [
 		MatButtonModule,
@@ -37,7 +31,10 @@ import { MatCardModule } from '@angular/material/card';
 		MatSelectModule,
 		MatTableModule,
 		MatSnackBarModule,
-		MatCardModule
+		MatCardModule,
+		MatIconModule,
+		MatStepperModule,
+		MatRadioModule
 	],
 	providers: [MatDialogModule]
 })

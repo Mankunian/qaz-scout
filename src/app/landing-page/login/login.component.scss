@@ -1,14 +1,15 @@
 .dont-have-account {
-	a {
-		color: #4154f1;
-		cursor: pointer;
-		text-decoration: underline;
-	}
+    a {
+        color: #4154f1;
+        cursor: pointer;
+        text-decoration: underline;
+    }
 }
 
-input.ng-touched.ng-invalid {border:solid red 2px;}
-input.ng-touched.ng-valid {border:solid green 2px;}
-
 .logo img {
-	max-height: 50px;
+    max-height: 50px;
+}
+
+mat-form-field.mat-form-field {
+    font-size: 13px;
 }
