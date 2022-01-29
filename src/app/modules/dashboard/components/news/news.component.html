@@ -1,35 +1,36 @@
 <div class="pagetitle">
-    <div class="row">
-        <div class="col">
-            <h1>Новости</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a>Главная</a></li>
-                    <li class="breadcrumb-item active">Новости</li>
-                </ol>
-            </nav>
-        </div>
-        <div class="col text-end">
-            <button (click)="openAddNewsDialog()" mat-raised-button color="primary">Добавить</button>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col">
+			<h1>Новости</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a>Главная</a></li>
+					<li class="breadcrumb-item active">Новости</li>
+				</ol>
+			</nav>
+		</div>
+		<div class="col text-end" *ngIf="isRole == 'admin' || isRole == 'club' ">
+			<button (click)="openAddNewsDialog()" mat-raised-button color="primary">Добавить</button>
+		</div>
+	</div>
 </div>
 
 
 <section class="section" id="news">
-    <div class="row">
-        <div class="col-xl-3 col-lg-6 col-sm-6" *ngFor="let news of newsList">
-            <div class="card mb-3">
-                <img src="../../../../../assets/img/custom/news/{{news.imgUrl}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{news.title}}</h5>
-                    <p class="card-text">{{news.desc}}</p>
-                    <div class="footer-news">
-                        <p class="card-text"><small class="text-muted">{{news.createdDate}}</small></p>
-                        <i (click)="openEditNewsDialog(news)" class="bi bi-pencil-fill"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-xl-3 col-lg-6 col-sm-6" *ngFor="let news of newsList">
+			<div class="card mb-3">
+				<img src="../../../../../assets/img/custom/news/{{news.imgUrl}}" class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">{{news.title}}</h5>
+					<p class="card-text">{{news.desc}}</p>
+					<div class="footer-news">
+						<p class="card-text"><small class="text-muted">{{news.createdDate}}</small></p>
+						<i *ngIf="isRole == 'admin' || isRole == 'club' " (click)="openEditNewsDialog(news)"
+							class="bi bi-pencil-fill"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
