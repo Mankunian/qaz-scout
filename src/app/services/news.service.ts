@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,16 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class NewsService {
 
-	constructor() { }
-	getAllNews(): void {
-		alert('Получить все новости какие только есть')
+	constructor(private http: HttpClient) { }
+
+	getAllNews() {
+		return this.http.get('assets/json/news/all.json');
 	}
 
-	getNewsById(): void {
+	getNewsById() {
 		alert('Получить новость по id')
 	}
 
-	getNewsByClubId(): void {
+	getNewsByClubId() {
 		alert('Получить новости по клубу')
 	}
 }

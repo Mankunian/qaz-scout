@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { NewsService } from 'src/app/services/news.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { AddNewsComponent } from '../../dialogs/add-news/add-news.component';
 import { EditNewsComponent } from '../../dialogs/edit-news/edit-news.component';
@@ -12,7 +13,11 @@ import { EditNewsComponent } from '../../dialogs/edit-news/edit-news.component';
 export class NewsComponent implements OnInit {
 	newsList: any;
 	isRole: any
-	constructor(public dialog: MatDialog, private tokenStorageService: TokenStorageService) { }
+	constructor(
+		public dialog: MatDialog,
+		private tokenStorageService: TokenStorageService,
+		private newsService: NewsService
+	) { }
 
 	ngOnInit(): void {
 		this.getNewsList();
@@ -21,12 +26,10 @@ export class NewsComponent implements OnInit {
 
 
 	getNewsList() {
-		this.newsList = [
-			{ id: 1, imgUrl: 'afl.jpg', title: 'Астана футбол лигасы', desc: 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', createdDate: '01.02.2022' },
-			{ id: 2, imgUrl: '1.jpg', title: 'Сборная Англия', desc: 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', createdDate: '05.02.2022' },
-			{ id: 3, imgUrl: '2.jpg', title: 'Сборная Англия', desc: 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', createdDate: '05.02.2022' },
-			{ id: 4, imgUrl: 'afl.jpg', title: 'Платформа QazScout', desc: 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', createdDate: '05.02.2022' },
-		]
+		this.newsService.getAllNews().subscribe(response => {
+			console.log(response);
+			this.newsList = response;
+		})
 	}
 
 	openAddNewsDialog() {
