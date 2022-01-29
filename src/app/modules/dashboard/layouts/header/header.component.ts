@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { HttpService } from 'src/app/modules/dashboard/services/http.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
 	selector: 'app-header',
@@ -14,14 +14,14 @@ export class HeaderComponent implements OnInit {
 	private state = "normal"; // normal or collapsed
 	profile: any;
 
-	constructor(private el: ElementRef, private rd: Renderer2, private http: HttpService) { }
+	constructor(private el: ElementRef, private rd: Renderer2, private authService: AuthService) { }
 
 	ngOnInit(): void {
 		this.getProfile();
 	}
 
 	getProfile() {
-		this.http.getProfileService().subscribe(response => {
+		this.authService.getProfileService().subscribe(response => {
 			console.log(response)
 			this.profile = response;
 		})

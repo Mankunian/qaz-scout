@@ -9,17 +9,17 @@ const routes: Routes = [
 	{ path: 'login', component: LoginComponent },
 	{ path: 'register', component: RegisterComponent },
 	{
-		path: 'dashboard-admin', loadChildren: () =>
+		path: 'dashboard', loadChildren: () =>
 			import('./modules/dashboard/dashboard.module').then((m) => m.DashboardModule)
 	},
-	{
-		path: 'dashboard-club', loadChildren: () =>
-			import('./modules/dashboard-club/dashboard-club.module').then((m) => m.DashboardClubModule)
-	},
-	{
-		path: 'dashboard-coach', loadChildren: () =>
-			import('./modules/dashboard-coach/dashboard-coach.module').then((m) => m.DashboardCoachModule)
-	}
+	// {
+	// 	path: 'dashboard-club', loadChildren: () =>
+	// 		import('./modules/dashboard-club/dashboard-club.module').then((m) => m.DashboardClubModule)
+	// },
+	// {
+	// 	path: 'dashboard-coach', loadChildren: () =>
+	// 		import('./modules/dashboard-coach/dashboard-coach.module').then((m) => m.DashboardCoachModule)
+	// }
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-aside',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./aside.component.scss']
 })
 export class AsideComponent implements OnInit {
+	loggedUser: any;
 
-  constructor() { }
+  constructor(private tokenStorage: TokenStorageService) { }
 
-  ngOnInit(): void {
+	ngOnInit(): void {
+		this.loggedUser = this.tokenStorage.getUser();
+		console.log(this.loggedUser)
   }
 
 }

@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
 
 		console.log(userData)
 		this.notification.showSnackBar('Аккаунт успешно создан');
-		this.tokenStorageService.saveUser(userData);
+		// this.tokenStorageService.saveUser(userData);
 		setTimeout(() => {
 			this.router.navigate(['/login']);
 		}, 2000);
