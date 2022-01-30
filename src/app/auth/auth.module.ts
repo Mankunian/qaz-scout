@@ -13,6 +13,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { MaterialModule } from '../material-module';
 /* Components */
 
+
+
 const routes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
 	{ path: 'login', component: LoginComponent, data: { title: 'Sign in' } },
@@ -30,7 +32,8 @@ const routes: Routes = [
 		CommonModule,
 		RouterModule.forChild(routes),
 		ReactiveFormsModule,
-		MaterialModule
+		MaterialModule,
+
 	],
 	schemas: [
 		CUSTOM_ELEMENTS_SCHEMA
