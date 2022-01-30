@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "qaz-scout": {
+      "hosting": {
+        "qaz-scout": [
+          "qaz-scout"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "qaz-scout"
+  }
+}

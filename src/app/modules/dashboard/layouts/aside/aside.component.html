@@ -1,44 +1,68 @@
 <!-- ======= Sidebar ======= -->
 <aside id="sidebar" class="sidebar">
 	<ul class="sidebar-nav" id="sidebar-nav">
+		<!-- ЦЕНТР -->
 		<li class="nav-item">
 			<a class="nav-link" routerLink="/dashboard/home">
 				<i class="bi bi-grid-1x2-fill"></i>
 				<span>Центр</span>
 			</a>
 		</li>
-
-		<li class="nav-item"
-			*ngIf="loggedUser.role.code == 'admin' || loggedUser.role.code == 'player' || loggedUser.role.code == 'club'">
+		<!-- НОВОСТИ -->
+		<li class="nav-item">
 			<a class="nav-link" routerLink="/dashboard/news">
 				<i class="bi bi-newspaper"></i>
 				<span>Новости</span>
 			</a>
 		</li>
-
-		<li class="nav-item"
-			*ngIf="loggedUser.role.code == 'admin' || loggedUser.role.code == 'coach' || loggedUser.role.code == 'club' ">
+		<!-- СТАТИСТИКА -->
+		<li class="nav-item">
 			<a class="nav-link" routerLink="/dashboard/stats">
 				<i class="bi bi-percent"></i>
 				<span>Статистика</span>
 			</a>
 		</li>
-
+		<!-- АНАЛИТИКА -->
 		<li class="nav-item">
 			<a class="nav-link" routerLink="/dashboard/analytics">
 				<i class="bi bi-graph-up"></i>
 				<span>Аналитика</span>
 			</a>
 		</li>
-
+		<!-- ВХОДЯЩИЕ ЗАЯВКИ -->
 		<li class="nav-item">
 			<a class="nav-link" routerLink="/dashboard/email">
 				<i class="bi bi-inboxes-fill"></i>
 				<span>Входящие заявки</span>
 			</a>
 		</li>
-
-		<li class="nav-item" *ngIf="loggedUser.role.code == 'admin'">
+		<!-- СВОБОДНЫЕ АГЕНТЫ -->
+		<li class="nav-item">
+			<a class="nav-link" routerLink="/dashboard/free-agents">
+				<i class="bi bi-people-fill"></i>
+				<span>Свободные агенты</span>
+			</a>
+		</li>
+		<!-- КЛУБ -->
+		<li class="nav-item">
+			<a class="nav-link collapsed" data-bs-target="#club" data-bs-toggle="collapse">
+				<i class="bi bi-card-list"></i><span>Клуб</span><i class="bi bi-chevron-down ms-auto"></i>
+			</a>
+			<ul id="club" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+				<li>
+					<a routerLink="/club/squads">
+						<i class="bi bi-circle-fill"></i><span>Состав</span>
+					</a>
+				</li>
+				<li>
+					<a routerLink="/club/youth">
+						<i class="bi bi-circle-fill"></i><span>Молодежная академия</span>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<!-- СПРАВОЧНИК -->
+		<li class="nav-item">
 			<a class="nav-link collapsed" data-bs-target="#dictionary" data-bs-toggle="collapse">
 				<i class="bi bi-card-list"></i><span>Справочник</span><i class="bi bi-chevron-down ms-auto"></i>
 			</a>
@@ -66,37 +90,48 @@
 
 			</ul>
 		</li>
-
-		<!-- <li class="nav-heading">Дополнительно</li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#icons" data-bs-toggle="collapse">
-                <i class="bi bi-info-circle-fill"></i><span>Иконки</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="icons" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a routerLink="/dashboard-admin/icons/bootstrap">
-                        <i class="bi bi-circle-fill"></i><span>Bootstrap</span>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/dashboard-admin/icons/boxicons">
-                        <i class="bi bi-circle-fill"></i><span>Boxicons</span>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/dashboard-admin/icons/remix">
-                        <i class="bi bi-circle-fill"></i><span>Remix icons</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/dashboard-admin/contacts">
-                <i class="bi bi-envelope"></i>
-                <span>Контакты</span>
-            </a>
-        </li> -->
+		<!-- ДОПОЛНИТЕЛЬНО -->
+		<li class="nav-heading">Дополнительно</li>
+		<!-- ИКОНКИ -->
+		<li class="nav-item d-none">
+			<a class="nav-link collapsed" data-bs-target="#icons" data-bs-toggle="collapse">
+				<i class="bi bi-info-circle-fill"></i><span>Иконки</span><i class="bi bi-chevron-down ms-auto"></i>
+			</a>
+			<ul id="icons" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+				<li>
+					<a routerLink="/dashboard/icons/bootstrap">
+						<i class="bi bi-circle-fill"></i><span>Bootstrap</span>
+					</a>
+				</li>
+				<li>
+					<a routerLink="/dashboard/icons/boxicons">
+						<i class="bi bi-circle-fill"></i><span>Boxicons</span>
+					</a>
+				</li>
+				<li>
+					<a routerLink="/dashboard/icons/remix">
+						<i class="bi bi-circle-fill"></i><span>Remix icons</span>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<!-- FAQ -->
+		<li class="nav-item">
+			<a class="nav-link" routerLink="/dashboard/faq">
+				<i class="bi bi-envelope"></i>
+				<span>FAQ</span>
+			</a>
+		</li>
+		<!-- КОНТАКТЫ -->
+		<li class="nav-item">
+			<a class="nav-link" routerLink="/dashboard/contacts">
+				<i class="bi bi-envelope"></i>
+				<span>Контакты</span>
+			</a>
+		</li>
+		<!-- РОЛЬ -->
 		<li class="nav-heading">Роль</li>
+
 		<li class="nav-item">
 			<a class="nav-link">
 				<i class="bi bi-person-fill"></i>

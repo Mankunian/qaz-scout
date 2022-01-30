@@ -15,17 +15,6 @@ import { AppComponent } from './app.component';
 import { MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
 /* Components */
 
-// import { AngularFireModule } from 'angularfire2';
-
-export const firebasConfig = {
-	apiKey: "AIzaSyB1anNmhA4_f8WaYdfw4E_L0zSXHiv6AMc",
-	authDomain: "qaz-scout.firebaseapp.com",
-	projectId: "qaz-scout",
-	storageBucket: "qaz-scout.appspot.com",
-	messagingSenderId: "566928241965",
-	appId: "1:566928241965:web:e7c2d054cc3b64dbc60fa4",
-	measurementId: "G-RZ9N1RKMN6"
-}
 
 @NgModule({
 	declarations: [
