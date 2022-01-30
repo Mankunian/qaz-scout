@@ -18,13 +18,5 @@ export class TokenStorageService {
 		return JSON.parse(sessionStorage.getItem(USER_KEY) || '{}');
 	}
 
-	public getRoleOfCurrentUser(): any {
-		let loggedUser = this.getUser();
-		if (loggedUser.role.code == 'admin') {
-			return 'admin';
-		} else if (loggedUser.role.code == 'club') {
-			return 'club';
-		}
-		return '';
-	}
+
 }

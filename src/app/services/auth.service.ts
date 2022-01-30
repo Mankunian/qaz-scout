@@ -11,7 +11,7 @@ export class AuthService {
 	}
 
 	getProfileService() {
-		return this.http.get('assets/json/admin-profile.json');
+		return this.http.get('assets/json/admin/profile.json');
 	}
 
 	login(userModel: any): void {

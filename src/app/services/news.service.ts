@@ -1,22 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { RoleService } from './role.service';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class NewsService {
 
-	constructor(private http: HttpClient) { }
+	constructor(
+		private http: HttpClient,
+		private roleService: RoleService
 
-	getAllNews() {
-		return this.http.get('assets/json/news/all.json');
-	}
+	) { }
 
-	getNewsById() {
-		alert('Получить новость по id')
-	}
-
-	getNewsByClubId() {
-		alert('Получить новости по клубу')
+	getNews() {
+		if (this.roleService.getRoleOfCurrentUser() == 'admin') {
+			return this.http.get('assets/json/admin/news.json');
+		} else {
+			return this.http.get('assets/json/common/news.json');
+		}
 	}
 }

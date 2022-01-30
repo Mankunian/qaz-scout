@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NewsService } from 'src/app/services/news.service';
-import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { RoleService } from 'src/app/services/role.service';
 import { AddNewsComponent } from '../../dialogs/add-news/add-news.component';
 import { EditNewsComponent } from '../../dialogs/edit-news/edit-news.component';
 
@@ -15,18 +15,18 @@ export class NewsComponent implements OnInit {
 	isRole: any
 	constructor(
 		public dialog: MatDialog,
-		private tokenStorageService: TokenStorageService,
+		private roleService: RoleService,
 		private newsService: NewsService
 	) { }
 
 	ngOnInit(): void {
 		this.getNewsList();
-		this.isRole = this.tokenStorageService.getRoleOfCurrentUser();
+		this.isRole = this.roleService.getRoleOfCurrentUser();
 	}
 
 
 	getNewsList() {
-		this.newsService.getAllNews().subscribe(response => {
+		this.newsService.getNews().subscribe(response => {
 			console.log(response);
 			this.newsList = response;
 		})
