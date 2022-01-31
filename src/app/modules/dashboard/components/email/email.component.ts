@@ -44,7 +44,8 @@ export class EmailComponent implements OnInit {
 
 	accept(element: any) {
 		const dialogRef = this.dialog.open(AddUserComponent, {
-			data: element
+			data: element,
+			width: '500px'
 		});
 		dialogRef.afterClosed().subscribe(result => {
 			console.log(`Dialog result: ${result}`);

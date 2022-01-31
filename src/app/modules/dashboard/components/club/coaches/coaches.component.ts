@@ -11,9 +11,8 @@ export class CoachesComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.coaches = [
-			{ id: 1, name: 'Ricardo Kaka', img: '1.jpg', position: 'Главный тренер', social_links: [] },
-			{ id: 2, name: 'Jose Mournho', img: '2.jpg', position: 'Главный тренер', social_links: [] },
-			{ id: 3, name: 'Pep Guardiola', img: '3.jpg', position: 'Главный тренер', social_links: [] },
+			{ id: 1, name: 'Ricardo Kaka', img: '1.jpg', position: 'head', age: '47', social_links: [] },
+			{ id: 2, name: 'Jose Mournho', img: '2.jpg', position: 'assistant', age: '53', social_links: [] },
 		];
 	}
 

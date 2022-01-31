@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
 	selector: 'app-free-agents',
 	templateUrl: './free-agents.component.html',
-	styleUrls: ['./free-agents.component.scss']
+	styleUrls: ['./free-agents.component.scss'],
+	encapsulation: ViewEncapsulation.None
 })
 export class FreeAgentsComponent implements OnInit {
 
 	positions: any;
 	ageRange: any;
-	level: any;
+	leagues: any;
 	freeAgents: any;
+
+
 	constructor(
 		private router: Router,
 		private notificationService: NotificationService
@@ -32,11 +35,12 @@ export class FreeAgentsComponent implements OnInit {
 			{ id: 3, range: '27-40' },
 			{ id: 4, range: '40+' }
 		];
-		this.level = [
-			{ id: 1, name: 'Новичок' },
-			{ id: 2, name: 'Любитель' },
-			{ id: 3, name: 'Профессионал' },
+		this.leagues = [
+			{ id: 1, name: 'Лига 1' },
+			{ id: 2, name: 'Лига 2' },
+			{ id: 3, name: 'Лига 3' },
 		];
+
 		this.freeAgents = [
 			{ id: 1, name: 'Cristiano Ronaldo', img: '1.jpg', position: 'Нападающий', age: 36, club: 'Манчестер Юнайтед', birthCountry: 'Португалия', league: 'Premier league', status: 0 },
 			{ id: 2, name: 'Yerlan Uteulin', img: '8.jpg', position: 'Защитник', age: 30, club: 'Без клуба', birthCountry: 'Казахстан', league: '-', status: 0 },

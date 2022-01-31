@@ -13,12 +13,24 @@
 	<div class="row">
 		<div class="col-xl-3 col-lg-4 col-md-4 section profile" *ngFor="let item of coaches">
 			<div class="card">
-				<img src="assets/img/custom/coach/{{item.img}}" alt="Profile" class="">
-				<div class="card-body profile-card pt-2 d-flex flex-column align-items-center">
-					<h2>{{item.name}}</h2>
-					<h3>{{item.position}}</h3>
-					<div class="d-grid gap-2 w-100">
-						<button class="btn btn-sm btn-primary" type="button">Подробнее</button>
+				<div class="card-header">
+					<span class="badge bg-danger d-flex align-items-center" *ngIf="item.position == 'head' ">Главный тренер</span>
+					<span class="badge bg-danger d-flex align-items-center" *ngIf="item.position == 'assistant' ">Помощник
+						тренера</span>
+					<i class="bi bi-share"></i>
+				</div>
+				<div class="card-body">
+					<div class="text-center">
+						<img src="../../../../../assets/img/custom/coach/{{item.img}}" alt="">
+						<h3>{{item.name}} ({{item.age}})</h3>
+						<p class="club">{{item.club}}</p>
+					</div>
+				</div>
+
+
+				<div class="card-footer">
+					<div class="links mt-2 text-center">
+						<button mat-raised-button>Подробнее</button>
 					</div>
 				</div>
 			</div>

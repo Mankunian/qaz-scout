@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnalyticsComponent } from './components/analytics/analytics.component';
 import { AboutClubComponent } from './components/club/about-club/about-club.component';
+import { AdministrationStaffComponent } from './components/club/administration-staff/administration-staff.component';
+import { CoachesComponent } from './components/club/coaches/coaches.component';
 import { SquadsComponent } from './components/club/squads/squads.component';
 import { YouthAcademyComponent } from './components/club/youth-academy/youth-academy.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
@@ -41,6 +43,8 @@ const routes: Routes = [
 			{ path: 'club/about', component: AboutClubComponent },
 			{ path: 'club/squads', component: SquadsComponent },
 			{ path: 'club/youth', component: YouthAcademyComponent },
+			{ path: 'club/coaches', component: CoachesComponent },
+			{ path: 'club/administration-staff', component: AdministrationStaffComponent },
 			/* Клуб */
 
 

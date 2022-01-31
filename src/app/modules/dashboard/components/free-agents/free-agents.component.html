@@ -8,22 +8,58 @@
 	</nav>
 </div>
 
+<div class="filter card">
+	<div class="row d-flex align-items-center">
+		<div class="col-lg-2">
+			<mat-form-field appearance="outline">
+				<mat-label>Позиция</mat-label>
+				<mat-select>
+					<mat-option *ngFor="let item of positions" [value]="item">{{ item.name }}</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+		<div class="col-lg-2">
+			<mat-form-field appearance="outline">
+				<mat-label>Возраст</mat-label>
+				<mat-select>
+					<mat-option [value]="null">Выберите возраст</mat-option>
+					<mat-option *ngFor="let item of ageRange" [value]="item">{{ item.range }}</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+		<div class="col-lg-2">
+			<mat-form-field appearance="outline">
+				<mat-label>Лига</mat-label>
+				<mat-select>
+					<mat-option *ngFor="let item of leagues" [value]="item">{{ item.name }}</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+		<div class="col-lg-2">
+			<button mat-raised-button color="primary">Поиск по фильтру</button>
+		</div>
+		<div class="col-lg-2">
+			<button mat-raised-button color="warn">Сбросить фильтр</button>
+		</div>
+	</div>
+</div>
+
 <section class="section" id="free-agents">
 	<div class="row">
 		<div class="col-lg-3" *ngFor="let item of freeAgents">
 			<div class="card">
 				<div class="card-header">
-					<button style="width: inherit;" mat-raised-button color="warn">New</button>
+					<span class="badge bg-danger d-flex align-items-center">Недавние</span>
+					<!-- <button style="width: inherit;" mat-raised-button color="warn">New</button> -->
 					<i class="bi bi-share"></i>
 				</div>
-
 				<div class="card-body">
 					<div class="text-center">
 						<img src="../../../../../assets/img/custom/free-agents/{{item.img}}" alt="">
 						<h3>{{item.name}}</h3>
 						<p class="club">{{item.club}}</p>
 					</div>
-					<div class="row">
+					<div class="row d-none">
 						<div class="info">
 							<b>Уровень лиги</b>
 							<span>{{item.league}}</span>

@@ -26,6 +26,10 @@ import { AddCoachComponent } from './dialogs/add-coach/add-coach.component';
 import { AddPlayerComponent } from './dialogs/add-player/add-player.component';
 import { MaterialModule } from 'src/app/material-module';
 /* Dialog components */
+import { SquadsComponent } from './components/club/squads/squads.component';
+import { YouthAcademyComponent } from './components/club/youth-academy/youth-academy.component';
+import { CoachesComponent } from './components/club/coaches/coaches.component';
+import { AdministrationStaffComponent } from './components/club/administration-staff/administration-staff.component';
 
 @NgModule({
 	declarations: [
@@ -42,7 +46,11 @@ import { MaterialModule } from 'src/app/material-module';
 		EditNewsComponent,
 		AddCoachComponent,
 		FreeAgentsComponent,
-		AddPlayerComponent
+		AddPlayerComponent,
+		SquadsComponent,
+		YouthAcademyComponent,
+		CoachesComponent,
+		AdministrationStaffComponent,
 	],
 	imports: [
 		CommonModule,
