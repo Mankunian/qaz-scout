@@ -32,34 +32,61 @@ import { CoachesComponent } from './components/club/coaches/coaches.component';
 import { AdministrationStaffComponent } from './components/club/administration-staff/administration-staff.component';
 import { TrainingCenterComponent } from './components/training-center/training-center.component';
 
+import { ChartModule } from 'primeng/chart';
+import { AnalyticsComponent } from './components/analytics/analytics.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { UsersComponent } from './components/dictionary/users/users.component';
+import { RolesComponent } from './components/dictionary/roles/roles.component';
+import { RegionsComponent } from './components/dictionary/regions/regions.component';
+import { ClubsComponent } from './components/dictionary/clubs/clubs.component';
 @NgModule({
 	declarations: [
+		/* Main */
 		DashboardComponent,
 		AsideComponent,
 		HeaderComponent,
 		FooterComponent,
 		HomeComponent,
-		StatsComponent,
-		EmailComponent,
 		NewsComponent,
+		StatsComponent,
+		AnalyticsComponent,
+		EmailComponent,
+		TrainingCenterComponent,
+		FreeAgentsComponent,
+		FaqComponent,
+		ContactsComponent,
+		/* Main */
+
+		/* Club */
+		SquadsComponent,
+		CoachesComponent,
+		YouthAcademyComponent,
+		AdministrationStaffComponent,
+		/* Club */
+
+		/* Dictionary */
+		UsersComponent,
+		RolesComponent,
+		RegionsComponent,
+		ClubsComponent,
+		/* Dictionary */
+
+		/* Dialogs */
 		AddNewsComponent,
 		AddUserComponent,
 		EditNewsComponent,
 		AddCoachComponent,
-		FreeAgentsComponent,
 		AddPlayerComponent,
-		SquadsComponent,
-		YouthAcademyComponent,
-		CoachesComponent,
-		AdministrationStaffComponent,
-  TrainingCenterComponent,
+		/* Dialogs */
 	],
 	imports: [
 		CommonModule,
 		RouterModule,
 		DashboardRoutingModule,
 		FormsModule,
-		MaterialModule
+		MaterialModule,
+		ChartModule
 	],
 	exports: [CommonModule],
 	schemas: [

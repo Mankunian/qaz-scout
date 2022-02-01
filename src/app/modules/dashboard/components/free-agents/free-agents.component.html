@@ -8,7 +8,7 @@
 	</nav>
 </div>
 
-<div class="filter card">
+<div class="card search_filter p-2">
 	<div class="row d-flex align-items-center">
 		<div class="col-lg-2">
 			<mat-form-field appearance="outline">
@@ -44,42 +44,24 @@
 	</div>
 </div>
 
-<section class="section" id="free-agents">
+<section class="section free-agents" id="free-agents">
 	<div class="row">
 		<div class="col-lg-3" *ngFor="let item of freeAgents">
 			<div class="card">
+				<!-- Header -->
 				<div class="card-header">
 					<span class="badge bg-danger d-flex align-items-center">Недавние</span>
-					<!-- <button style="width: inherit;" mat-raised-button color="warn">New</button> -->
 					<i class="bi bi-share"></i>
 				</div>
+				<!-- Body -->
 				<div class="card-body">
 					<div class="text-center">
 						<img src="../../../../../assets/img/custom/free-agents/{{item.img}}" alt="">
 						<h3>{{item.name}}</h3>
 						<p class="club">{{item.club}}</p>
 					</div>
-					<div class="row d-none">
-						<div class="info">
-							<b>Уровень лиги</b>
-							<span>{{item.league}}</span>
-						</div>
-						<div class="info">
-							<b>Возраст</b>
-							<span>{{item.age}}</span>
-						</div>
-						<div class="info">
-							<b>Позиция</b>
-							<span>{{item.position}}</span>
-						</div>
-						<div class="info">
-							<b>Опубликовано</b>
-							<span>25.01.2022</span>
-						</div>
-					</div>
 				</div>
-
-
+				<!-- Footer -->
 				<div class="card-footer">
 					<div class="links mt-2 text-center">
 						<button *ngIf="item.status == 0" (click)="invite(item)" mat-raised-button>Пригласить на просмотр</button>
