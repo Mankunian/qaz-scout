@@ -1,0 +1,15 @@
+{
+	"data": [
+		{
+			"id": "1000",
+			"code": "f230fh0g3",
+			"firstName": "Азамат",
+			"lastName": "Оразов",
+			"email": "orazov@mail.io",
+			"phone": "8747 222 88 77",
+			"club": "Discovery coffee",
+			"region": "Нур-султан",
+			"league": "Лига 2"
+		}
+	]
+}

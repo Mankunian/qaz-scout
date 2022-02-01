@@ -16,7 +16,7 @@
 			</a>
 		</li>
 		<!-- СТАТИСТИКА -->
-		<li class="nav-item">
+		<li class="nav-item" *ngIf="this.userRole == 'admin'">
 			<a class="nav-link" routerLink="/dashboard/stats">
 				<i class="bi bi-percent"></i>
 				<span>Статистика</span>
@@ -37,7 +37,7 @@
 			</a>
 		</li>
 		<!-- ТРЕНИРОВКИ -->
-		<li class="nav-item">
+		<li class="nav-item" *ngIf="this.userRole == 'coach' || this.userRole == 'player' ">
 			<a class="nav-link" routerLink="/dashboard/training-center">
 				<i class="bi bi-cone-striped"></i>
 				<span>Тренировочный центр</span>
@@ -107,8 +107,10 @@
 
 			</ul>
 		</li>
+
 		<!-- ДОПОЛНИТЕЛЬНО -->
 		<li class="nav-heading">Дополнительно</li>
+
 		<!-- ИКОНКИ -->
 		<li class="nav-item d-none">
 			<a class="nav-link collapsed" data-bs-target="#icons" data-bs-toggle="collapse">
@@ -132,13 +134,15 @@
 				</li>
 			</ul>
 		</li>
+
 		<!-- FAQ -->
 		<li class="nav-item">
-			<a class="nav-link" routerLink="/faq">
+			<a class="nav-link" routerLink="/dashboard/faq">
 				<i class="bi bi-patch-question-fill"></i>
 				<span>FAQ</span>
 			</a>
 		</li>
+
 		<!-- КОНТАКТЫ -->
 		<li class="nav-item">
 			<a class="nav-link" routerLink="/dashboard/contacts">
@@ -146,6 +150,7 @@
 				<span>Контакты</span>
 			</a>
 		</li>
+
 		<!-- РОЛЬ -->
 		<li class="nav-heading">Роль</li>
 

@@ -32,7 +32,13 @@ import { CoachesComponent } from './components/club/coaches/coaches.component';
 import { AdministrationStaffComponent } from './components/club/administration-staff/administration-staff.component';
 import { TrainingCenterComponent } from './components/training-center/training-center.component';
 
+/* Primeng modules */
 import { ChartModule } from 'primeng/chart';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+
+/* Primeng modules */
+
 import { AnalyticsComponent } from './components/analytics/analytics.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
@@ -86,7 +92,9 @@ import { ClubsComponent } from './components/dictionary/clubs/clubs.component';
 		DashboardRoutingModule,
 		FormsModule,
 		MaterialModule,
-		ChartModule
+		ChartModule,
+		TableModule,
+		ButtonModule
 	],
 	exports: [CommonModule],
 	schemas: [

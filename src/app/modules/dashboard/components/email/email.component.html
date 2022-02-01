@@ -7,81 +7,60 @@
 		</ol>
 	</nav>
 </div>
-<section class="section animate__animated animate__fadeIn" id="email">
+<section class="section dashboard">
 	<div class="row">
-		<div class="col-xl-12">
-			<div class="card p-3 d-none">
-				<ol>
-					<li>Внизу в виде таблицы будут отображаться входящие заявки от представителей клубов. (Официально)</li>
-					<li>Можно просмотреть их данные на корректность и добавить, в противном случае отказать и указать причину
-						отказа</li>
-				</ol>
+		<!-- Recent Sales -->
+		<div class="col-12">
+			<div class="card recent-sales">
+
+				<div class="filter">
+					<a class="icon" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+					<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+						<li class="dropdown-header text-start">
+							<h6>Фильтр</h6>
+						</li>
+
+						<li><a class="dropdown-item">Все</a></li>
+						<li><a class="dropdown-item">Новые</a></li>
+					</ul>
+				</div>
+
+				<div class="card-body">
+					<h5 class="card-title">Входящие заявки</h5>
+
+					<table class="table table-borderless datatable">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">ФИО</th>
+								<th scope="col">Email</th>
+								<th scope="col">Телефон</th>
+								<th scope="col">Клуб</th>
+								<th scope="col">Регион</th>
+								<th scope="col">Лига</th>
+								<th scope="col">Действие</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let item of dataSource">
+								<th scope="row"><a>1</a></th>
+								<td>{{item.firstName}}</td>
+								<td>{{item.email}}</td>
+								<td>{{item.phone}}</td>
+								<td><a class="text-primary">{{item.club}}</a></td>
+								<td> {{item.region}} </td>
+								<td><span class="badge bg-success">{{item.league}}</span></td>
+
+								<td>
+									<button (click)="accept(item)" color="primary" mat-raised-button>Подробнее</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+
 			</div>
-		</div>
-		<div class="col-xl-12 ">
-			<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
-				<!-- Position Column -->
-				<ng-container matColumnDef="position">
-					<th mat-header-cell *matHeaderCellDef> # </th>
-					<td mat-cell *matCellDef="let element"> {{element.position}} </td>
-				</ng-container>
-
-				<!-- Club Column -->
-				<ng-container matColumnDef="club">
-					<th mat-header-cell *matHeaderCellDef> Клуб </th>
-					<td mat-cell *matCellDef="let element"> {{element.club}} </td>
-				</ng-container>
-
-				<!-- Region Column -->
-				<ng-container matColumnDef="region">
-					<th mat-header-cell *matHeaderCellDef> Регион </th>
-					<td mat-cell *matCellDef="let element"> {{element.region}} </td>
-				</ng-container>
-
-				<!-- League Column -->
-				<ng-container matColumnDef="league">
-					<th mat-header-cell *matHeaderCellDef> Лига </th>
-					<td mat-cell *matCellDef="let element"> {{element.league}} </td>
-				</ng-container>
-
-				<!-- First name Column -->
-				<ng-container matColumnDef="firstName">
-					<th mat-header-cell *matHeaderCellDef> Имя </th>
-					<td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
-				</ng-container>
-
-				<!-- Last name Column -->
-				<ng-container matColumnDef="lastName">
-					<th mat-header-cell *matHeaderCellDef> Фамилия</th>
-					<td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
-				</ng-container>
-
-				<!-- Email Column -->
-				<ng-container matColumnDef="email">
-					<th mat-header-cell *matHeaderCellDef> Email</th>
-					<td mat-cell *matCellDef="let element"> {{element.email}} </td>
-				</ng-container>
-
-				<!-- Phone Column -->
-				<ng-container matColumnDef="phone">
-					<th mat-header-cell *matHeaderCellDef> Номер телефона</th>
-					<td mat-cell *matCellDef="let element"> {{element.phone}} </td>
-				</ng-container>
-
-				<!-- Action Column -->
-				<ng-container matColumnDef="action">
-					<th mat-header-cell *matHeaderCellDef> Действие </th>
-					<td mat-cell *matCellDef="let element">
-						<button (click)="accept(element)" mat-button color="primary">Принять</button>
-						<button (click)="decline(element)" mat-button color="warn">Отказать</button>
-					</td>
-				</ng-container>
-
-				<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-				<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-			</table>
-
-
-		</div>
+		</div><!-- End Recent Sales -->
 	</div>
 </section>

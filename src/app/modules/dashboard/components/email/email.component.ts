@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {
@@ -5,6 +6,7 @@ import {
 	MatSnackBarHorizontalPosition,
 	MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import { IncomingAppsService } from 'src/app/services/incoming-apps.service';
 import { AddUserComponent } from '../../dialogs/add-user/add-user.component';
 
 export interface PeriodicElement {
@@ -35,11 +37,23 @@ export class EmailComponent implements OnInit {
 	verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 	displayedColumns: string[] = ['position', 'club', 'region', 'league', 'firstName', 'lastName', 'email', 'phone', 'action'];
 	dataSource = ELEMENT_DATA;
+	users: any;
 
-	constructor(private _snackBar: MatSnackBar, public dialog: MatDialog) { }
+	constructor(
+		private _snackBar: MatSnackBar,
+		public dialog: MatDialog,
+		private incomingAppService: IncomingAppsService
+	) { }
 
 
 	ngOnInit(): void {
+		this.getApps();
+	}
+
+	getApps() {
+		this.incomingAppService.getApps().then(data => {
+			this.users = data;
+		})
 	}
 
 	accept(element: any) {

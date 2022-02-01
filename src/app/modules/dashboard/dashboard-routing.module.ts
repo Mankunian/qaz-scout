@@ -27,7 +27,7 @@ import { DashboardComponent } from './dashboard.component';
 const routes: Routes = [
 	{
 		path: '', component: DashboardComponent, children: [
-			/* Общее */
+
 			{ path: 'home', component: HomeComponent },
 			{ path: 'news', component: NewsComponent },
 			{ path: 'stats', component: StatsComponent },
@@ -36,32 +36,20 @@ const routes: Routes = [
 			{ path: 'profile', component: ProfileComponent },
 			{ path: 'email', component: EmailComponent },
 			{ path: 'analytics', component: AnalyticsComponent },
-			/* Общее */
-
 			{ path: 'free-agents', component: FreeAgentsComponent },
 			{ path: 'training-center', component: TrainingCenterComponent },
-
-			/* Клуб */
 			{ path: 'club/about', component: AboutClubComponent },
 			{ path: 'club/squads', component: SquadsComponent },
 			{ path: 'club/youth', component: YouthAcademyComponent },
 			{ path: 'club/coaches', component: CoachesComponent },
 			{ path: 'club/administration-staff', component: AdministrationStaffComponent },
-			/* Клуб */
-
-
-			/* Админ */
 			{ path: 'dictionary/clubs', component: ClubsComponent },
 			{ path: 'dictionary/regions', component: RegionsComponent },
 			{ path: 'dictionary/roles', component: RolesComponent },
 			{ path: 'dictionary/users', component: UsersComponent },
-			/* Админ */
-
-			/* Дополнительно */
 			{ path: 'icons/bootstrap', component: IconsBootstrapComponent },
 			{ path: 'icons/boxicons', component: IconsBoxiconsComponent },
 			{ path: 'icons/remix', component: IconsRemixComponent },
-			/* Дополнительно */
 		]
 	},
 ];

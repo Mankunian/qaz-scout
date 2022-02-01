@@ -15,37 +15,94 @@
 		<!-- Left side columns -->
 		<div class="col-lg-12">
 			<div class="row">
-				<div class="col-xl-3 col-md-6" *ngFor="let item of statsList">
+				<div class="col-lg-3 col-md-6">
 					<div class="card info-card sales-card">
-
-						<div class="filter">
-							<a class="icon" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-							<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-
-								<li><a class="dropdown-item">Сегодня</a></li>
-								<li><a class="dropdown-item">Месяц</a></li>
-								<li><a class="dropdown-item">Год</a></li>
-							</ul>
-						</div>
-
 						<div class="card-body">
-							<h5 class="card-title">{{item.title}}</h5>
+							<h5 class="card-title">Пользователи</h5>
+							<div class="d-flex align-items-center">
+								<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+									<i class="bi bi-people-fill"></i>
+								</div>
+								<div class="ps-3">
+									<h6>145</h6>
+									<small routerLink="/dictionary/users">Подробнее <i class="bi bi-arrow-right"></i></small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- User Card stat-->
+
+
+
+				<!-- Regions Card stat -->
+				<div class="col-lg-3 col-md-6">
+					<div class="card info-card revenue-card">
+						<div class="card-body">
+							<h5 class="card-title">Регионы</h5>
 
 							<div class="d-flex align-items-center">
-								<!-- <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-									<i class="bi bi-people-fill"></i>
-								</div> -->
+								<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+									<i class="bi bi-flag-fill"></i>
+								</div>
 								<div class="ps-3">
-									<h6>{{item.count}}</h6>
-									<span class="text-success small pt-1 fw-bold">{{item.last_10_days}}</span> <span
-										class="text-muted small pt-2 ps-1">за
-										неделю</span>
+									<h6>18</h6>
+									<small routerLink="/dictionary/regions">Подробнее <i class="bi bi-arrow-right"></i></small>
 								</div>
 							</div>
 						</div>
 
 					</div>
 				</div>
+				<!-- Regions Card stat -->
+
+
+				<!-- Free agents Card stat-->
+				<div class="col-lg-3 col-md-6">
+
+					<div class="card info-card customers-card">
+
+
+						<div class="card-body">
+							<h5 class="card-title">Свободные агенты</h5>
+
+							<div class="d-flex align-items-center">
+								<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+									<i class="bi bi-shield-slash-fill"></i>
+								</div>
+								<div class="ps-3">
+									<h6>96</h6>
+									<small routerLink="/dictionary/users">Подробнее <i class="bi bi-arrow-right"></i></small>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+				<!-- Free agents Card stat-->
+
+				<!-- Club Card stat -->
+				<div class="col-lg-3 col-md-6">
+					<div class="card info-card customers-card">
+						<div class="card-body">
+							<h5 class="card-title">Клубы</h5>
+
+							<div class="d-flex align-items-center">
+								<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+									<i class="bi bi-shield-fill"></i>
+								</div>
+								<div class="ps-3">
+									<h6>1244</h6>
+									<small routerLink="/dictionary/clubs">Подробнее <i class="bi bi-arrow-right"></i></small>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+				<!-- Club Card stat -->
 			</div>
 		</div>
 	</div>

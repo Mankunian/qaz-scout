@@ -34,4 +34,13 @@ export class AddUserComponent implements OnInit {
 		this.onNoClick()
 	}
 
+	rejectApp(element: any) {
+		this._snackBar.open('Заявка отклонена', element.firstName + ' ' + element.lastName, {
+			horizontalPosition: this.horizontalPosition,
+			verticalPosition: this.verticalPosition,
+			duration: 3000
+		});
+		this.onNoClick();
+	}
+
 }
