@@ -23,7 +23,7 @@
 			</a>
 		</li>
 		<!-- АНАЛИТИКА -->
-		<li class="nav-item">
+		<li class="nav-item" *ngIf="this.userRole == 'admin' || this.userRole == 'club' ">
 			<a class="nav-link" routerLink="/dashboard/analytics">
 				<i class="bi bi-graph-up"></i>
 				<span>Аналитика</span>
@@ -44,14 +44,14 @@
 			</a>
 		</li>
 		<!-- СВОБОДНЫЕ АГЕНТЫ -->
-		<li class="nav-item">
+		<li class="nav-item" *ngIf="this.userRole == 'coach' || this.userRole == 'club' ">
 			<a class="nav-link" routerLink="/dashboard/free-agents">
 				<i class="bi bi-briefcase-fill"></i>
 				<span>Свободные агенты</span>
 			</a>
 		</li>
 		<!-- КЛУБ -->
-		<li class="nav-item">
+		<li class="nav-item" *ngIf="this.userRole == 'club' ">
 			<a class="nav-link collapsed" data-bs-target="#club" data-bs-toggle="collapse">
 				<i class="bi bi-shield-fill"></i><span>Клуб</span><i class="bi bi-chevron-down ms-auto"></i>
 			</a>
@@ -79,7 +79,7 @@
 			</ul>
 		</li>
 		<!-- СПРАВОЧНИК -->
-		<li class="nav-item">
+		<li class="nav-item" *ngIf="this.userRole == 'admin' ">
 			<a class="nav-link collapsed" data-bs-target="#dictionary" data-bs-toggle="collapse">
 				<i class="bi bi-card-list"></i><span>Справочник</span><i class="bi bi-chevron-down ms-auto"></i>
 			</a>
@@ -144,7 +144,7 @@
 		</li>
 
 		<!-- КОНТАКТЫ -->
-		<li class="nav-item">
+		<li class="nav-item" *ngIf="this.userRole == 'admin' || this.userRole == 'club' ">
 			<a class="nav-link" routerLink="/dashboard/contacts">
 				<i class="bi bi-envelope"></i>
 				<span>Контакты</span>

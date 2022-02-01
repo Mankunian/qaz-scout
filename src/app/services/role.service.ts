@@ -14,6 +14,10 @@ export class RoleService {
 			return 'admin';
 		} else if (loggedUser.role.code == 'club') {
 			return 'club';
+		} else if (loggedUser.role.code == 'player') {
+			return 'player';
+		} else if (loggedUser.role.code == 'coach') {
+			return 'coach';
 		}
 		return '';
 	}
