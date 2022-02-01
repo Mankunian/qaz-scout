@@ -53,7 +53,7 @@
 		<!-- КЛУБ -->
 		<li class="nav-item">
 			<a class="nav-link collapsed" data-bs-target="#club" data-bs-toggle="collapse">
-				<i class="bi bi-card-list"></i><span>Клуб</span><i class="bi bi-chevron-down ms-auto"></i>
+				<i class="bi bi-shield-fill"></i><span>Клуб</span><i class="bi bi-chevron-down ms-auto"></i>
 			</a>
 			<ul id="club" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 				<li>
@@ -134,8 +134,8 @@
 		</li>
 		<!-- FAQ -->
 		<li class="nav-item">
-			<a class="nav-link" routerLink="/dashboard/faq">
-				<i class="bi bi-envelope"></i>
+			<a class="nav-link" routerLink="/faq">
+				<i class="bi bi-patch-question-fill"></i>
 				<span>FAQ</span>
 			</a>
 		</li>
@@ -150,7 +150,7 @@
 		<li class="nav-heading">Роль</li>
 
 		<li class="nav-item">
-			<a class="nav-link">
+			<a class="nav-link" routerLink="/profile">
 				<i class="bi bi-person-fill"></i>
 				<span> {{loggedUser.role.name}}</span>
 			</a>

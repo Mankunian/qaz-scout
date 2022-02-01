@@ -30,6 +30,7 @@ import { SquadsComponent } from './components/club/squads/squads.component';
 import { YouthAcademyComponent } from './components/club/youth-academy/youth-academy.component';
 import { CoachesComponent } from './components/club/coaches/coaches.component';
 import { AdministrationStaffComponent } from './components/club/administration-staff/administration-staff.component';
+import { TrainingCenterComponent } from './components/training-center/training-center.component';
 
 @NgModule({
 	declarations: [
@@ -51,6 +52,7 @@ import { AdministrationStaffComponent } from './components/club/administration-s
 		YouthAcademyComponent,
 		CoachesComponent,
 		AdministrationStaffComponent,
+  TrainingCenterComponent,
 	],
 	imports: [
 		CommonModule,

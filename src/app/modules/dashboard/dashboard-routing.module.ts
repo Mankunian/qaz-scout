@@ -21,6 +21,7 @@ import { IconsRemixComponent } from './components/icons/icons-remix/icons-remix.
 import { NewsComponent } from './components/news/news.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { StatsComponent } from './components/stats/stats.component';
+import { TrainingCenterComponent } from './components/training-center/training-center.component';
 import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
 			/* Общее */
 
 			{ path: 'free-agents', component: FreeAgentsComponent },
+			{ path: 'training-center', component: TrainingCenterComponent },
 
 			/* Клуб */
 			{ path: 'club/about', component: AboutClubComponent },
