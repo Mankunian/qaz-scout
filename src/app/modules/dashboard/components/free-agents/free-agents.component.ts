@@ -59,4 +59,10 @@ export class FreeAgentsComponent implements OnInit {
 	}
 
 
+	reject(element: any) {
+		element.status = 0;
+		this.notificationService.showSnackBar('Приглашение отозвано')
+	}
+
+
 }

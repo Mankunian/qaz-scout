@@ -65,7 +65,7 @@
 				<div class="card-footer">
 					<div class="links mt-2 text-center">
 						<button *ngIf="item.status == 0" (click)="invite(item)" mat-raised-button>Пригласить на просмотр</button>
-						<button *ngIf="item.status == 1 " mat-raised-button color="warn">Отозвать</button>
+						<button *ngIf="item.status == 1" (click)="reject(item)" mat-raised-button color="warn">Отозвать</button>
 					</div>
 				</div>
 			</div>

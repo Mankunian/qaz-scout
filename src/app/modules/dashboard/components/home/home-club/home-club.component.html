@@ -1,0 +1,164 @@
+<!-- Todo list -->
+<div class="card">
+	<div class="card-body p-2">
+		<div class="accordion accordion-flush" id="faq-group-1">
+
+			<div class="accordion-item">
+				<h2 class="accordion-header">
+					<button class="accordion-button collapsed" data-bs-target="#faqsOne-1" type="button"
+						data-bs-toggle="collapse">
+						Todo list
+					</button>
+				</h2>
+				<div id="faqsOne-1" class="accordion-collapse collapse" data-bs-parent="#faq-group-1">
+					<div class="accordion-body">
+						<div class="form-check" *ngFor="let item of clubTodos">
+							<input class="form-check-input" type="checkbox" id="flexCheckDefault" [checked]="item.checked">
+							<label class="form-check-label" for="flexCheckDefault">
+								{{item.desc}}
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- Todo list -->
+
+<!-- app-dashboard-club -->
+<section class="section dashboard">
+	<div class="row">
+
+		<div class="col-lg-3 col-md-6">
+			<div class="card info-card sales-card">
+				<div class="card-body">
+					<h5 class="card-title">Игроки</h5>
+					<div class="d-flex align-items-center">
+						<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+							<i class="bi bi-people-fill"></i>
+						</div>
+						<div class="ps-3">
+							<h6>145</h6>
+							<small routerLink="/dictionary/users">Подробнее <i class="bi bi-arrow-right"></i></small>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="col-lg-3 col-md-6">
+			<div class="card info-card revenue-card">
+				<div class="card-body">
+					<h5 class="card-title">Тренеры</h5>
+
+					<div class="d-flex align-items-center">
+						<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+							<i class="bi bi-flag-fill"></i>
+						</div>
+						<div class="ps-3">
+							<h6>18</h6>
+							<small routerLink="/dictionary/regions">Подробнее <i class="bi bi-arrow-right"></i></small>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="col-lg-3 col-md-6">
+			<div class="card info-card customers-card">
+				<div class="card-body">
+					<h5 class="card-title">Свободные агенты</h5>
+
+					<div class="d-flex align-items-center">
+						<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+							<i class="bi bi-shield-slash-fill"></i>
+						</div>
+						<div class="ps-3">
+							<h6>96</h6>
+							<small routerLink="/dictionary/users">Подробнее <i class="bi bi-arrow-right"></i></small>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-lg-3 col-md-6">
+			<div class="card info-card customers-card">
+				<div class="card-body">
+					<h5 class="card-title">Администрация</h5>
+
+					<div class="d-flex align-items-center">
+						<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+							<i class="bi bi-shield-fill"></i>
+						</div>
+						<div class="ps-3">
+							<h6>1244</h6>
+							<small routerLink="/dictionary/clubs">Подробнее <i class="bi bi-arrow-right"></i></small>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="card recent-sales">
+				<div class="filter">
+					<a class="icon" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+					<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+						<li class="dropdown-header text-start">
+							<h6>Фильтр</h6>
+						</li>
+
+						<li><a class="dropdown-item">Сегодня</a></li>
+						<li><a class="dropdown-item">Месяц</a></li>
+						<li><a class="dropdown-item">Год</a></li>
+					</ul>
+				</div>
+
+				<div class="card-body">
+					<h5 class="card-title">Состав</h5>
+					<p-chart width="300" height="300" type="polarArea" [data]="polarAreaData" [options]="polarAreaOptions">
+					</p-chart>
+				</div>
+
+			</div>
+		</div>
+		<!-- End Recent Sales -->
+
+		<div class="col-lg-6">
+			<div class="card recent-sales">
+				<div class="filter">
+					<a class="icon" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+					<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+						<li class="dropdown-header text-start">
+							<h6>Фильтр</h6>
+						</li>
+
+						<li><a class="dropdown-item">Сегодня</a></li>
+						<li><a class="dropdown-item">Месяц</a></li>
+						<li><a class="dropdown-item">Год</a></li>
+					</ul>
+				</div>
+
+				<div class="card-body">
+					<h5 class="card-title">Форма клуба </h5>
+					<p-chart width="300" height="300" type="polarArea" type="line" [data]="lineStylesData"
+						[options]="lineStylesOptions"></p-chart>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+<!-- app-dashboard-club -->

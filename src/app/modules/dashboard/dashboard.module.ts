@@ -46,6 +46,7 @@ import { UsersComponent } from './components/dictionary/users/users.component';
 import { RolesComponent } from './components/dictionary/roles/roles.component';
 import { RegionsComponent } from './components/dictionary/regions/regions.component';
 import { ClubsComponent } from './components/dictionary/clubs/clubs.component';
+import { HomeClubComponent } from './components/home/home-club/home-club.component';
 @NgModule({
 	declarations: [
 		/* Main */
@@ -84,6 +85,7 @@ import { ClubsComponent } from './components/dictionary/clubs/clubs.component';
 		EditNewsComponent,
 		AddCoachComponent,
 		AddPlayerComponent,
+  HomeClubComponent,
 		/* Dialogs */
 	],
 	imports: [
