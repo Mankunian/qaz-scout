@@ -4,7 +4,9 @@ import { AnalyticsComponent } from './components/analytics/analytics.component';
 import { AboutClubComponent } from './components/club/about-club/about-club.component';
 import { AdministrationStaffComponent } from './components/club/administration-staff/administration-staff.component';
 import { CoachesComponent } from './components/club/coaches/coaches.component';
+import { FixturesComponent } from './components/club/fixtures/fixtures.component';
 import { SquadsComponent } from './components/club/squads/squads.component';
+import { TableComponent } from './components/club/table/table.component';
 import { YouthAcademyComponent } from './components/club/youth-academy/youth-academy.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { ClubsComponent } from './components/dictionary/clubs/clubs.component';
@@ -15,9 +17,6 @@ import { EmailComponent } from './components/email/email.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { FreeAgentsComponent } from './components/free-agents/free-agents.component';
 import { HomeComponent } from './components/home/home.component';
-import { IconsBootstrapComponent } from './components/icons/icons-bootstrap/icons-bootstrap.component';
-import { IconsBoxiconsComponent } from './components/icons/icons-boxicons/icons-boxicons.component';
-import { IconsRemixComponent } from './components/icons/icons-remix/icons-remix.component';
 import { NewsComponent } from './components/news/news.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { StatsComponent } from './components/stats/stats.component';
@@ -38,18 +37,19 @@ const routes: Routes = [
 			{ path: 'analytics', component: AnalyticsComponent },
 			{ path: 'free-agents', component: FreeAgentsComponent },
 			{ path: 'training-center', component: TrainingCenterComponent },
-			{ path: 'club/about', component: AboutClubComponent },
+
+			{ path: 'club/:id/about', component: AboutClubComponent },
 			{ path: 'club/squads', component: SquadsComponent },
 			{ path: 'club/youth', component: YouthAcademyComponent },
 			{ path: 'club/coaches', component: CoachesComponent },
 			{ path: 'club/administration-staff', component: AdministrationStaffComponent },
+			{ path: 'club/table', component: TableComponent },
+			{ path: 'club/fixtures', component: FixturesComponent },
+
 			{ path: 'dictionary/clubs', component: ClubsComponent },
 			{ path: 'dictionary/regions', component: RegionsComponent },
 			{ path: 'dictionary/roles', component: RolesComponent },
 			{ path: 'dictionary/users', component: UsersComponent },
-			{ path: 'icons/bootstrap', component: IconsBootstrapComponent },
-			{ path: 'icons/boxicons', component: IconsBoxiconsComponent },
-			{ path: 'icons/remix', component: IconsRemixComponent },
 		]
 	},
 ];

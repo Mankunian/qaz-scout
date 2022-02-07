@@ -47,6 +47,10 @@ import { RolesComponent } from './components/dictionary/roles/roles.component';
 import { RegionsComponent } from './components/dictionary/regions/regions.component';
 import { ClubsComponent } from './components/dictionary/clubs/clubs.component';
 import { HomeClubComponent } from './components/home/home-club/home-club.component';
+import { GetInboxComponent } from './dialogs/get-inbox/get-inbox.component';
+import { TableComponent } from './components/club/table/table.component';
+import { FixturesComponent } from './components/club/fixtures/fixtures.component';
+import { HomeCoachComponent } from './components/home/home-coach/home-coach.component';
 @NgModule({
 	declarations: [
 		/* Main */
@@ -86,6 +90,10 @@ import { HomeClubComponent } from './components/home/home-club/home-club.compone
 		AddCoachComponent,
 		AddPlayerComponent,
   HomeClubComponent,
+  GetInboxComponent,
+  TableComponent,
+  FixturesComponent,
+  HomeCoachComponent,
 		/* Dialogs */
 	],
 	imports: [

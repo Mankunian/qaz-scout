@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>Заявка № {{data.id}}</h2>
+<mat-dialog-content class="mat-typography">
+	<form class="example-form">
+
+		<div class="row">
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Регион</mat-label>
+					<input [disabled]="true" [(ngModel)]="data.region" [ngModelOptions]="{standalone: true}" matInput
+						placeholder="Введите имя">
+				</mat-form-field>
+			</div>
+			<div class="col-xl-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Лига</mat-label>
+					<input [disabled]="true" [(ngModel)]="data.league" [ngModelOptions]="{standalone: true}" matInput
+						placeholder="Введите фамилию">
+				</mat-form-field>
+			</div>
+			<div class="col-xl-12">
+				<mat-form-field appearance="outline">
+					<mat-label>Клуб</mat-label>
+					<input [disabled]="true" [(ngModel)]="data.club.name" [ngModelOptions]="{standalone: true}" matInput
+						placeholder="Введите фамилию">
+				</mat-form-field>
+			</div>
+			<div class="col-xl-12">
+				<mat-form-field appearance="outline">
+					<mat-label>Сообщение</mat-label>
+					<textarea rows="5" [disabled]="true" [(ngModel)]="data.message" [ngModelOptions]="{standalone: true}"
+						matInput></textarea>
+				</mat-form-field>
+			</div>
+		</div>
+	</form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+	<button mat-raised-button color="primary" (click)="accept(data)">Принять</button>
+	<button mat-raised-button mat-dialog-close>Отмена</button>
+</mat-dialog-actions>

@@ -50,7 +50,7 @@
 				<span>Свободные агенты</span>
 			</a>
 		</li>
-		<!-- КЛУБ -->
+		<!-- КЛУБ ДЛЯ АДМИНА КЛУБА -->
 		<li class="nav-item" *ngIf="this.userRole == 'club' ">
 			<a class="nav-link collapsed" data-bs-target="#club" data-bs-toggle="collapse">
 				<i class="bi bi-shield-fill"></i><span>Клуб</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -78,6 +78,29 @@
 				</li>
 			</ul>
 		</li>
+
+		<!-- КЛУБ ДЛЯ ИГРОКА -->
+		<li class="nav-item" *ngIf="this.userRole == 'player' ">
+			<a class="nav-link collapsed" data-bs-target="#club" data-bs-toggle="collapse">
+				<i class="bi bi-shield-fill"></i><span>Клуб</span><i class="bi bi-chevron-down ms-auto"></i>
+			</a>
+			<ul id="club" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+				<li>
+					<a routerLink="/club/table">
+						<i class="bi bi-circle-fill"></i><span>Таблица</span>
+					</a>
+				</li>
+				<li>
+					<a routerLink="/club/fixtures">
+						<i class="bi bi-circle-fill"></i><span>Расписание</span>
+					</a>
+				</li>
+			</ul>
+		</li>
+
+
+
+
 		<!-- СПРАВОЧНИК -->
 		<li class="nav-item" *ngIf="this.userRole == 'admin' ">
 			<a class="nav-link collapsed" data-bs-target="#dictionary" data-bs-toggle="collapse">

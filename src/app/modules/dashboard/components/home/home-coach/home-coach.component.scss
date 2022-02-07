@@ -1,0 +1,53 @@
+table {
+  width: 100%;
+
+  th {
+    width: 100px;
+  }
+}
+
+.header-info {
+  p {
+    color: #012970;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  small:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.subheader-info {
+  color: #6c757d;
+  font-weight: 600;
+}
+
+.fixture-info {
+  .circle {
+    height: 40px;
+    width: 40px;
+    font-size: larger;
+    border-radius: 50%;
+    color: #4154f1;
+    background: #f6f6fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+}
+
+.card-title {
+  font-size: 15px !important;
+}
+
+.mat-elevation-z8 {
+  box-shadow: none !important;
+}
+
+.game-stats {
+  .progress {
+    height: 0.7em !important;
+  }
+}

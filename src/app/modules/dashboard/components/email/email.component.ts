@@ -7,25 +7,11 @@ import {
 	MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 import { IncomingAppsService } from 'src/app/services/incoming-apps.service';
+import { RoleService } from 'src/app/services/role.service';
 import { AddUserComponent } from '../../dialogs/add-user/add-user.component';
+import { GetInboxComponent } from '../../dialogs/get-inbox/get-inbox.component';
 
-export interface PeriodicElement {
-	position: number;
-	club: any;
-	region: any;
-	league: any;
-	firstName: string;
-	lastName: string;
-	action: string;
-	email: string;
-	phone: string;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-	{ position: 1, club: 'Discovery coffee', region: 'Нур-султан', league: 'Лига 2', firstName: 'Азамат', lastName: 'Оразов', action: '', email: 'orazov@mail.io', phone: '8701 766 22 11' },
-	{ position: 2, club: 'Shaurma food', region: 'Нур-султан', league: 'Лига 1', firstName: 'Еркин', lastName: 'Мусин', action: '', email: 'musin@mail.io', phone: '8702 271 62 71' },
-	{ position: 3, club: 'Coffee boom', region: 'Нур-султан', league: 'Лига 4', firstName: 'Даулет', lastName: 'Жаксылык', action: '', email: 'zhax@mail.io', phone: '8701 766 22 11' },
-];
 
 @Component({
 	selector: 'app-email',
@@ -36,13 +22,14 @@ export class EmailComponent implements OnInit {
 	horizontalPosition: MatSnackBarHorizontalPosition = 'center';
 	verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 	displayedColumns: string[] = ['position', 'club', 'region', 'league', 'firstName', 'lastName', 'email', 'phone', 'action'];
-	dataSource = ELEMENT_DATA;
+	dataSource: any;
 	users: any;
-
+	displayAsCard: boolean = false;
 	constructor(
 		private _snackBar: MatSnackBar,
 		public dialog: MatDialog,
-		private incomingAppService: IncomingAppsService
+		private incomingAppService: IncomingAppsService,
+		private roleService: RoleService
 	) { }
 
 
@@ -52,18 +39,31 @@ export class EmailComponent implements OnInit {
 
 	getApps() {
 		this.incomingAppService.getApps().then(data => {
-			this.users = data;
+			this.dataSource = data;
 		})
 	}
 
-	accept(element: any) {
-		const dialogRef = this.dialog.open(AddUserComponent, {
-			data: element,
-			width: '500px'
-		});
-		dialogRef.afterClosed().subscribe(result => {
-			console.log(`Dialog result: ${result}`);
-		});
+	accept(element: any): any {
+		if (this.roleService.getRoleOfCurrentUser() == 'admin') {
+			const dialogRef = this.dialog.open(AddUserComponent, {
+				data: element,
+				width: '500px'
+			});
+			dialogRef.afterClosed().subscribe(result => {
+				console.log(`Dialog result: ${result}`);
+			});
+		} else if (this.roleService.getRoleOfCurrentUser() == 'player') {
+			const dialogRef = this.dialog.open(GetInboxComponent, {
+				data: element,
+				width: '500px'
+			});
+			dialogRef.afterClosed().subscribe(result => {
+				console.log(`Dialog result: ${result}`);
+			});
+		} else {
+			return ''
+		}
+
 
 	}
 
@@ -75,5 +75,6 @@ export class EmailComponent implements OnInit {
 			duration: 3000
 		});
 	}
+
 
 }

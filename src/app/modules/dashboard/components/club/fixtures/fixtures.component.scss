@@ -1,0 +1,19 @@
+.subheader-info {
+  color: #6c757d;
+  font-weight: 600;
+}
+
+.fixture-info {
+  .circle {
+    height: 40px;
+    width: 40px;
+    font-size: larger;
+    border-radius: 50%;
+    color: #4154f1;
+    background: #f6f6fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+}

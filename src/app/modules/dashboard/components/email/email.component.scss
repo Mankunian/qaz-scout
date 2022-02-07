@@ -1,7 +1,9 @@
-// table {
-//   width: 100%;
-// }
-
-// :host ::ng-deep .p-button {
-//   margin-right: 0.5rem;
-// }
+.card {
+  .card-body {
+    img {
+      width: 70px;
+      height: 100px;
+      object-fit: contain;
+    }
+  }
+}

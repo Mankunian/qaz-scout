@@ -1,18 +1,23 @@
 <div class="pagetitle">
-	<h1>Входящие заявки</h1>
-	<nav>
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a>Главная</a></li>
-			<li class="breadcrumb-item active">Входящие заявки</li>
-		</ol>
-	</nav>
-</div>
-<section class="section dashboard">
 	<div class="row">
-		<!-- Recent Sales -->
-		<div class="col-12">
+		<div class="col">
+			<h1>Входящие заявки</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a>Главная</a></li>
+					<li class="breadcrumb-item active">Входящие заявки</li>
+				</ol>
+			</nav>
+		</div>
+		<div class="col text-end">
+			<i (click)="displayAsCard = !displayAsCard" style="font-size: 20px;" class="bi bi-grid"></i>
+		</div>
+	</div>
+</div>
+<section class="section profile dashboard">
+	<div class="row">
+		<div class="col-lg-12" *ngIf="!displayAsCard">
 			<div class="card recent-sales">
-
 				<div class="filter">
 					<a class="icon" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
 					<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -24,35 +29,35 @@
 						<li><a class="dropdown-item">Новые</a></li>
 					</ul>
 				</div>
-
 				<div class="card-body">
 					<h5 class="card-title">Входящие заявки</h5>
 
-					<table class="table table-borderless datatable">
+					<table class="table table-borderless datatable m-0">
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">ФИО</th>
-								<th scope="col">Email</th>
-								<th scope="col">Телефон</th>
-								<th scope="col">Клуб</th>
+								<!-- <th scope="col">ФИО</th> -->
+								<!-- <th scope="col">Email</th> -->
+								<!-- <th scope="col">Телефон</th> -->
 								<th scope="col">Регион</th>
 								<th scope="col">Лига</th>
+								<th scope="col">Клуб</th>
 								<th scope="col">Действие</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr *ngFor="let item of dataSource">
 								<th scope="row"><a>1</a></th>
-								<td>{{item.firstName}}</td>
-								<td>{{item.email}}</td>
-								<td>{{item.phone}}</td>
-								<td><a class="text-primary">{{item.club}}</a></td>
+								<!-- <td>{{item.firstName}}</td> -->
+								<!-- <td>{{item.email}}</td> -->
+								<!-- <td>{{item.phone}}</td> -->
 								<td> {{item.region}} </td>
 								<td><span class="badge bg-success">{{item.league}}</span></td>
+								<td><a routerLink="/club/{{item.club.id}}/about" class="text-primary">{{item.club.name}}</a></td>
 
 								<td>
-									<button (click)="accept(item)" color="primary" mat-raised-button>Подробнее</button>
+									<button (click)="accept(item)" type="button" class="btn btn-primary btn-sm">Подробнее</button>
+									<!-- <button (click)="accept(item)" color="primary" mat-raised-button>Подробнее</button> -->
 								</td>
 							</tr>
 						</tbody>
@@ -61,6 +66,57 @@
 				</div>
 
 			</div>
-		</div><!-- End Recent Sales -->
+		</div>
+
+
+
+		<div class="col-lg-3" *ngIf="displayAsCard">
+			<div class="card">
+				<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+					<img src="assets/img/custom/clubs/kairat.png" alt="Profile" class="rounded-circle">
+					<h2>АФК Кайрат</h2>
+					<h3>Алматы, Высшая лига</h3>
+					<div class="social-links mt-2">
+						<a class="twitter"><i class="bi bi-twitter"></i></a>
+						<a class="facebook"><i class="bi bi-facebook"></i></a>
+						<a class="instagram"><i class="bi bi-instagram"></i></a>
+						<a class="linkedin"><i class="bi bi-linkedin"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3" *ngIf="displayAsCard">
+			<div class="card">
+				<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+					<img src="assets/img/custom/clubs/brentford.png" alt="Profile" class="rounded-circle">
+					<h2>ФК Брентфорд</h2>
+					<h3>Лондон, АПЛ</h3>
+					<div class="social-links mt-2">
+						<a class="twitter"><i class="bi bi-twitter"></i></a>
+						<a class="facebook"><i class="bi bi-facebook"></i></a>
+						<a class="instagram"><i class="bi bi-instagram"></i></a>
+						<a class="linkedin"><i class="bi bi-linkedin"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3" *ngIf="displayAsCard">
+			<div class="card">
+				<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+					<img src="assets/img/custom/clubs/lfc.png" alt="Profile" class="rounded-circle">
+					<h2>ФК Ливерпуль</h2>
+					<h3>Ливерпуль, АПЛ</h3>
+					<div class="social-links mt-2">
+						<a class="twitter"><i class="bi bi-twitter"></i></a>
+						<a class="facebook"><i class="bi bi-facebook"></i></a>
+						<a class="instagram"><i class="bi bi-instagram"></i></a>
+						<a class="linkedin"><i class="bi bi-linkedin"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
