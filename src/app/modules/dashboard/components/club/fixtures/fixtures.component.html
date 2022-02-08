@@ -11,17 +11,17 @@
 
 <section class="section" id="fixtures">
 	<div class="row">
-		<div class="col-lg-4">
+		<div class="col-lg-4" *ngFor="let item of fixtures">
 			<div class="card next-game p-3 h-100">
 				<div class="subheader-info text-center">
-					<span>Кубок АФЛ | 21.00, 11 February, 2022</span>
+					<span>{{item.type}} | {{item.date}}</span>
 				</div>
 
 				<div class="fixture-info mt-4">
 					<div class="row d-flex justify-content-between text-center align-items-center">
 						<div class="col">
 							<span class="team-1">
-								<img width="70px" src="assets/img/custom/clubs/kairat2.png" alt="" class="rounded-circle">
+								<img width="70px" [src]="item.home.logo" alt="" class="rounded-circle">
 							</span>
 						</div>
 						<div class="col d-flex justify-content-center">
@@ -30,59 +30,9 @@
 							</div>
 						</div>
 						<div class="col">
-							<img width="70px" src="assets/img/custom/clubs/astana.png" alt="" class="rounded-circle">
-							<!-- <span class="team-2">Sassuolo</span> -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-4">
-			<div class="card next-game p-3 h-100">
-				<div class="subheader-info text-center">
-					<span>Кубок АФЛ | 21.00, 11 February, 2022</span>
-				</div>
-
-				<div class="fixture-info mt-4">
-					<div class="row d-flex justify-content-between text-center align-items-center">
-						<div class="col">
 							<span class="team-1">
-								<img width="70px" src="assets/img/custom/clubs/kairat2.png" alt="" class="rounded-circle">
+								<img width="70px" [src]="item.away.logo" alt="" class="rounded-circle">
 							</span>
-						</div>
-						<div class="col d-flex justify-content-center">
-							<div class="circle">
-								vs
-							</div>
-						</div>
-						<div class="col">
-							<img width="70px" src="assets/img/custom/clubs/astana.png" alt="" class="rounded-circle">
-							<!-- <span class="team-2">Sassuolo</span> -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-4">
-			<div class="card next-game p-3 h-100">
-				<div class="subheader-info text-center">
-					<span>Кубок АФЛ | 21.00, 11 February, 2022</span>
-				</div>
-
-				<div class="fixture-info mt-4">
-					<div class="row d-flex justify-content-between text-center align-items-center">
-						<div class="col">
-							<span class="team-1">
-								<img width="70px" src="assets/img/custom/clubs/kairat2.png" alt="" class="rounded-circle">
-							</span>
-						</div>
-						<div class="col d-flex justify-content-center">
-							<div class="circle">
-								vs
-							</div>
-						</div>
-						<div class="col">
-							<img width="70px" src="assets/img/custom/clubs/astana.png" alt="" class="rounded-circle">
 							<!-- <span class="team-2">Sassuolo</span> -->
 						</div>
 					</div>

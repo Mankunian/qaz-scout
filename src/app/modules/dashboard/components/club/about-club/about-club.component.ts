@@ -23,7 +23,11 @@ export class AboutClubComponent implements OnInit {
 	getClubInfoById(clubId: string | null) {
 		this.clubService.getClubInfo(clubId).subscribe(response => {
 			console.log(response);
-			this.clubInfo = response;
+			response.forEach((element: any) => {
+				if (element.id == clubId) {
+					this.clubInfo = element;
+				}
+			});
 		})
 	}
 

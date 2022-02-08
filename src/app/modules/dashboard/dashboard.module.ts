@@ -51,6 +51,7 @@ import { GetInboxComponent } from './dialogs/get-inbox/get-inbox.component';
 import { TableComponent } from './components/club/table/table.component';
 import { FixturesComponent } from './components/club/fixtures/fixtures.component';
 import { HomeCoachComponent } from './components/home/home-coach/home-coach.component';
+import { CoachDetailsComponent } from './components/coach-details/coach-details.component';
 @NgModule({
 	declarations: [
 		/* Main */
@@ -94,6 +95,7 @@ import { HomeCoachComponent } from './components/home/home-coach/home-coach.comp
   TableComponent,
   FixturesComponent,
   HomeCoachComponent,
+  CoachDetailsComponent,
 		/* Dialogs */
 	],
 	imports: [

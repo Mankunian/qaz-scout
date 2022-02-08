@@ -8,6 +8,7 @@ import { FixturesComponent } from './components/club/fixtures/fixtures.component
 import { SquadsComponent } from './components/club/squads/squads.component';
 import { TableComponent } from './components/club/table/table.component';
 import { YouthAcademyComponent } from './components/club/youth-academy/youth-academy.component';
+import { CoachDetailsComponent } from './components/coach-details/coach-details.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { ClubsComponent } from './components/dictionary/clubs/clubs.component';
 import { RegionsComponent } from './components/dictionary/regions/regions.component';
@@ -45,6 +46,8 @@ const routes: Routes = [
 			{ path: 'club/administration-staff', component: AdministrationStaffComponent },
 			{ path: 'club/table', component: TableComponent },
 			{ path: 'club/fixtures', component: FixturesComponent },
+
+			{ path: 'coach/:id', component: CoachDetailsComponent },
 
 			{ path: 'dictionary/clubs', component: ClubsComponent },
 			{ path: 'dictionary/regions', component: RegionsComponent },

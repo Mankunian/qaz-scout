@@ -10,7 +10,12 @@
 			</nav>
 		</div>
 		<div class="col text-end">
-			<i (click)="displayAsCard = !displayAsCard" style="font-size: 20px;" class="bi bi-grid"></i>
+			<div class="header_action">
+				<i *ngIf="displayAsCard == false" (click)="displayAsCard = true" style="font-size: 20px;"
+					class="bi bi-grid"></i>
+				<i *ngIf="displayAsCard == true" (click)="displayAsCard = false" style="font-size: 20px;"
+					class="bi bi-grid-fill"></i>
+			</div>
 		</div>
 	</div>
 </div>
@@ -36,84 +41,51 @@
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<!-- <th scope="col">ФИО</th> -->
-								<!-- <th scope="col">Email</th> -->
-								<!-- <th scope="col">Телефон</th> -->
 								<th scope="col">Регион</th>
 								<th scope="col">Лига</th>
 								<th scope="col">Клуб</th>
+								<th scope="col">Статус</th>
 								<th scope="col">Действие</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr *ngFor="let item of dataSource">
-								<th scope="row"><a>1</a></th>
-								<!-- <td>{{item.firstName}}</td> -->
-								<!-- <td>{{item.email}}</td> -->
-								<!-- <td>{{item.phone}}</td> -->
+							<tr *ngFor="let item of dataSource; let i = index">
+								<th scope="row"><a>{{i + 1}}</a></th>
 								<td> {{item.region}} </td>
-								<td><span class="badge bg-success">{{item.league}}</span></td>
+								<td>{{item.league}}</td>
 								<td><a routerLink="/club/{{item.club.id}}/about" class="text-primary">{{item.club.name}}</a></td>
-
+								<td>
+									<span *ngIf="item.status == 'accepted' " class="badge bg-success">Принята</span>
+									<span *ngIf="item.status == 'rejected' " class="badge bg-danger">Отклонена</span>
+									<span *ngIf="item.status == 'new' " class="badge bg-primary">Новая</span>
+								</td>
 								<td>
 									<button (click)="accept(item)" type="button" class="btn btn-primary btn-sm">Подробнее</button>
-									<!-- <button (click)="accept(item)" color="primary" mat-raised-button>Подробнее</button> -->
 								</td>
 							</tr>
 						</tbody>
 					</table>
-
-				</div>
-
-			</div>
-		</div>
-
-
-
-		<div class="col-lg-3" *ngIf="displayAsCard">
-			<div class="card">
-				<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-
-					<img src="assets/img/custom/clubs/kairat.png" alt="Profile" class="rounded-circle">
-					<h2>АФК Кайрат</h2>
-					<h3>Алматы, Высшая лига</h3>
-					<div class="social-links mt-2">
-						<a class="twitter"><i class="bi bi-twitter"></i></a>
-						<a class="facebook"><i class="bi bi-facebook"></i></a>
-						<a class="instagram"><i class="bi bi-instagram"></i></a>
-						<a class="linkedin"><i class="bi bi-linkedin"></i></a>
-					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-3" *ngIf="displayAsCard">
-			<div class="card">
-				<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-					<img src="assets/img/custom/clubs/brentford.png" alt="Profile" class="rounded-circle">
-					<h2>ФК Брентфорд</h2>
-					<h3>Лондон, АПЛ</h3>
-					<div class="social-links mt-2">
-						<a class="twitter"><i class="bi bi-twitter"></i></a>
-						<a class="facebook"><i class="bi bi-facebook"></i></a>
-						<a class="instagram"><i class="bi bi-instagram"></i></a>
-						<a class="linkedin"><i class="bi bi-linkedin"></i></a>
-					</div>
+
+
+		<div class="col-lg-3" *ngFor="let item of dataSource">
+			<div class="card" *ngIf="displayAsCard">
+
+				<div class="filter">
+					<a class="icon" data-bs-toggle="dropdown">
+						<span *ngIf="item.status == 'new' " class="badge bg-primary">Новая</span>
+					</a>
 				</div>
-			</div>
-		</div>
-		<div class="col-lg-3" *ngIf="displayAsCard">
-			<div class="card">
-				<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-					<img src="assets/img/custom/clubs/lfc.png" alt="Profile" class="rounded-circle">
-					<h2>ФК Ливерпуль</h2>
-					<h3>Ливерпуль, АПЛ</h3>
+				<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+					<img [src]="item.logo" alt="Profile" class="rounded-circle">
+					<h2>{{item.name}}</h2>
+					<h3>{{item.region}}, {{item.league}}</h3>
 					<div class="social-links mt-2">
-						<a class="twitter"><i class="bi bi-twitter"></i></a>
-						<a class="facebook"><i class="bi bi-facebook"></i></a>
-						<a class="instagram"><i class="bi bi-instagram"></i></a>
-						<a class="linkedin"><i class="bi bi-linkedin"></i></a>
+						<button (click)="accept(item)" type="button" class="btn btn-primary btn-sm">Подробнее</button>
 					</div>
 				</div>
 			</div>

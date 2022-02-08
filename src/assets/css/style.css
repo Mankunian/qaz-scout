@@ -574,7 +574,8 @@ h6 {
 @media (min-width: 1200px) {
   #main,
   #footer {
-    margin-left: 300px;
+    /* TODO */
+    /* margin-left: 300px; */
     /* background-color: rgba(0, 0, 0, 0.32); */
     opacity: 1;
   }

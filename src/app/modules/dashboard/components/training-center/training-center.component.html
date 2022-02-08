@@ -7,3 +7,130 @@
 		</ol>
 	</nav>
 </div>
+
+<section class="section" id="training">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card p-2">
+				<div class="card-body p-2">
+					<ul class="nav nav-tabs nav-tabs-bordered">
+
+						<li class="nav-item">
+							<button class="nav-link active" data-bs-toggle="tab" data-bs-target="#coach_list">Список тренеров</button>
+						</li>
+						<li class="nav-item">
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#popular">Популярные</button>
+						</li>
+						<li class="nav-item">
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#favorites">Избранные</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="tab-content pt-2">
+
+			<div class="tab-pane fade show active" id="coach_list">
+				<div class="section coach_list">
+					<div class="row">
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6" *ngFor="let item of coachList">
+							<div class="card" routerLink="/coach/{{item.id}}">
+								<div class="icon">
+									<i class="bi bi-share-fill"></i>
+								</div>
+								<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+									<img [src]="item.img" alt="Profile" class="rounded-circle">
+									<div class="body_content">
+										<!-- Full name -->
+										<div>
+											<span class="title">Полное имя</span>
+											<span>{{item.fullName}}</span>
+										</div>
+										<!-- Birthday -->
+										<div>
+											<span class="title">Дата рождения</span>
+											<span>{{item.birthday}}</span>
+										</div>
+										<!-- Experience -->
+										<div>
+											<span class="title">Опыт работы</span>
+											<span>{{item.experience}}</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade show" id="popular">
+				<div class="section popular">
+					<div class="row">
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6" *ngFor="let item of popularCoach">
+							<div class="card" routerLink="/coach/{{item.id}}">
+								<div class="icon">
+									<i class="bi bi-share-fill"></i>
+								</div>
+								<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+									<img [src]="item.img" alt="Profile" class="rounded-circle">
+									<div class="body_content">
+										<!-- Full name -->
+										<div>
+											<span class="title">Полное имя</span>
+											<span>{{item.fullName}}</span>
+										</div>
+										<!-- Birthday -->
+										<div>
+											<span class="title">Дата рождения</span>
+											<span>{{item.birthday}}</span>
+										</div>
+										<!-- Experience -->
+										<div>
+											<span class="title">Опыт работы</span>
+											<span>{{item.experience}}</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade show" id="favorites">
+				<div class="section favorites">
+					<div class="row">
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6" *ngFor="let item of favoritesCoach">
+							<div class="card" routerLink="/coach/{{item.id}}">
+								<div class="icon">
+									<i class="bi bi-share-fill"></i>
+								</div>
+								<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+									<img [src]="item.img" alt="Profile" class="rounded-circle">
+									<div class="body_content">
+										<!-- Full name -->
+										<div>
+											<span class="title">Полное имя</span>
+											<span>{{item.fullName}}</span>
+										</div>
+										<!-- Birthday -->
+										<div>
+											<span class="title">Дата рождения</span>
+											<span>{{item.birthday}}</span>
+										</div>
+										<!-- Experience -->
+										<div>
+											<span class="title">Опыт работы</span>
+											<span>{{item.experience}}</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
