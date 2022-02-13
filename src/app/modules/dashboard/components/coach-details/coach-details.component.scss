@@ -1,0 +1,33 @@
+.card {
+  position: relative;
+  .icon {
+    border-bottom: none !important;
+    i {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #4154f1;
+    }
+  }
+  .card-body {
+    font-family: "Nunito", sans-serif;
+    img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin-bottom: 0.5em;
+    }
+    .body_content {
+      width: 100%;
+      div {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5em;
+        .title {
+          font-weight: 600;
+          color: #012970;
+        }
+      }
+    }
+  }
+}

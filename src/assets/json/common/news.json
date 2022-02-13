@@ -1,7 +1,7 @@
 [
 	{
 		"id": 1,
-		"imgUrl": "afl.jpg",
+		"imgUrl": "2.jpg",
 		"title": "Астана футбол лигасы",
 		"desc": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
 		"createdDate": "01.02.2022"
@@ -15,7 +15,7 @@
 	},
 	{
 		"id": 3,
-		"imgUrl": "afl.jpg",
+		"imgUrl": "4.jpeg",
 		"title": "Платформа QazScout",
 		"desc": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
 		"createdDate": "05.02.2022"

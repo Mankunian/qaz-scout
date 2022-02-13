@@ -60,7 +60,7 @@
 									<span *ngIf="item.status == 'new' " class="badge bg-primary">Новая</span>
 								</td>
 								<td>
-									<button (click)="accept(item)" type="button" class="btn btn-primary btn-sm">Подробнее</button>
+									<button (click)="accept(item)" type="button" class="btn btn-sm btn-primary">Подробнее</button>
 								</td>
 							</tr>
 						</tbody>
@@ -82,7 +82,6 @@
 
 				<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 					<img [src]="item.logo" alt="Profile" class="rounded-circle">
-					<h2>{{item.name}}</h2>
 					<h3>{{item.region}}, {{item.league}}</h3>
 					<div class="social-links mt-2">
 						<button (click)="accept(item)" type="button" class="btn btn-primary btn-sm">Подробнее</button>

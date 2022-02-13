@@ -10,6 +10,6 @@ export class CoachService {
 	constructor(private http: HttpClient) { }
 
 	getCoachInfo(coachId: any): Observable<any> {
-		return this.http.get('assets/json/coach/coach-profile.json');
+		return this.http.get('assets/json/coach/profile.json');
 	}
 }

@@ -1,0 +1,29 @@
+{
+	"id": 1,
+	"img": "https://futsalua.org//public/images/upload/mir-i-evro/17-18/kazahstan/kairat/duglas/9-duglas.JPG",
+	"about": "Дуглас да Силва Нергейрос — казахстанский игрок в мини-футбол бразильского происхождения, защитник алматинского «Кайрата» и сборной Казахстана",
+	"fullName": "Дуглас Жуниор",
+	"birthday": "15 октября 1988 г.",
+	"club": {
+		"id": 2,
+		"name": "АФК Кайрат"
+	},
+	"role": {
+		"id": 1,
+		"name": "Игрок в мини-футбол"
+	},
+	"country": {
+		"id": 24,
+		"name": "Казахстан"
+	},
+	"region": {
+		"id": 1,
+		"name": "Алматы"
+	},
+	"address": "Улы дала 6/3 кв 45",
+	"phone": "8 771 555 44 77",
+	"email": "douglas.junior@gmail.com",
+	"instagram": "",
+	"youtube": "",
+	"site": ""
+}

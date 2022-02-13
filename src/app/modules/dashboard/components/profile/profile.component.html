@@ -10,14 +10,14 @@
 
 <section class="section profile">
 	<div class="row">
-		<div class="col-xl-4">
+		<div class="col-lg-3">
 
 			<div class="card">
 				<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-					<img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-					<h2>Kevin Anderson</h2>
-					<h3>Web Designer</h3>
+					<img [src]="profile?.img" alt="Profile" class="rounded-circle profile">
+					<h2>{{profile?.fullName}}</h2>
+					<h3>{{profile?.role.name}}</h3>
 					<div class="social-links mt-2">
 						<a class="twitter"><i class="bi bi-twitter"></i></a>
 						<a class="facebook"><i class="bi bi-facebook"></i></a>
@@ -29,11 +29,11 @@
 
 		</div>
 
-		<div class="col-xl-8">
+		<div class="col-lg-9">
 
 			<div class="card">
 				<div class="card-body pt-3">
-					<!-- Bordered Tabs -->
+
 					<ul class="nav nav-tabs nav-tabs-bordered">
 
 						<li class="nav-item">
@@ -44,71 +44,79 @@
 							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Редактировать</button>
 						</li>
 
-						<li class="nav-item">
-							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Доступы</button>
+						<li class="nav-item d-none">
+							<button [disabled]="true" class="nav-link" data-bs-toggle="tab"
+								data-bs-target="#profile-settings">Доступы</button>
 						</li>
 
-						<li class="nav-item">
+						<li class="nav-item d-none">
 							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Изменить
 								пароль</button>
 						</li>
+						<li class="nav-item">
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#photo">Фотогалерея</button>
+						</li>
+						<li class="nav-item">
+							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#video">Видеогалерея</button>
+						</li>
 
 					</ul>
+
 					<div class="tab-content pt-2">
-
+						<!-- Общая информация -->
 						<div class="tab-pane fade show active profile-overview" id="profile-overview">
-							<h5 class="card-title">About</h5>
-							<p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus.
-								Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet
-								perspiciatis odit. Fuga sequi sed ea saepe at unde.</p>
+							<h5 class="card-title">Об игроке</h5>
+							<p class="small fst-italic">{{profile?.about}}</p>
 
-							<h5 class="card-title">Profile Details</h5>
+							<h5 class="card-title">Детали профиля</h5>
 
 							<div class="row">
-								<div class="col-lg-3 col-md-4 label ">Full Name</div>
-								<div class="col-lg-9 col-md-8">Kevin Anderson</div>
+								<div class="col-lg-3 col-md-4 label ">Полное имя</div>
+								<div class="col-lg-9 col-md-8">{{profile?.fullName}}</div>
 							</div>
 
 							<div class="row">
-								<div class="col-lg-3 col-md-4 label">Company</div>
-								<div class="col-lg-9 col-md-8">Lueilwitz, Wisoky and Leuschke</div>
+								<div class="col-lg-3 col-md-4 label">Клуб</div>
+								<div class="col-lg-9 col-md-8">{{profile?.club.name}}</div>
 							</div>
 
 							<div class="row">
-								<div class="col-lg-3 col-md-4 label">Job</div>
-								<div class="col-lg-9 col-md-8">Web Designer</div>
+								<div class="col-lg-3 col-md-4 label">Роль</div>
+								<div class="col-lg-9 col-md-8">{{profile?.role.name}}</div>
 							</div>
 
 							<div class="row">
-								<div class="col-lg-3 col-md-4 label">Country</div>
-								<div class="col-lg-9 col-md-8">USA</div>
+								<div class="col-lg-3 col-md-4 label">Гражданство</div>
+								<div class="col-lg-9 col-md-8">{{profile?.country.name}}</div>
 							</div>
 
 							<div class="row">
-								<div class="col-lg-3 col-md-4 label">Address</div>
-								<div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
+								<div class="col-lg-3 col-md-4 label">Адрес</div>
+								<div class="col-lg-9 col-md-8">{{profile?.address}}</div>
 							</div>
 
 							<div class="row">
-								<div class="col-lg-3 col-md-4 label">Phone</div>
-								<div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+								<div class="col-lg-3 col-md-4 label">Телефон</div>
+								<div class="col-lg-9 col-md-8">{{profile?.phone}}</div>
 							</div>
 
 							<div class="row">
 								<div class="col-lg-3 col-md-4 label">Email</div>
-								<div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+								<div class="col-lg-9 col-md-8">{{profile?.email}}</div>
 							</div>
 
 						</div>
+						<!-- Общая информация -->
 
+						<!-- Редактировать профиль -->
 						<div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
 							<!-- Profile Edit Form -->
 							<form>
 								<div class="row mb-3">
-									<label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+									<label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Фото профиля</label>
 									<div class="col-md-8 col-lg-9">
-										<img src="assets/img/profile-img.jpg" alt="Profile">
+										<img [src]="profile?.img" alt="Profile">
 										<div class="pt-2">
 											<a class="btn btn-primary btn-sm" title="Upload new profile image"><i
 													class="bi bi-upload"></i></a>
@@ -118,73 +126,71 @@
 								</div>
 
 								<div class="row mb-3">
-									<label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
+									<label for="fullName" class="col-md-4 col-lg-3 col-form-label">Полное имя</label>
 									<div class="col-md-8 col-lg-9">
-										<input name="fullName" type="text" class="form-control" id="fullName" value="Kevin Anderson">
+										<input name="fullName" type="text" class="form-control" id="fullName" [value]="profile?.fullName">
 									</div>
 								</div>
 
 								<div class="row mb-3">
-									<label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
+									<label for="about" class="col-md-4 col-lg-3 col-form-label">Об игроке</label>
 									<div class="col-md-8 col-lg-9">
 										<textarea name="about" class="form-control" id="about"
-											style="height: 100px">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+											style="height: 100px">{{profile?.about}}</textarea>
 									</div>
 								</div>
 
 								<div class="row mb-3">
-									<label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
+									<label for="company" class="col-md-4 col-lg-3 col-form-label">Клуб</label>
 									<div class="col-md-8 col-lg-9">
-										<input name="company" type="text" class="form-control" id="company"
-											value="Lueilwitz, Wisoky and Leuschke">
+										<input name="company" type="text" class="form-control" id="company" [value]="profile?.club.name">
 									</div>
 								</div>
 
 								<div class="row mb-3">
-									<label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
+									<label for="Job" class="col-md-4 col-lg-3 col-form-label">Роль</label>
 									<div class="col-md-8 col-lg-9">
-										<input name="job" type="text" class="form-control" id="Job" value="Web Designer">
+										<input name="job" type="text" class="form-control" id="Job" [value]="profile?.role.name">
 									</div>
 								</div>
 
 								<div class="row mb-3">
-									<label for="Country" class="col-md-4 col-lg-3 col-form-label">Country</label>
+									<label for="Country" class="col-md-4 col-lg-3 col-form-label">Гражданство</label>
 									<div class="col-md-8 col-lg-9">
-										<input name="country" type="text" class="form-control" id="Country" value="USA">
+										<input name="country" type="text" class="form-control" id="Country" [value]="profile?.country.name">
 									</div>
 								</div>
 
 								<div class="row mb-3">
-									<label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
+									<label for="Address" class="col-md-4 col-lg-3 col-form-label">Адрес</label>
 									<div class="col-md-8 col-lg-9">
-										<input name="address" type="text" class="form-control" id="Address"
-											value="A108 Adam Street, New York, NY 535022">
+										<input name="address" type="text" class="form-control" id="Address" [value]="profile?.address">
 									</div>
 								</div>
 
 								<div class="row mb-3">
-									<label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+									<label for="Phone" class="col-md-4 col-lg-3 col-form-label">Телефон</label>
 									<div class="col-md-8 col-lg-9">
-										<input name="phone" type="text" class="form-control" id="Phone" value="(436) 486-3538 x29071">
+										<input name="phone" type="text" class="form-control" id="Phone" [value]="profile?.phone">
 									</div>
 								</div>
 
 								<div class="row mb-3">
 									<label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
 									<div class="col-md-8 col-lg-9">
-										<input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com">
+										<input name="email" type="email" class="form-control" id="Email" [value]="profile?.email">
 									</div>
 								</div>
 
 								<div class="row mb-3">
-									<label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter Profile</label>
+									<label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter</label>
 									<div class="col-md-8 col-lg-9">
 										<input name="twitter" type="text" class="form-control" id="Twitter" value="https://twitter.com/#">
 									</div>
 								</div>
 
 								<div class="row mb-3">
-									<label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook Profile</label>
+									<label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook</label>
 									<div class="col-md-8 col-lg-9">
 										<input name="facebook" type="text" class="form-control" id="Facebook"
 											value="https://facebook.com/#">
@@ -192,7 +198,7 @@
 								</div>
 
 								<div class="row mb-3">
-									<label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram Profile</label>
+									<label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram</label>
 									<div class="col-md-8 col-lg-9">
 										<input name="instagram" type="text" class="form-control" id="Instagram"
 											value="https://instagram.com/#">
@@ -200,7 +206,7 @@
 								</div>
 
 								<div class="row mb-3">
-									<label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin Profile</label>
+									<label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin</label>
 									<div class="col-md-8 col-lg-9">
 										<input name="linkedin" type="text" class="form-control" id="Linkedin"
 											value="https://linkedin.com/#">
@@ -208,12 +214,14 @@
 								</div>
 
 								<div class="text-center">
-									<button type="submit" class="btn btn-primary">Save Changes</button>
+									<button type="submit" class="btn btn-primary">Сохранить изменения</button>
 								</div>
 							</form><!-- End Profile Edit Form -->
 
 						</div>
+						<!-- Редактировать профиль -->
 
+						<!-- Настройки аккаунта -->
 						<div class="tab-pane fade pt-3" id="profile-settings">
 
 							<!-- Settings Form -->
@@ -255,41 +263,92 @@
 							</form><!-- End settings Form -->
 
 						</div>
+						<!-- Настройки аккаунта -->
 
+						<!-- Смена пароля -->
 						<div class="tab-pane fade pt-3" id="profile-change-password">
 							<!-- Change Password Form -->
 							<form>
-
 								<div class="row mb-3">
-									<label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+									<label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Текущий пароль</label>
 									<div class="col-md-8 col-lg-9">
 										<input name="password" type="password" class="form-control" id="currentPassword">
 									</div>
 								</div>
 
 								<div class="row mb-3">
-									<label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+									<label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Новый пароль</label>
 									<div class="col-md-8 col-lg-9">
 										<input name="newpassword" type="password" class="form-control" id="newPassword">
 									</div>
 								</div>
 
 								<div class="row mb-3">
-									<label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+									<label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Повторно введите пароль</label>
 									<div class="col-md-8 col-lg-9">
 										<input name="renewpassword" type="password" class="form-control" id="renewPassword">
 									</div>
 								</div>
 
 								<div class="text-center">
-									<button type="submit" class="btn btn-primary">Change Password</button>
+									<button type="submit" class="btn btn-primary">Сохранить</button>
 								</div>
-							</form><!-- End Change Password Form -->
-
+							</form>
 						</div>
+						<!-- Смена пароля -->
 
-					</div><!-- End Bordered Tabs -->
+						<!-- Фотогалерея -->
+						<div class="tab-pane fade pt-3" id="photo">
+							<div class="row">
+								<div class="col-lg-4 col-md-6">
+									<div class="card">
+										<p-image src="assets/img/custom/douglas/1.jpg" alt="Image" [preview]="true">
+										</p-image>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="card">
+										<p-image src="assets/img/custom/douglas/2.jpg" alt="Image" [preview]="true">
+										</p-image>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="card">
+										<p-image src="assets/img/custom/douglas/3.jpg" alt="Image" [preview]="true">
+										</p-image>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Фотогалерея -->
 
+
+						<!-- Видеогалерея -->
+						<div class="tab-pane fade pt-3" id="video">
+							<div class="row">
+								<div class="col-lg-6 col-md-6">
+									<div class="card">
+										<iframe height="250" src="https://www.youtube.com/embed/WMlohXbMo4A" title="YouTube video player"
+											frameborder="0"
+											allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+											allowfullscreen></iframe>
+
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<div class="card">
+										<iframe height="250" src="https://www.youtube.com/embed/me9ft12RmpA" title="YouTube video player"
+											frameborder="0"
+											allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+											allowfullscreen></iframe>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Видеогалерея -->
+
+					</div>
 				</div>
 			</div>
 

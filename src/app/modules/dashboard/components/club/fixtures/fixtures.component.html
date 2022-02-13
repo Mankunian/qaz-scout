@@ -11,7 +11,7 @@
 
 <section class="section" id="fixtures">
 	<div class="row">
-		<div class="col-lg-4" *ngFor="let item of fixtures">
+		<div class="col-lg-4 col-md-6 mb-2" *ngFor="let item of fixtures">
 			<div class="card next-game p-3 h-100">
 				<div class="subheader-info text-center">
 					<span>{{item.type}} | {{item.date}}</span>
@@ -33,7 +33,6 @@
 							<span class="team-1">
 								<img width="70px" [src]="item.away.logo" alt="" class="rounded-circle">
 							</span>
-							<!-- <span class="team-2">Sassuolo</span> -->
 						</div>
 					</div>
 				</div>

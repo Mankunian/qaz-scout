@@ -52,6 +52,8 @@ import { TableComponent } from './components/club/table/table.component';
 import { FixturesComponent } from './components/club/fixtures/fixtures.component';
 import { HomeCoachComponent } from './components/home/home-coach/home-coach.component';
 import { CoachDetailsComponent } from './components/coach-details/coach-details.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { PrimengModule } from 'src/app/primeng-module';
 @NgModule({
 	declarations: [
 		/* Main */
@@ -90,12 +92,13 @@ import { CoachDetailsComponent } from './components/coach-details/coach-details.
 		EditNewsComponent,
 		AddCoachComponent,
 		AddPlayerComponent,
-  HomeClubComponent,
-  GetInboxComponent,
-  TableComponent,
-  FixturesComponent,
-  HomeCoachComponent,
-  CoachDetailsComponent,
+		HomeClubComponent,
+		GetInboxComponent,
+		TableComponent,
+		FixturesComponent,
+		HomeCoachComponent,
+		CoachDetailsComponent,
+		ProfileComponent
 		/* Dialogs */
 	],
 	imports: [
@@ -106,7 +109,8 @@ import { CoachDetailsComponent } from './components/coach-details/coach-details.
 		MaterialModule,
 		ChartModule,
 		TableModule,
-		ButtonModule
+		ButtonModule,
+		PrimengModule
 	],
 	exports: [CommonModule],
 	schemas: [

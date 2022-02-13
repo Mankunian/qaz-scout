@@ -1,0 +1,20 @@
+.card {
+  .card-body {
+    img.profile {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+    }
+  }
+}
+
+.p-image-preview-container > img {
+  width: 400px !important;
+  height: 250px !important;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.p-image-preview {
+  max-width: 80vw !important;
+}

@@ -15,26 +15,34 @@
 	</div>
 </div>
 
-
-<section class="section dashboard" id="news">
+<section class="section" id="news">
 	<div class="row">
-		<!-- <div class="col-xl-3 col-lg-6 col-sm-6 d-none" *ngFor="let news of newsList">
-			<div class="card mb-3">
-				<img src="assets/img/custom/news/{{news.imgUrl}}" class="card-img-top" alt="...">
+		<div class="col-lg-3 col-md-6" *ngFor="let item of newsList">
+			<div class="card shadow-sm">
+				<img src="assets/img/custom/news/{{item.imgUrl}}" alt="" class="mb-2">
+
 				<div class="card-body">
-					<h5 class="card-title">{{news.title}}</h5>
-					<p class="card-text">{{news.desc}}</p>
-					<div class="footer-news">
-						<p class="card-text"><small class="text-muted">{{news.createdDate}}</small></p>
-						<i *ngIf="isRole == 'admin' || isRole == 'club' " (click)="openEditNewsDialog(news)"
-							class="bi bi-pencil-fill"></i>
+					<div class="d-flex justify-content-between align-items-center mt-2 mb-2 news_item__category">
+						<span>Новости клуба</span>
+						<div class="news-item__date">
+							{{item.createdDate}}
+						</div>
+					</div>
+					<p class="news_title mb-2 fs-5">{{item.title}}</p>
+					<p class="news_description">{{item.desc}}</p>
+					<div class="action">
+						<button class="btn btn-md btn-primary w-100">Подробнее</button>
 					</div>
 				</div>
 			</div>
-		</div> -->
-		<div class="col-lg-7">
+		</div>
+	</div>
+</section>
 
-			<!-- Card with an image overlay -->
+
+<section class="section dashboard d-none" id="news">
+	<div class="row">
+		<div class="col-lg-7">
 			<div class="card">
 				<img width="100%" src="assets/img/custom/news/12.jpeg" alt="" class="card-img-top h-100" alt="main_news"
 					style="object-fit: cover;">
@@ -77,7 +85,6 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="row">
 		<div class="col-lg-3">
 			<div class="card category p-2">

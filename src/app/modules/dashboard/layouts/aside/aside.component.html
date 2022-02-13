@@ -158,11 +158,25 @@
 			</ul>
 		</li>
 
+		<li class="nav-item">
+			<a class="nav-link" routerLink="/profile">
+				<i class="bi bi-person-fill"></i>
+				<span>Мой профиль</span>
+			</a>
+		</li>
+
 		<!-- FAQ -->
 		<li class="nav-item">
 			<a class="nav-link" routerLink="/dashboard/faq">
 				<i class="bi bi-patch-question-fill"></i>
 				<span>FAQ</span>
+			</a>
+		</li>
+		<!-- LOGOUT -->
+		<li class="nav-item">
+			<a class="nav-link" (click)="logOut()">
+				<i class="bi bi-box-arrow-right"></i>
+				<span>Выйти из системы</span>
 			</a>
 		</li>
 
@@ -171,16 +185,6 @@
 			<a class="nav-link" routerLink="/dashboard/contacts">
 				<i class="bi bi-envelope"></i>
 				<span>Контакты</span>
-			</a>
-		</li>
-
-		<!-- РОЛЬ -->
-		<li class="nav-heading">Роль</li>
-
-		<li class="nav-item">
-			<a class="nav-link" routerLink="/profile">
-				<i class="bi bi-person-fill"></i>
-				<span> {{loggedUser.role.name}}</span>
 			</a>
 		</li>
 	</ul>
