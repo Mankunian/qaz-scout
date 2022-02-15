@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { ErrorHandlerService } from 'src/app/services/error-handler.service';
 import { NotificationService } from 'src/app/services/notification.service';
+import { RoleService } from 'src/app/services/role.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
@@ -11,50 +14,57 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 	encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
-	email = new FormControl('', [Validators.required, Validators.email]);
+	// email = new FormControl('', [Validators.required, Validators.email]);
 	hide: boolean = true;
-	favoriteSeason!: string
-	seasons: any;
-	
 	isLinear = true;
 	// firstFormGroup!: FormGroup;
 	registerFormGroup!: FormGroup;
 	rolesFormGroup!: FormGroup;
+	rolesList: any;
 	constructor(
 		private router: Router,
 		private fb: FormBuilder,
-		private notification: NotificationService,
-		private tokenStorageService: TokenStorageService
+		private authService: AuthService,
+		private roleService: RoleService,
+		private notificationService: NotificationService,
+		private errorHandler: ErrorHandlerService
 	) { }
 
 	ngOnInit(): void {
-		this.seasons = [
-			{id: 1, code: 'coach', name: 'Тренер'},
-			{id: 2, code: 'player', name: 'Игрок'},
-			{id: 3, code: 'club', name: 'Клуб'},
-		]
+		this.getRoles();
 		this.registerFormGroup = this.createRegisterForm();
 		this.rolesFormGroup = this.createRolesForm();
+	}
+	getRoles() {
+		this.roleService.getRoles().subscribe(response => {
+			console.log(response)
+			this.rolesList = response;
+		})
 	}
 
 	createRolesForm(): FormGroup {
 		return this.fb.group({
-			roles: ['', Validators.required]
+			role: ['', Validators.required]
 		})
 	}
 
 	register() {
-		let roles = this.rolesFormGroup.value.roles;
+		let role = this.rolesFormGroup.value.role;
 		let userData = this.registerFormGroup.value;
-		userData.roles = roles;
+		userData.role = role;
 		userData.clubId = null;
 
-		console.log(userData)
-		this.notification.showSnackBar('Аккаунт успешно создан');
-		// this.tokenStorageService.saveUser(userData);
-		setTimeout(() => {
-			this.router.navigate(['/login']);
-		}, 2000);
+		console.log(userData);
+		this.authService.signUp(userData).subscribe((response: any) => {
+			console.log(response);
+			this.notificationService.showSnackBar('Пользователь успешно зарегестрирован');
+			this.registerFormGroup.reset();
+			setTimeout(() => {
+				this.router.navigate(['/login']);
+			}, 2000);
+		}, error => {
+			this.errorHandler.handleError(error.message)
+		})
 	}
 
 	createRegisterForm(): FormGroup {
@@ -66,14 +76,6 @@ export class RegisterComponent implements OnInit {
 			password: ['', Validators.compose([Validators.required])],
 			confirmPassword: ['', Validators.compose([Validators.required])],
 		})
-	}
-
-	getErrorMessage() {
-		if (this.email.hasError('required')) {
-			return 'Вы должны ввести значение';
-		}
-
-		return this.email.hasError('email') ? 'Недействительный адрес электронной почты' : '';
 	}
 
 

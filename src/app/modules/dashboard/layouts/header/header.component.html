@@ -176,9 +176,10 @@
 			<li class="nav-item dropdown pe-3">
 
 				<a class="nav-link nav-profile d-flex align-items-center pe-0" data-bs-toggle="dropdown">
-					<img [src]="profile?.img" alt="Profile" class="rounded-circle">
-					<span class="d-none d-md-block dropdown-toggle ps-2">{{profile?.fullName}}</span>
-				</a><!-- End Profile Iamge Icon -->
+					<img *ngIf="profile.img" [src]="profile?.img" alt="Profile" class="rounded-circle">
+					<i *ngIf="!profile.img" class="bi bi-person-circle" style="font-size: 1.5em;"></i>
+					<span class="d-none d-md-block dropdown-toggle ps-2">{{profile?.firstname}} {{profile?.lastname}}</span>
+				</a>
 
 				<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile d-none">
 					<li class="dropdown-header">
@@ -228,7 +229,6 @@
 
 				</ul>
 			</li>
-			<!-- Profile Nav -->
 		</ul>
 	</nav>
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { RoleService } from 'src/app/services/role.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { AuthService } from "../../../../services/auth.service";
 
 @Component({
@@ -12,7 +13,11 @@ export class ProfileComponent implements OnInit {
 	profile: any;
 	userRole: any;
 
-	constructor(private authService: AuthService, private roleService: RoleService) { }
+	constructor(
+		private authService: AuthService,
+		private roleService: RoleService,
+		private tokenStorage: TokenStorageService
+	) { }
 
 	ngOnInit(): void {
 		this.userRole = this.roleService.getRoleOfCurrentUser();
@@ -20,10 +25,11 @@ export class ProfileComponent implements OnInit {
 	}
 
 	getProfileInfo() {
-		this.authService.getProfileService().subscribe(response => {
-			console.log(response)
-			this.profile = response;
-		})
+		// this.authService.getProfileService().subscribe(response => {
+		// 	console.log(response)
+		// 	this.profile = response;
+		// })
+		this.profile = this.tokenStorage.getUser();
 	}
 
 }

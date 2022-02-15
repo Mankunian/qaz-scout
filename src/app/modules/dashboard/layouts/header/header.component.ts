@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
 	selector: 'app-header',
@@ -14,17 +15,21 @@ export class HeaderComponent implements OnInit {
 	private state = "normal"; // normal or collapsed
 	profile: any;
 
-	constructor(private el: ElementRef, private rd: Renderer2, private authService: AuthService) { }
+	constructor(
+		private el: ElementRef, private rd: Renderer2,
+		private tokenStorage: TokenStorageService
+	) { }
 
 	ngOnInit(): void {
 		this.getProfile();
 	}
 
 	getProfile() {
-		this.authService.getProfileService().subscribe(response => {
-			console.log(response)
-			this.profile = response;
-		})
+		// this.authService.getProfileService().subscribe(response => {
+		// 	console.log(response)
+		// 	this.profile = response;
+		// })
+		this.profile = this.tokenStorage.getUser();
 	}
 
 	toggleSidebar() {

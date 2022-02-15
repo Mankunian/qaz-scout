@@ -1,0 +1,71 @@
+{
+  "roles": [
+    {
+      "id": 1,
+      "code": "player",
+      "desc": "Игрок"
+    },
+    {
+      "id": 2,
+      "code": "coach",
+      "desc": "Тренер"
+    },
+    {
+      "id": 3,
+      "code": "club",
+      "desc": "Админинстратор клуба"
+    },
+    {
+      "id": 4,
+      "code": "admin",
+      "desc": "Админ платформы"
+    }
+  ],
+  "register_users": [
+    {
+      "email": "askhat@mail.io",
+      "phone": "87471235999",
+      "firstname": "Асхат",
+      "lastname": "Райханов",
+      "password": "123",
+      "confirmPassword": "123",
+      "role": {
+        "id": 1,
+        "code": "player",
+        "desc": "Игрок"
+      },
+      "clubId": null,
+      "id": 1
+    },
+    {
+      "email": "zhako13@mail.io",
+      "phone": "87083576952",
+      "firstname": "Жаксы-мурат",
+      "lastname": "Жаксыбек",
+      "password": "123",
+      "confirmPassword": "123",
+      "role": {
+        "id": 1,
+        "code": "player",
+        "desc": "Игрок"
+      },
+      "clubId": null,
+      "id": 2
+    },
+    {
+      "email": "uteulin@mail.io",
+      "phone": "87016627217",
+      "firstname": "Ерлан",
+      "lastname": "Утеулин",
+      "password": "123",
+      "confirmPassword": "123",
+      "role": {
+        "id": 1,
+        "code": "player",
+        "desc": "Игрок"
+      },
+      "clubId": null,
+      "id": 3
+    }
+  ]
+}

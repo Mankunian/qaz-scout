@@ -14,7 +14,6 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
 	loginForm!: FormGroup;
 	hide: boolean = true;
-	roleGroup: { id: number; code: string; name: string; }[] = [];
 
 	constructor(
 		private router: Router,
@@ -23,32 +22,28 @@ export class LoginComponent implements OnInit {
 	) {
 		this.loginForm = new FormGroup({
 			"userEmail": new FormControl("", [Validators.required, Validators.email]),
-			"password": new FormControl("", Validators.required),
-			"role": new FormControl("", Validators.required),
-			"hasClub": new FormControl(true)
+			"password": new FormControl("", Validators.required)
 		})
 	}
 
 	ngOnInit(): void {
-		this.getRolesGroup();
-	}
-
-	getRolesGroup() {
-		this.roleGroup = [
-			{ id: 1, code: 'club', name: 'Администратор клуба' },
-			{ id: 2, code: 'player', name: 'Футбольный игрок' },
-			{ id: 3, code: 'coach', name: 'Футбольный тренер' },
-			{ id: 4, code: 'admin', name: 'Админ платформы' },
-		]
 	}
 
 	logIn() {
 		let userData = this.loginForm.value;
-		this.tokenStorageService.saveUser(userData);
-
-		console.log(userData);
-
-		this.router.navigate(['/dashboard/home']);
+		this.authService.login().subscribe(response => {
+			console.log(response);
+			const user = response.find((a: any) => {
+				return a.email === userData.userEmail && a.password === userData.password
+			})
+			this.tokenStorageService.saveUser(user);
+			if (user) {
+				this.loginForm.reset();
+				this.router.navigate(['/dashboard/home']);
+			} else {
+				alert("Пользователь не существует")
+			}
+		})
 	}
 
 

@@ -22,13 +22,28 @@
 									<mat-step [stepControl]="registerFormGroup">
 										<ng-template matStepLabel>Заполните форму</ng-template>
 										<form class="row g-3 needs-validation" [formGroup]="registerFormGroup">
+											<!-- Имя -->
+											<div class="col-lg-6">
+												<mat-form-field appearance="outline">
+													<mat-label>Имя</mat-label>
+													<input formControlName="firstname" matInput placeholder="Введите имя">
+												</mat-form-field>
+											</div>
+											<!-- Фамилия -->
+											<div class="col-lg-6">
+												<mat-form-field appearance="outline">
+													<mat-label>Фамилия</mat-label>
+													<input formControlName="lastname" matInput placeholder="Введите фамилию">
+												</mat-form-field>
+											</div>
+											<!-- Email -->
 											<div class="col-lg-6">
 												<mat-form-field appearance="outline">
 													<mat-label>Email</mat-label>
 													<input matInput placeholder="pat@example.com" formControlName="email" required>
 												</mat-form-field>
 											</div>
-
+											<!-- Номер телефона -->
 											<div class="col-lg-6">
 												<mat-form-field appearance="outline">
 													<mat-label>Номер телефона</mat-label>
@@ -36,20 +51,7 @@
 													<mat-icon matSuffix>phone</mat-icon>
 												</mat-form-field>
 											</div>
-
-											<div class="col-lg-6">
-												<mat-form-field appearance="outline">
-													<mat-label>Имя</mat-label>
-													<input formControlName="firstname" matInput placeholder="Введите имя">
-												</mat-form-field>
-											</div>
-											<div class="col-lg-6">
-												<mat-form-field appearance="outline">
-													<mat-label>Фамилия</mat-label>
-													<input formControlName="lastname" matInput placeholder="Введите фамилию">
-												</mat-form-field>
-											</div>
-
+											<!-- Пароль -->
 											<div class="col-lg-6">
 												<mat-form-field appearance="outline">
 													<mat-label>Введите пароль</mat-label>
@@ -60,6 +62,7 @@
 													</button>
 												</mat-form-field>
 											</div>
+											<!-- Повтор пароля -->
 											<div class="col-lg-6">
 												<mat-form-field appearance="outline">
 													<mat-label>Введите пароль повторно</mat-label>
@@ -84,10 +87,10 @@
 												<div class="col-lg-12">
 													<label id="example-radio-group-label">Выберите свою роль</label>
 													<mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
-														formControlName="roles">
-														<mat-radio-button class="example-radio-button" *ngFor="let season of seasons"
-															[value]="season">
-															{{season.name}}
+														formControlName="role">
+														<mat-radio-button class="example-radio-button" *ngFor="let role of rolesList"
+															[value]="role">
+															{{role.desc}}
 														</mat-radio-button>
 													</mat-radio-group>
 
