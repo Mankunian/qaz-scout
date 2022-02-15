@@ -37,32 +37,15 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<th scope="row"><a>#2457</a></th>
-								<td>01</td>
-								<td><a class="text-primary">Нур-Султан</a></td>
-							</tr>
-							<tr>
-								<th scope="row"><a>#2457</a></th>
-								<td>02</td>
-								<td><a class="text-primary">Алматы</a></td>
-							</tr>
-							<tr>
-								<th scope="row"><a>#2457</a></th>
-								<td>10</td>
-								<td><a class="text-primary">Павлодар</a></td>
-							</tr>
-							<tr>
-								<th scope="row"><a>#2457</a></th>
-								<td>09</td>
-								<td><a class="text-primary">Караганда</a></td>
+							<tr *ngFor="let region of regionsList; let i = index">
+								<th scope="row">{{i + 1}}</th>
+								<td>{{region.code}}</td>
+								<td><a class="text-primary">{{region.name}}</a></td>
 							</tr>
 						</tbody>
 					</table>
-
 				</div>
-
 			</div>
-		</div><!-- End Recent Sales -->
+		</div>
 	</div>
 </section>

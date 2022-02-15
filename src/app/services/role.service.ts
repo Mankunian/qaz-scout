@@ -7,7 +7,7 @@ import { TokenStorageService } from './token-storage.service';
 	providedIn: 'root'
 })
 export class RoleService {
-	FAKE_API: any = 'http://localhost:3000/'
+	ROLES_API: any = 'http://localhost:3000/roles'
 	constructor(private tokenStorageService: TokenStorageService, private http: HttpClient) { }
 
 	public getRoleOfCurrentUser(): any {
@@ -24,6 +24,6 @@ export class RoleService {
 	}
 
 	public getRoles(): Observable<any> {
-		return this.http.get(this.FAKE_API + 'roles');
+		return this.http.get(this.ROLES_API);
 	}
 }

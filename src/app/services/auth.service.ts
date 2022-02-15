@@ -16,17 +16,6 @@ export class AuthService {
 		private roleService: RoleService
 	) { }
 
-	// getProfileService() {
-	// 	if (this.roleService.getRoleOfCurrentUser() == 'player') {
-	// 		return this.http.get('assets/json/player/profile.json');
-	// 	} else if (this.roleService.getRoleOfCurrentUser() == 'admin') {
-	// 		return this.http.get('assets/json/admin/profile.json')
-	// 	} else if (this.roleService.getRoleOfCurrentUser() == 'coach') {
-	// 		return this.http.get('assets/json/coach/profile.json')
-	// 	} else {
-	// 		return this.http.get('assets/json/club/profile.json')
-	// 	}
-	// }
 	/* Login */
 	login(): Observable<any> {
 		return this.http.get<any>(this.REGISTER_API);
@@ -35,6 +24,7 @@ export class AuthService {
 	/* Logout system */
 	logOut() {
 		this.router.navigate(['/login']);
+		window.sessionStorage.clear()
 	}
 
 	/* Register all user */

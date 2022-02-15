@@ -1,71 +1,197 @@
 {
-  "roles": [
-    {
-      "id": 1,
-      "code": "player",
-      "desc": "Игрок"
-    },
-    {
-      "id": 2,
-      "code": "coach",
-      "desc": "Тренер"
-    },
-    {
-      "id": 3,
-      "code": "club",
-      "desc": "Админинстратор клуба"
-    },
-    {
-      "id": 4,
-      "code": "admin",
-      "desc": "Админ платформы"
-    }
-  ],
-  "register_users": [
-    {
-      "email": "askhat@mail.io",
-      "phone": "87471235999",
-      "firstname": "Асхат",
-      "lastname": "Райханов",
-      "password": "123",
-      "confirmPassword": "123",
-      "role": {
-        "id": 1,
-        "code": "player",
-        "desc": "Игрок"
-      },
-      "clubId": null,
-      "id": 1
-    },
-    {
-      "email": "zhako13@mail.io",
-      "phone": "87083576952",
-      "firstname": "Жаксы-мурат",
-      "lastname": "Жаксыбек",
-      "password": "123",
-      "confirmPassword": "123",
-      "role": {
-        "id": 1,
-        "code": "player",
-        "desc": "Игрок"
-      },
-      "clubId": null,
-      "id": 2
-    },
-    {
-      "email": "uteulin@mail.io",
-      "phone": "87016627217",
-      "firstname": "Ерлан",
-      "lastname": "Утеулин",
-      "password": "123",
-      "confirmPassword": "123",
-      "role": {
-        "id": 1,
-        "code": "player",
-        "desc": "Игрок"
-      },
-      "clubId": null,
-      "id": 3
-    }
-  ]
+	"roles": [
+		{
+			"id": 1,
+			"code": "player",
+			"desc": "Игрок"
+		},
+		{
+			"id": 2,
+			"code": "coach",
+			"desc": "Тренер"
+		},
+		{
+			"id": 3,
+			"code": "club",
+			"desc": "Админинстратор клуба"
+		},
+		{
+			"id": 4,
+			"code": "admin",
+			"desc": "Админ платформы"
+		}
+	],
+	"register_users": [
+		{
+			"email": "askhat@mail.io",
+			"img": null,
+			"phone": "87471235999",
+			"firstname": "Асхат",
+			"lastname": "Райханов",
+			"password": "123",
+			"confirmPassword": "123",
+			"about": null,
+			"country": null,
+			"address": null,
+			"social_links": null,
+			"role": {
+				"id": 1,
+				"code": "player",
+				"desc": "Игрок"
+			},
+			"clubId": null,
+			"id": 1
+		},
+		{
+			"email": "zhako13@mail.io",
+			"img": null,
+			"phone": "87083576952",
+			"firstname": "Жаксы-мурат",
+			"lastname": "Жаксыбек",
+			"password": "123",
+			"confirmPassword": "123",
+			"about": null,
+			"country": null,
+			"address": null,
+			"social_links": null,
+			"role": {
+				"id": 1,
+				"code": "player",
+				"desc": "Игрок"
+			},
+			"clubId": null,
+			"id": 2
+		},
+		{
+			"email": "uteulin@mail.io",
+			"img": null,
+			"phone": "87016627217",
+			"firstname": "Ерлан",
+			"lastname": "Утеулин",
+			"password": "123",
+			"confirmPassword": "123",
+			"about": null,
+			"country": null,
+			"address": null,
+			"social_links": null,
+			"role": {
+				"id": 1,
+				"code": "player",
+				"desc": "Игрок"
+			},
+			"clubId": null,
+			"id": 3
+		},
+		{
+			"email": "ashbayash@gmail.com",
+			"img": null,
+			"phone": "87084115412",
+			"firstname": "Ашим",
+			"lastname": "Баяшев",
+			"password": "123",
+			"confirmPassword": "123",
+			"about": null,
+			"country": null,
+			"address": null,
+			"social_links": null,
+			"role": {
+				"id": 1,
+				"code": "player",
+				"desc": "Игрок"
+			},
+			"clubId": null,
+			"id": 4
+		},
+		{
+			"email": "admin",
+			"phone": "+77471117329",
+			"firstname": "Диас",
+			"lastname": "Айдархан",
+			"password": "admin",
+			"confirmPassword": "admin",
+			"about": null,
+			"country": null,
+			"address": null,
+			"social_links": null,
+			"club": null,
+			"role": {
+				"id": 4,
+				"code": "admin",
+				"desc": "Админ платформы"
+			},
+			"id": 5
+		}
+	],
+	"news": [],
+	"regions": [
+		{
+			"name": "Астана",
+			"code": "01"
+		},
+		{
+			"name": "Алматы",
+			"code": "02"
+		},
+		{
+			"name": "Акмолинская область",
+			"code": "03"
+		},
+		{
+			"name": "Актюбинская область",
+			"code": "04"
+		},
+		{
+			"name": "Алматинская область",
+			"code": "05"
+		},
+		{
+			"name": "Атырауская область",
+			"code": "06"
+		},
+		{
+			"name": "Западно-Казахстанская область",
+			"code": "07"
+		},
+		{
+			"name": "Жамбылская область",
+			"code": "08"
+		},
+		{
+			"name": "Карагандинская область",
+			"code": "09"
+		},
+		{
+			"name": "Костанайская область",
+			"code": "10"
+		},
+		{
+			"name": "Кызылординская область",
+			"code": "11"
+		},
+		{
+			"name": "Мангистауская область",
+			"code": "12"
+		},
+		{
+			"name": "Туркестанская область",
+			"code": "13"
+		},
+		{
+			"name": "Павлодарская область",
+			"code": "14"
+		},
+		{
+			"name": "Северо-Казахстанская область",
+			"code": "15"
+		},
+		{
+			"name": "Восточно-Казахстанская область",
+			"code": "16"
+		},
+		{
+			"name": "г. Шымкент",
+			"code": "17"
+		}
+	],
+	"clubs": []
 }

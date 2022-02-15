@@ -15,9 +15,10 @@
 			<div class="card">
 				<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-					<img [src]="profile?.img" alt="Profile" class="rounded-circle profile">
-					<h2>{{profile?.fullName}}</h2>
-					<h3>{{profile?.role.name}}</h3>
+					<img *ngIf="profile.img" [src]="profile?.img" alt="Profile" class="rounded-circle profile">
+					<i *ngIf="!profile.img" style="font-size: 5em;" class="bi bi-person-circle"></i>
+					<h2>{{profile?.firstname}} {{profile?.lastname}}</h2>
+					<h3>{{profile?.role.desc}}</h3>
 					<div class="social-links mt-2">
 						<a class="twitter"><i class="bi bi-twitter"></i></a>
 						<a class="facebook"><i class="bi bi-facebook"></i></a>
@@ -26,7 +27,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 
 		<div class="col-lg-9">
@@ -53,10 +53,12 @@
 							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Изменить
 								пароль</button>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item"
+							*ngIf="profile.role.code == 'club' || profile.role.code == 'player' || profile.role.code == 'coach'">
 							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#photo">Фотогалерея</button>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item"
+							*ngIf="profile.role.code == 'club' || profile.role.code == 'player' || profile.role.code == 'coach'">
 							<button class="nav-link" data-bs-toggle="tab" data-bs-target="#video">Видеогалерея</button>
 						</li>
 
@@ -77,17 +79,21 @@
 
 							<div class="row">
 								<div class="col-lg-3 col-md-4 label">Клуб</div>
-								<div class="col-lg-9 col-md-8">{{profile?.club.name}}</div>
+								<div class="col-lg-9 col-md-8">
+									<span *ngIf="profile.club"> {{profile?.club?.name}}</span>
+									<span *ngIf="!profile.club" class="badge bg-primary">Свободный агент</span>
+								</div>
+
 							</div>
 
 							<div class="row">
 								<div class="col-lg-3 col-md-4 label">Роль</div>
-								<div class="col-lg-9 col-md-8">{{profile?.role.name}}</div>
+								<div class="col-lg-9 col-md-8">{{profile?.role?.desc}}</div>
 							</div>
 
 							<div class="row">
 								<div class="col-lg-3 col-md-4 label">Гражданство</div>
-								<div class="col-lg-9 col-md-8">{{profile?.country.name}}</div>
+								<div class="col-lg-9 col-md-8">{{profile?.country?.name}}</div>
 							</div>
 
 							<div class="row">
@@ -110,13 +116,13 @@
 
 						<!-- Редактировать профиль -->
 						<div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-
-							<!-- Profile Edit Form -->
-							<form>
+							<form [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+								<!-- Profile image -->
 								<div class="row mb-3">
 									<label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Фото профиля</label>
 									<div class="col-md-8 col-lg-9">
-										<img [src]="profile?.img" alt="Profile">
+										<img *ngIf="profile?.img" [src]="profile?.img" alt="Profile">
+										<span *ngIf="!profile?.img">Нет фото</span>
 										<div class="pt-2">
 											<a class="btn btn-primary btn-sm" title="Upload new profile image"><i
 													class="bi bi-upload"></i></a>
@@ -124,109 +130,84 @@
 										</div>
 									</div>
 								</div>
-
+								<!-- Profile full name -->
 								<div class="row mb-3">
 									<label for="fullName" class="col-md-4 col-lg-3 col-form-label">Полное имя</label>
 									<div class="col-md-8 col-lg-9">
-										<input name="fullName" type="text" class="form-control" id="fullName" [value]="profile?.fullName">
+										<input name="fullName" type="text" class="form-control" id="fullName" formControlName="fullName">
 									</div>
 								</div>
 
 								<div class="row mb-3">
 									<label for="about" class="col-md-4 col-lg-3 col-form-label">Об игроке</label>
 									<div class="col-md-8 col-lg-9">
-										<textarea name="about" class="form-control" id="about"
-											style="height: 100px">{{profile?.about}}</textarea>
+										<textarea formControlName="about" name="about" class="form-control" id="about"
+											style="height: 100px"></textarea>
 									</div>
 								</div>
 
 								<div class="row mb-3">
 									<label for="company" class="col-md-4 col-lg-3 col-form-label">Клуб</label>
 									<div class="col-md-8 col-lg-9">
-										<input name="company" type="text" class="form-control" id="company" [value]="profile?.club.name">
+										<input name="company" type="text" class="form-control" id="company" formControlName="club">
 									</div>
 								</div>
 
 								<div class="row mb-3">
 									<label for="Job" class="col-md-4 col-lg-3 col-form-label">Роль</label>
 									<div class="col-md-8 col-lg-9">
-										<input name="job" type="text" class="form-control" id="Job" [value]="profile?.role.name">
+										<input name="job" type="text" class="form-control" id="Job" formControlName="role"
+											[value]="profile.role" [(ngModel)]="profile.role.desc">
 									</div>
 								</div>
 
 								<div class="row mb-3">
 									<label for="Country" class="col-md-4 col-lg-3 col-form-label">Гражданство</label>
 									<div class="col-md-8 col-lg-9">
-										<input name="country" type="text" class="form-control" id="Country" [value]="profile?.country.name">
+										<input name="country" type="text" class="form-control" id="Country" formControlName="country"
+											[(ngModel)]="profile.country.name" [value]="profile.country">
 									</div>
 								</div>
 
 								<div class="row mb-3">
 									<label for="Address" class="col-md-4 col-lg-3 col-form-label">Адрес</label>
 									<div class="col-md-8 col-lg-9">
-										<input name="address" type="text" class="form-control" id="Address" [value]="profile?.address">
+										<input name="address" type="text" class="form-control" id="Address" formControlName="address">
 									</div>
 								</div>
 
 								<div class="row mb-3">
 									<label for="Phone" class="col-md-4 col-lg-3 col-form-label">Телефон</label>
 									<div class="col-md-8 col-lg-9">
-										<input name="phone" type="text" class="form-control" id="Phone" [value]="profile?.phone">
+										<input name="phone" type="text" class="form-control" id="Phone" formControlName="phone">
 									</div>
 								</div>
 
 								<div class="row mb-3">
 									<label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
 									<div class="col-md-8 col-lg-9">
-										<input name="email" type="email" class="form-control" id="Email" [value]="profile?.email">
-									</div>
-								</div>
-
-								<div class="row mb-3">
-									<label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter</label>
-									<div class="col-md-8 col-lg-9">
-										<input name="twitter" type="text" class="form-control" id="Twitter" value="https://twitter.com/#">
-									</div>
-								</div>
-
-								<div class="row mb-3">
-									<label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook</label>
-									<div class="col-md-8 col-lg-9">
-										<input name="facebook" type="text" class="form-control" id="Facebook"
-											value="https://facebook.com/#">
+										<input name="email" type="email" class="form-control" id="Email" formControlName="email">
 									</div>
 								</div>
 
 								<div class="row mb-3">
 									<label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram</label>
 									<div class="col-md-8 col-lg-9">
-										<input name="instagram" type="text" class="form-control" id="Instagram"
-											value="https://instagram.com/#">
+										<input name="instagram" type="text" class="form-control" id="Instagram" formControlName="instagram">
 									</div>
 								</div>
-
-								<div class="row mb-3">
-									<label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin</label>
-									<div class="col-md-8 col-lg-9">
-										<input name="linkedin" type="text" class="form-control" id="Linkedin"
-											value="https://linkedin.com/#">
-									</div>
-								</div>
-
 								<div class="text-center">
-									<button type="submit" class="btn btn-primary">Сохранить изменения</button>
+									<button type="submit" class="btn btn-primary">Сохранить
+										изменения</button>
 								</div>
-							</form><!-- End Profile Edit Form -->
+							</form>
 
 						</div>
 						<!-- Редактировать профиль -->
 
 						<!-- Настройки аккаунта -->
-						<div class="tab-pane fade pt-3" id="profile-settings">
-
-							<!-- Settings Form -->
+						<!-- <div class="tab-pane fade pt-3" id="profile-settings">
 							<form>
-
 								<div class="row mb-3">
 									<label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
 									<div class="col-md-8 col-lg-9">
@@ -260,14 +241,14 @@
 								<div class="text-center">
 									<button type="submit" class="btn btn-primary">Save Changes</button>
 								</div>
-							</form><!-- End settings Form -->
+							</form>
 
-						</div>
+						</div> -->
 						<!-- Настройки аккаунта -->
 
 						<!-- Смена пароля -->
-						<div class="tab-pane fade pt-3" id="profile-change-password">
-							<!-- Change Password Form -->
+						<!-- <div class="tab-pane fade pt-3" id="profile-change-password">
+
 							<form>
 								<div class="row mb-3">
 									<label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Текущий пароль</label>
@@ -294,11 +275,11 @@
 									<button type="submit" class="btn btn-primary">Сохранить</button>
 								</div>
 							</form>
-						</div>
+						</div> -->
 						<!-- Смена пароля -->
 
 						<!-- Фотогалерея -->
-						<div class="tab-pane fade pt-3" id="photo">
+						<!-- <div class="tab-pane fade pt-3" id="photo">
 							<div class="row">
 								<div class="col-lg-4 col-md-6">
 									<div class="card">
@@ -319,12 +300,12 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<!-- Фотогалерея -->
 
 
 						<!-- Видеогалерея -->
-						<div class="tab-pane fade pt-3" id="video">
+						<!-- <div class="tab-pane fade pt-3" id="video">
 							<div class="row">
 								<div class="col-lg-6 col-md-6">
 									<div class="card">
@@ -345,7 +326,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<!-- Видеогалерея -->
 
 					</div>

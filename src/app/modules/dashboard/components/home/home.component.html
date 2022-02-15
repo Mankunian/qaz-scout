@@ -1,8 +1,5 @@
 <div class="pagetitle">
-	<h1 *ngIf="loggedInUser.role.code == 'admin'">Приветствую, Админ платформы</h1>
-	<h1 *ngIf="loggedInUser.role.code == 'club'">Приветствую, Админ клуба</h1>
-	<h1 *ngIf="loggedInUser.role.code == 'player'">Приветствую, Игрок</h1>
-	<h1 *ngIf="loggedInUser.role.code == 'coach'">Приветствую, Тренер</h1>
+	<h1>Приветствую, {{loggedInUser.lastname}} {{loggedInUser.firstname}}</h1>
 	<nav>
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a>Главная</a></li>

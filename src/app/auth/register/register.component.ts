@@ -52,7 +52,6 @@ export class RegisterComponent implements OnInit {
 		let role = this.rolesFormGroup.value.role;
 		let userData = this.registerFormGroup.value;
 		userData.role = role;
-		userData.clubId = null;
 
 		console.log(userData);
 		this.authService.signUp(userData).subscribe((response: any) => {
@@ -75,6 +74,11 @@ export class RegisterComponent implements OnInit {
 			lastname: ['', Validators.compose([Validators.required])],
 			password: ['', Validators.compose([Validators.required])],
 			confirmPassword: ['', Validators.compose([Validators.required])],
+			about: [null],
+			country: [null],
+			address: [null],
+			social_links: [null],
+			club: [null]
 		})
 	}
 

@@ -37,32 +37,15 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<th scope="row"><a>#2457</a></th>
-								<td>admin</td>
-								<td><a class="text-primary">Администратор платформы</a></td>
-							</tr>
-							<tr>
-								<th scope="row"><a>#2457</a></th>
-								<td>admin_club</td>
-								<td><a class="text-primary">Администратор клуба</a></td>
-							</tr>
-							<tr>
-								<th scope="row"><a>#2457</a></th>
-								<td>coach</td>
-								<td><a class="text-primary">Футбольный тренер</a></td>
-							</tr>
-							<tr>
-								<th scope="row"><a>#2457</a></th>
-								<td>player</td>
-								<td><a class="text-primary">Футбольный игрок</a></td>
+							<tr *ngFor="let role of rolesList; let i = index">
+								<th scope="row">{{i + 1}}</th>
+								<td>{{role.code}}</td>
+								<td><a class="text-primary">{{role.desc}}</a></td>
 							</tr>
 						</tbody>
 					</table>
-
 				</div>
-
 			</div>
-		</div><!-- End Recent Sales -->
+		</div>
 	</div>
 </section>

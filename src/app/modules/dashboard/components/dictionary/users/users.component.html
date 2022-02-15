@@ -35,23 +35,21 @@
 								<th scope="col">Полное имя</th>
 								<th scope="col">Клуб</th>
 								<th scope="col">Регион</th>
-								<th scope="col">Статус</th>
+								<th scope="col">Телефон</th>
+								<th scope="col">Роль</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<th scope="row"><a>#2457</a></th>
-								<td>Алишер Келгенбай</td>
-								<td><a class="text-primary">FC Shaurma food</a></td>
-								<td>Нур-султан</td>
-								<td><span class="badge bg-warning">Имеет клуб</span></td>
-							</tr>
-							<tr>
-								<th scope="row"><a>#2457</a></th>
-								<td>John Doe</td>
-								<td><a class="text-primary">ABK-Beton</a></td>
-								<td>Нур-султан</td>
-								<td><span class="badge bg-success">Свободный агент</span></td>
+							<tr *ngFor="let user of userList; let i = index">
+								<th scope="row"><a>{{i + 1}}</a></th>
+								<td>{{user.firstname}} {{user.lastname}}</td>
+								<td>
+									<span *ngIf="!user.club" class="badge bg-success">Свободный агент</span>
+									<a class="text-primary">{{user?.club?.name}}</a>
+								</td>
+								<td>{{user?.country?.name}}</td>
+								<td>{{user?.phone}}</td>
+								<td>{{user?.role?.desc}}</td>
 							</tr>
 
 						</tbody>

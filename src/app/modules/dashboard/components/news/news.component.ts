@@ -20,7 +20,7 @@ export class NewsComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-		this.getNewsList();
+		// this.getNewsList();
 		this.isRole = this.roleService.getRoleOfCurrentUser();
 	}
 
