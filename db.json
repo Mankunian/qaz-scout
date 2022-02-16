@@ -1,197 +1,211 @@
 {
-	"roles": [
-		{
-			"id": 1,
-			"code": "player",
-			"desc": "Игрок"
-		},
-		{
-			"id": 2,
-			"code": "coach",
-			"desc": "Тренер"
-		},
-		{
-			"id": 3,
-			"code": "club",
-			"desc": "Админинстратор клуба"
-		},
-		{
-			"id": 4,
-			"code": "admin",
-			"desc": "Админ платформы"
-		}
-	],
-	"register_users": [
-		{
-			"email": "askhat@mail.io",
-			"img": null,
-			"phone": "87471235999",
-			"firstname": "Асхат",
-			"lastname": "Райханов",
-			"password": "123",
-			"confirmPassword": "123",
-			"about": null,
-			"country": null,
-			"address": null,
-			"social_links": null,
-			"role": {
-				"id": 1,
-				"code": "player",
-				"desc": "Игрок"
-			},
-			"clubId": null,
-			"id": 1
-		},
-		{
-			"email": "zhako13@mail.io",
-			"img": null,
-			"phone": "87083576952",
-			"firstname": "Жаксы-мурат",
-			"lastname": "Жаксыбек",
-			"password": "123",
-			"confirmPassword": "123",
-			"about": null,
-			"country": null,
-			"address": null,
-			"social_links": null,
-			"role": {
-				"id": 1,
-				"code": "player",
-				"desc": "Игрок"
-			},
-			"clubId": null,
-			"id": 2
-		},
-		{
-			"email": "uteulin@mail.io",
-			"img": null,
-			"phone": "87016627217",
-			"firstname": "Ерлан",
-			"lastname": "Утеулин",
-			"password": "123",
-			"confirmPassword": "123",
-			"about": null,
-			"country": null,
-			"address": null,
-			"social_links": null,
-			"role": {
-				"id": 1,
-				"code": "player",
-				"desc": "Игрок"
-			},
-			"clubId": null,
-			"id": 3
-		},
-		{
-			"email": "ashbayash@gmail.com",
-			"img": null,
-			"phone": "87084115412",
-			"firstname": "Ашим",
-			"lastname": "Баяшев",
-			"password": "123",
-			"confirmPassword": "123",
-			"about": null,
-			"country": null,
-			"address": null,
-			"social_links": null,
-			"role": {
-				"id": 1,
-				"code": "player",
-				"desc": "Игрок"
-			},
-			"clubId": null,
-			"id": 4
-		},
-		{
-			"email": "admin",
-			"phone": "+77471117329",
-			"firstname": "Диас",
-			"lastname": "Айдархан",
-			"password": "admin",
-			"confirmPassword": "admin",
-			"about": null,
-			"country": null,
-			"address": null,
-			"social_links": null,
-			"club": null,
-			"role": {
-				"id": 4,
-				"code": "admin",
-				"desc": "Админ платформы"
-			},
-			"id": 5
-		}
-	],
-	"news": [],
-	"regions": [
-		{
-			"name": "Астана",
-			"code": "01"
-		},
-		{
-			"name": "Алматы",
-			"code": "02"
-		},
-		{
-			"name": "Акмолинская область",
-			"code": "03"
-		},
-		{
-			"name": "Актюбинская область",
-			"code": "04"
-		},
-		{
-			"name": "Алматинская область",
-			"code": "05"
-		},
-		{
-			"name": "Атырауская область",
-			"code": "06"
-		},
-		{
-			"name": "Западно-Казахстанская область",
-			"code": "07"
-		},
-		{
-			"name": "Жамбылская область",
-			"code": "08"
-		},
-		{
-			"name": "Карагандинская область",
-			"code": "09"
-		},
-		{
-			"name": "Костанайская область",
-			"code": "10"
-		},
-		{
-			"name": "Кызылординская область",
-			"code": "11"
-		},
-		{
-			"name": "Мангистауская область",
-			"code": "12"
-		},
-		{
-			"name": "Туркестанская область",
-			"code": "13"
-		},
-		{
-			"name": "Павлодарская область",
-			"code": "14"
-		},
-		{
-			"name": "Северо-Казахстанская область",
-			"code": "15"
-		},
-		{
-			"name": "Восточно-Казахстанская область",
-			"code": "16"
-		},
-		{
-			"name": "г. Шымкент",
-			"code": "17"
-		}
-	],
-	"clubs": []
+  "roles": [
+    {
+      "id": 1,
+      "code": "player",
+      "desc": "Игрок"
+    },
+    {
+      "id": 2,
+      "code": "coach",
+      "desc": "Тренер"
+    },
+    {
+      "id": 3,
+      "code": "club",
+      "desc": "Админинстратор клуба"
+    },
+    {
+      "id": 4,
+      "code": "admin",
+      "desc": "Админ платформы"
+    }
+  ],
+  "register_users": [
+    {
+      "id": 1,
+      "firstname": "Асхат",
+      "lastname": "Райханов",
+      "region": {
+        "name": "Астана",
+        "code": "01"
+      },
+      "email": "askhat@mail.io",
+      "password": "123",
+      "phone": "+77471235999",
+      "address": "Мангилик ел 49",
+      "img": "https://sun9-70.userapi.com/impf/c836129/v836129025/5ae17/VNg6lHDvPDk.jpg?size=720x1280&quality=96&sign=eade77f9791cf939191de9afd6800cbc&type=album",
+      "instagram": null,
+      "about": "Я стоматолог",
+      "role": {
+        "id": 1,
+        "code": "player",
+        "desc": "Игрок"
+      },
+      "club": {
+        "name": "Shaurma Food",
+        "logo": "https://shaurma-food.kz/images/logo-red-vector.svg",
+        "region": {
+          "name": "Астана",
+          "code": "01"
+        },
+        "league": {
+          "id": 2,
+          "name": "I Лига"
+        },
+        "address": "Сауран 34",
+        "instagram": "https://www.instagram.com/shaurmafood.kz/",
+        "website": "https://shaurma-food.kz/tarhana",
+        "id": 1
+      }
+    },
+    {
+      "id": 5,
+      "firstname": "Диас",
+      "lastname": "Айдархан",
+      "region": {
+        "name": "Астана",
+        "code": "01"
+      },
+      "email": "admin",
+      "password": "admin",
+      "phone": "+77471117329",
+      "address": "Азаттык 45",
+      "img": null,
+      "instagram": "https://www.instagram.com/_therealmanc/?hl=ru",
+      "about": "Я веб-разработчик, CEO \"QazScout\"",
+      "role": {
+        "id": 4,
+        "code": "admin",
+        "desc": "Админ платформы"
+      }
+    }
+  ],
+  "news": [],
+  "regions": [
+    {
+      "name": "Астана",
+      "code": "01"
+    },
+    {
+      "name": "Алматы",
+      "code": "02"
+    },
+    {
+      "name": "Акмолинская область",
+      "code": "03"
+    },
+    {
+      "name": "Актюбинская область",
+      "code": "04"
+    },
+    {
+      "name": "Алматинская область",
+      "code": "05"
+    },
+    {
+      "name": "Атырауская область",
+      "code": "06"
+    },
+    {
+      "name": "Западно-Казахстанская область",
+      "code": "07"
+    },
+    {
+      "name": "Жамбылская область",
+      "code": "08"
+    },
+    {
+      "name": "Карагандинская область",
+      "code": "09"
+    },
+    {
+      "name": "Костанайская область",
+      "code": "10"
+    },
+    {
+      "name": "Кызылординская область",
+      "code": "11"
+    },
+    {
+      "name": "Мангистауская область",
+      "code": "12"
+    },
+    {
+      "name": "Туркестанская область",
+      "code": "13"
+    },
+    {
+      "name": "Павлодарская область",
+      "code": "14"
+    },
+    {
+      "name": "Северо-Казахстанская область",
+      "code": "15"
+    },
+    {
+      "name": "Восточно-Казахстанская область",
+      "code": "16"
+    },
+    {
+      "name": "г. Шымкент",
+      "code": "17"
+    }
+  ],
+  "clubs": [
+    {
+      "name": "Shaurma Food",
+      "logo": "https://shaurma-food.kz/images/logo-red-vector.svg",
+      "region": {
+        "name": "Астана",
+        "code": "01"
+      },
+      "league": {
+        "id": 2,
+        "name": "I Лига"
+      },
+      "address": "Сауран 34",
+      "instagram": "https://www.instagram.com/shaurmafood.kz/",
+      "website": "https://shaurma-food.kz/tarhana",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "CoffeeBoom",
+      "logo": "https://coffeeboom.kz/themes/coffeeboom/src/build/images/logo.svg",
+      "region": {
+        "name": "Алматы",
+        "code": "02"
+      },
+      "league": {
+        "id": 5,
+        "name": "IV лига"
+      },
+      "address": "Сыганак 17a",
+      "instagram": "https://instagram.com/coffeeboom2010",
+      "website": "https://coffeeboom.kz/"
+    }
+  ],
+  "leagues": [
+    {
+      "id": 1,
+      "name": "Высшая лига"
+    },
+    {
+      "id": 2,
+      "name": "I Лига"
+    },
+    {
+      "id": 3,
+      "name": "II лига"
+    },
+    {
+      "id": 4,
+      "name": "III лига"
+    },
+    {
+      "id": 5,
+      "name": "IV лига"
+    }
+  ]
 }

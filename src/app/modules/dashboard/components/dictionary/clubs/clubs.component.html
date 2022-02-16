@@ -14,63 +14,57 @@
 		<div class="col-12">
 			<div class="card recent-sales">
 
-				<div class="filter">
+				<!-- <div class="filter">
 					<a class="icon" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
 					<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
 						<li class="dropdown-header text-start">
 							<h6>Действие</h6>
 						</li>
 
-						<li><a class="dropdown-item">Добавить</a></li>
+						<li><a (click)="createClubDialog()" class="dropdown-item">Добавить</a></li>
 					</ul>
-				</div>
+					
+				</div> -->
 
 				<div class="card-body">
-					<h5 class="card-title">Список клубов</h5>
+					<div class="row d-flex align-items-center">
+						<div class="col">
+							<h5 class="card-title">Список клубов</h5>
 
+						</div>
+						<div class="col text-end">
+							<button (click)="createClubDialog()" type="button" class="btn btn-sm btn-primary">Добавить</button>
+						</div>
+					</div>
 					<table class="table table-borderless datatable">
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">Код клуба</th>
 								<th scope="col">Наименование</th>
 								<th scope="col">Адрес</th>
 								<th scope="col">Регион</th>
 								<th scope="col">Лига</th>
 								<th scope="col">Логотип</th>
 								<th scope="col">Сайт</th>
+								<th scope="col">Действие</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<th scope="row"><a>#2457</a></th>
-								<td>SF</td>
-								<td><a class="text-primary">Shaurma food</a></td>
-								<td>Сауран, 34</td>
-								<td>Нур-Султан</td>
-								<td><span class="badge bg-success">Высшая лига</span></td>
-								<td><i class="bi bi-shield-fill"></i></td>
-								<td><a href="https://shaurma-food.kz/tarhana">https://shaurma-food.kz/tarhana</a></td>
-							</tr>
-							<tr>
-								<th scope="row"><a>#2457</a></th>
-								<td>Sairan</td>
-								<td><a class="text-primary">Сайран</a></td>
-								<td>Сыганак, 34</td>
-								<td>Нур-Султан</td>
-								<td><span class="badge bg-success">Высшая лига</span></td>
-								<td><i class="bi bi-shield-fill"></i></td>
-								<td><a href="https://shaurma-food.kz/tarhana">https://sairan-fc.kz/</a></td>
-							</tr>
-							<tr>
-								<th scope="row"><a>#2457</a></th>
-								<td>Beton</td>
-								<td><a class="text-primary">АБК Бетон</a></td>
-								<td>Улы дала, 34</td>
-								<td>Нур-Султан</td>
-								<td><span class="badge bg-primary">Лига 1</span></td>
-								<td><i class="bi bi-shield-fill"></i></td>
-								<td><a href="https://shaurma-food.kz/tarhana">https://abk-beton-fc.kz/</a></td>
+							<tr *ngFor="let club of clubList; let i = index">
+								<th scope="row">{{i + 1}}</th>
+								<td><a class="text-primary">{{club.name}}</a></td>
+								<td>{{club.address}}</td>
+								<td>{{club.region.name}}</td>
+								<td><span class="badge bg-success">{{club.league.name}}</span></td>
+								<td>
+									<img [src]="club.logo" alt="logo" width="20px">
+								</td>
+								<td><a target="_blank" [href]="club.website">{{club.website}}</a></td>
+								<td>
+									<button (click)="openEditClubDialog(club)" type="button"
+										class="btn btn-sm btn-primary">Редактировать</button>
+									<button (click)="deleteClub(club)" type="button" class="btn btn-sm btn-danger mx-2">Удалить</button>
+								</td>
 							</tr>
 						</tbody>
 					</table>
