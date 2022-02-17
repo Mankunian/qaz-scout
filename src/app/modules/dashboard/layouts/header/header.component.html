@@ -176,8 +176,8 @@
 			<li class="nav-item dropdown pe-3">
 
 				<a class="nav-link nav-profile d-flex align-items-center pe-0" data-bs-toggle="dropdown">
-					<img *ngIf="profile.img" [src]="profile?.img" alt="Profile" class="rounded-circle">
-					<i *ngIf="!profile.img" class="bi bi-person-circle" style="font-size: 1.5em;"></i>
+					<img [hidden]="!profile?.img" [src]="profile?.img" alt="Profile" class="rounded-circle">
+					<i [hidden]="profile?.img" class="bi bi-person-circle" style="font-size: 1.5em;"></i>
 					<span class="d-none d-md-block dropdown-toggle ps-2">{{profile?.firstname}} {{profile?.lastname}}</span>
 				</a>
 

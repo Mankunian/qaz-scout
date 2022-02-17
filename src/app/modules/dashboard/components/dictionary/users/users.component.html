@@ -14,7 +14,7 @@
 		<div class="col-12">
 			<div class="card recent-sales">
 
-				<div class="filter">
+				<!-- <div class="filter">
 					<a class="icon" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
 					<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
 						<li class="dropdown-header text-start">
@@ -23,11 +23,17 @@
 
 						<li><a class="dropdown-item">Добавить</a></li>
 					</ul>
-				</div>
+				</div> -->
 
 				<div class="card-body">
-					<h5 class="card-title">Список пользователей</h5>
-
+					<div class="row d-flex align-items-center">
+						<div class="col">
+							<h5 class="card-title">Список пользователей</h5>
+						</div>
+						<div class="col text-end">
+							<button (click)="openAddUserDialog()" type="button" class="btn btn-sm btn-primary">Добавить</button>
+						</div>
+					</div>
 					<table class="table table-borderless datatable">
 						<thead>
 							<tr>

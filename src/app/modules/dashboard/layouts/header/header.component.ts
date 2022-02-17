@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
 	selector: 'app-header',
@@ -17,7 +18,8 @@ export class HeaderComponent implements OnInit {
 
 	constructor(
 		private el: ElementRef, private rd: Renderer2,
-		private tokenStorage: TokenStorageService
+		private tokenStorage: TokenStorageService,
+		private userService: UserService
 	) { }
 
 	ngOnInit(): void {
@@ -25,11 +27,10 @@ export class HeaderComponent implements OnInit {
 	}
 
 	getProfile() {
-		// this.authService.getProfileService().subscribe(response => {
-		// 	console.log(response)
-		// 	this.profile = response;
-		// })
-		this.profile = this.tokenStorage.getUser();
+		let profile = this.tokenStorage.getUser();
+		this.userService.getUserById(profile.id).subscribe(response => {
+			this.profile = response;
+		})
 	}
 
 	toggleSidebar() {

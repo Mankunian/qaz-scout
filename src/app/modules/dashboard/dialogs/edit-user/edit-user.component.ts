@@ -39,7 +39,7 @@ export class EditUserComponent implements OnInit {
 			"phone": new FormControl(this.data.phone),
 			"address": new FormControl(this.data.address),
 			"img": new FormControl(this.data.img),
-			"instagram": new FormControl(this.data.instagramUrl),
+			"instagram": new FormControl(this.data.instagram),
 			"about": new FormControl(this.data.about),
 			"role": new FormControl(this.data.role),
 			"club": new FormControl(this.data.club)

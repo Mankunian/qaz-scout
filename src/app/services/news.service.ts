@@ -1,24 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RoleService } from './role.service';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class NewsService {
-
+	NEWS_API: any = 'http://localhost:3000/news';
 	constructor(
 		private http: HttpClient,
-		private roleService: RoleService
-
 	) { }
 
 	getNews(): Observable<any> {
-		if (this.roleService.getRoleOfCurrentUser() == 'admin') {
-			return this.http.get('assets/json/admin/news.json');
-		} else {
-			return this.http.get('assets/json/common/news.json');
-		}
+		return this.http.get(this.NEWS_API + "?_sort=id&_order=desc");
+	}
+
+	createNews(news: any): Observable<any> {
+		return this.http.post(this.NEWS_API, news);
 	}
 }

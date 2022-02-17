@@ -20,7 +20,7 @@ export class NewsComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-		// this.getNewsList();
+		this.getNewsList();
 		this.isRole = this.roleService.getRoleOfCurrentUser();
 	}
 
@@ -37,7 +37,7 @@ export class NewsComponent implements OnInit {
 			width: '400px',
 		});
 		dialogRef.afterClosed().subscribe(result => {
-			console.log(`Dialog result: ${result}`);
+			this.getNewsList();
 		});
 	}
 

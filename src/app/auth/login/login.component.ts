@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
 			const user = response.find((a: any) => {
 				return a.email === userData.userEmail && a.password === userData.password
 			})
+
 			this.tokenStorageService.saveUser(user);
 			if (user) {
 				this.loginForm.reset();

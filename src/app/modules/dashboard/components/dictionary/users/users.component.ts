@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
+import { AddUserComponent } from '../../../dialogs/add-user/add-user.component';
 import { EditUserComponent } from '../../../dialogs/edit-user/edit-user.component';
 
 @Component({
@@ -44,6 +45,15 @@ export class UsersComponent implements OnInit {
 		const dialogRef = this.dialog.open(EditUserComponent, {
 			width: '600px',
 			data: shareData
+		});
+		dialogRef.afterClosed().subscribe(result => {
+			this.getUsers();
+		});
+	}
+
+	openAddUserDialog() {
+		const dialogRef = this.dialog.open(AddUserComponent, {
+			width: '600px',
 		});
 		dialogRef.afterClosed().subscribe(result => {
 			this.getUsers();

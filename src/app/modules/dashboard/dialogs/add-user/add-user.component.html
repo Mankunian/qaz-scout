@@ -1,62 +1,116 @@
 <h2 mat-dialog-title>Добавить пользователя</h2>
 <mat-dialog-content class="mat-typography">
-	<form class="example-form">
-
+	<form class="example-form" [formGroup]="createUserForm">
+		<!-- Роль -->
+		<div class="row">
+			<div class="col-lg-12">
+				<mat-form-field appearance="outline">
+					<mat-label>Роль</mat-label>
+					<mat-select formControlName="role">
+						<mat-option *ngFor="let role of rolesList" [value]="role">{{role.desc}}</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+		</div>
+		<!-- Фамилия/Имя -->
 		<div class="row">
 			<div class="col-lg-6">
 				<mat-form-field appearance="outline">
 					<mat-label>Имя</mat-label>
-					<input [(ngModel)]="data.firstName" [ngModelOptions]="{standalone: true}" matInput placeholder="Введите имя">
+					<input formControlName="firstname" matInput placeholder="Введите имя">
 				</mat-form-field>
 			</div>
 			<div class="col-lg-6">
 				<mat-form-field appearance="outline">
 					<mat-label>Фамилия</mat-label>
-					<input [(ngModel)]="data.lastName" [ngModelOptions]="{standalone: true}" matInput
-						placeholder="Введите фамилию">
+					<input formControlName="lastname" matInput placeholder="Введите фамилию">
 				</mat-form-field>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-lg-6">
-				<mat-form-field appearance="outline">
-					<mat-label>Клуб</mat-label>
-					<input [(ngModel)]="data.club" [ngModelOptions]="{standalone: true}" matInput placeholder="Ввыберите клуб">
-				</mat-form-field>
-			</div>
-			<div class="col-lg-6">
-				<mat-form-field appearance="outline">
-					<mat-label>Регион</mat-label>
-					<input [(ngModel)]="data.region" [ngModelOptions]="{standalone: true}" matInput placeholder="Введите регион">
-				</mat-form-field>
-			</div>
-		</div>
+
+		<!-- Логин/пароль -->
 		<div class="row">
 			<div class="col-lg-6">
 				<mat-form-field appearance="outline">
 					<mat-label>Email</mat-label>
-					<input [(ngModel)]="data.email" [ngModelOptions]="{standalone: true}" matInput placeholder="Введите email">
+					<input formControlName="email" matInput placeholder="Введите email">
 				</mat-form-field>
 			</div>
 			<div class="col-lg-6">
 				<mat-form-field appearance="outline">
-					<mat-label>Номер телефона</mat-label>
-					<input [(ngModel)]="data.phone" [ngModelOptions]="{standalone: true}" matInput
-						placeholder="Введите номер телефона">
+					<mat-label>Пароль</mat-label>
+					<input [type]="'password'" formControlName="password" matInput placeholder="Введите пароль">
+				</mat-form-field>
+			</div>
+		</div>
+
+		<!-- Регион/Клуб -->
+		<div class="row">
+			<div class="col-lg-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Регион</mat-label>
+					<mat-select formControlName="region">
+						<mat-option *ngFor="let region of regionList" [value]="region">{{region.name}}</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-lg-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Клуб</mat-label>
+					<mat-select formControlName="club">
+						<mat-option *ngFor="let club of clubList" [value]="club">{{club.name}}</mat-option>
+					</mat-select>
 				</mat-form-field>
 			</div>
 
+		</div>
+
+		<!-- Адрес/Телефон -->
+		<div class="row">
+			<div class="col-lg-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Адрес</mat-label>
+					<input formControlName="address" matInput>
+				</mat-form-field>
+			</div>
+
+			<div class="col-lg-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Телефон</mat-label>
+					<input formControlName="phone" matInput placeholder="Введите номер телефона">
+				</mat-form-field>
+			</div>
+
+		</div>
+
+		<!-- Фото/Инстаграм ссылка -->
+		<div class="row">
+			<div class="col-lg-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Ссылка на фото профиля</mat-label>
+					<input formControlName="img" matInput>
+				</mat-form-field>
+			</div>
+			<div class="col-lg-6">
+				<mat-form-field appearance="outline">
+					<mat-label>Instagram</mat-label>
+					<input formControlName="instagram" matInput>
+				</mat-form-field>
+			</div>
+		</div>
+
+		<!-- Обо мне -->
+		<div class="row">
 			<div class="col-lg-12">
-				<p>* Здесть будет прикреплен документ от имени клуба, удостоверяющий что данный юзер является членом клуба.</p>
+				<mat-form-field appearance="outline">
+					<mat-label>Обо мне</mat-label>
+					<textarea [rows]="5" formControlName="about" matInput placeholder="Введите описание"></textarea>
+				</mat-form-field>
 			</div>
 		</div>
 	</form>
-
-
-
 </mat-dialog-content>
 <mat-dialog-actions align="end">
 	<button mat-raised-button mat-dialog-close>Отмена</button>
-	<button (click)="addUser(data)" mat-raised-button color="primary">Сохранить</button>
-	<button (click)="rejectApp(data)" mat-raised-button color="warn">Отказать</button>
+	<button mat-raised-button color="primary" (click)="addUser()">Сохранить</button>
 </mat-dialog-actions>

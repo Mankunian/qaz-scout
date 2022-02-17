@@ -19,17 +19,17 @@
 	<div class="row">
 		<div class="col-lg-3 col-md-6" *ngFor="let item of newsList">
 			<div class="card shadow-sm">
-				<img src="assets/img/custom/news/{{item.imgUrl}}" alt="" class="mb-2">
+				<img [src]="item?.img" alt="" class="mb-2">
 
 				<div class="card-body">
 					<div class="d-flex justify-content-between align-items-center mt-2 mb-2 news_item__category">
-						<span>Новости клуба</span>
+						<span>Новости</span>
 						<div class="news-item__date">
 							{{item.createdDate}}
 						</div>
 					</div>
-					<p class="news_title mb-2 fs-5">{{item.title}}</p>
-					<p class="news_description">{{item.desc}}</p>
+					<p class="news_title mb-2">{{item.title}}</p>
+					<!-- <p class="news_description">{{item.description}}</p> -->
 					<div class="action">
 						<button class="btn btn-md btn-primary w-100">Подробнее</button>
 					</div>

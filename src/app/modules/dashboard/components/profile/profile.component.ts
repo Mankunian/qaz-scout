@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { RoleService } from 'src/app/services/role.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { UserService } from 'src/app/services/user.service';
 import { AuthService } from "../../../../services/auth.service";
+import { EditUserComponent } from '../../dialogs/edit-user/edit-user.component';
 
 @Component({
 	selector: 'app-profile',
@@ -17,36 +20,23 @@ export class ProfileComponent implements OnInit {
 
 
 	constructor(
-		private authService: AuthService,
-		private roleService: RoleService,
 		private tokenStorage: TokenStorageService,
-		private formBuilder: FormBuilder
+		private formBuilder: FormBuilder,
+		private userService: UserService,
+		public dialog: MatDialog,
 	) { }
 
 	ngOnInit(): void {
-		// this.userRole = this.roleService.getRoleOfCurrentUser();
 		this.getProfileInfo();
-		this.createProfileForm();
-	}
-	createProfileForm() {
-		return this.profileForm = this.formBuilder.group({
-			img: [this.profile.img],
-			fullName: [this.profile.lastname + ' ' + this.profile.firstname],
-			about: [this.profile.about],
-			club: [this.profile.club?.name],
-			role: [this.profile.role],
-			country: [this.profile.country?.name],
-			address: [this.profile.address],
-			phone: [this.profile.phone],
-			email: [this.profile.email],
-			instagram: [this.profile.social_links]
-		})
 	}
 
 	getProfileInfo() {
-		/* Чтобы не делать лишний запрос получаем инфу о юзере с sessionStorage */
-		this.profile = this.tokenStorage.getUser();
-		this.profile.fullName = this.setFullName();
+		let user = this.tokenStorage.getUser();
+		this.userService.getUserById(user.id).subscribe(response => {
+			console.log(response);
+			this.profile = response;
+			this.profile.fullName = this.setFullName();
+		})
 
 	}
 
@@ -54,9 +44,14 @@ export class ProfileComponent implements OnInit {
 		return this.profile.lastname + ' ' + this.profile.firstname;
 	}
 
-	updateProfile() {
-		let changedProfileInfo = this.profileForm.value;
-		console.log(changedProfileInfo)
+	openEditUserDialog(profile: any) {
+		const dialogRef = this.dialog.open(EditUserComponent, {
+			width: '600px',
+			data: profile
+		});
+		dialogRef.afterClosed().subscribe(result => {
+			this.getProfileInfo();
+		});
 	}
 
 }
