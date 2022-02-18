@@ -78,7 +78,9 @@ export class RegisterComponent implements OnInit {
 			country: [null],
 			address: [null],
 			social_links: [null],
-			club: [null]
+			club: [null],
+			status: [0],
+			position: [null]
 		})
 	}
 

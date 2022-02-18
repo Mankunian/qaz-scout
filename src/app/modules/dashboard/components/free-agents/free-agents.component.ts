@@ -1,6 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LeagueService } from 'src/app/services/league.service';
 import { NotificationService } from 'src/app/services/notification.service';
+import { PositionService } from 'src/app/services/position.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
 	selector: 'app-free-agents',
@@ -9,7 +13,7 @@ import { NotificationService } from 'src/app/services/notification.service';
 	encapsulation: ViewEncapsulation.None
 })
 export class FreeAgentsComponent implements OnInit {
-
+	filterForm!: FormGroup;
 	positions: any;
 	ageRange: any;
 	leagues: any;
@@ -18,50 +22,65 @@ export class FreeAgentsComponent implements OnInit {
 
 	constructor(
 		private router: Router,
-		private notificationService: NotificationService
+		private notificationService: NotificationService,
+		private leagueService: LeagueService,
+		private userService: UserService,
+		private positionService: PositionService
 	) { }
 
 	ngOnInit(): void {
-		this.positions = [
-			{ id: 1, code: 'striker', name: 'Нападающий' },
-			{ id: 2, code: 'midfielder', name: 'Полузащитник' },
-			{ id: 3, code: 'defender', name: 'Защитник' },
-			{ id: 4, code: 'universal', name: 'Универсал' },
-			{ id: 5, code: 'goalkeeper', name: 'Вратарь' }
-		];
+		this.getFilterForm();
+		this.getPositions();
+		this.getAgeRange();
+		this.getLeagues();
+		this.getFreeAgents();
+	}
+	getFilterForm() {
+		this.filterForm = new FormGroup({
+			"position": new FormControl(""),
+			"age": new FormControl(""),
+			"league": new FormControl("")
+		})
+	}
+	getPositions() {
+		this.positionService.getPositions().subscribe(response => {
+			this.positions = response;
+		})
+	}
+
+	getAgeRange() {
 		this.ageRange = [
 			{ id: 1, range: '10-15' },
 			{ id: 2, range: '15-27' },
 			{ id: 3, range: '27-40' },
 			{ id: 4, range: '40+' }
 		];
-		this.leagues = [
-			{ id: 1, name: 'Лига 1' },
-			{ id: 2, name: 'Лига 2' },
-			{ id: 3, name: 'Лига 3' },
-		];
-
-		this.freeAgents = [
-			{ id: 1, name: 'Cristiano Ronaldo', img: '1.jpg', position: 'Нападающий', age: 36, club: 'Манчестер Юнайтед', birthCountry: 'Португалия', league: 'Premier league', status: 0 },
-			{ id: 2, name: 'Yerlan Uteulin', img: '8.jpg', position: 'Защитник', age: 30, club: 'Без клуба', birthCountry: 'Казахстан', league: '-', status: 0 },
-			{ id: 3, name: 'Mohamed Salah', img: '3.jpg', position: 'Нападающий', age: 30, club: ' Ливерпуль', birthCountry: 'Египет', league: 'Premier league', status: 0 },
-			{ id: 4, name: 'Alisher Kelgenbay', img: '7.png', position: 'Нападающий', age: 26, club: ' Shaurma food', birthCountry: 'Казахстан', league: 'Лига 1', status: 0 },
-		]
 	}
 
-	saveSessionStorage(item: any): void {
-		sessionStorage.setItem('userDetails', JSON.stringify(item));
+	getFreeAgents() {
+		this.userService.getFreeAgents().subscribe((response: any) => {
+			console.log(response)
+			this.freeAgents = response;
+		})
 	}
 
-	invite(element: any) {
-		element.status = 1;
-		this.notificationService.showSnackBar('Заявка успешно отправлена')
+	getLeagues() {
+		this.leagueService.getLeagues().subscribe(response => {
+			console.log(response);
+			this.leagues = response;
+		})
 	}
 
+	invite(item: any) { }
 
-	reject(element: any) {
-		element.status = 0;
-		this.notificationService.showSnackBar('Приглашение отозвано')
+	reject(item: any) { }
+
+	searchByFilter() {
+		console.log(this.filterForm.value)
+	}
+
+	clearFilter() {
+		this.filterForm.reset();
 	}
 
 

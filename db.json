@@ -21,7 +21,7 @@
       "desc": "Админ платформы"
     }
   ],
-  "register_users": [
+  "users": [
     {
       "id": 1,
       "firstname": "Асхат",
@@ -45,18 +45,11 @@
       "club": {
         "name": "Shaurma Food",
         "logo": "https://shaurma-food.kz/images/logo-red-vector.svg",
-        "region": {
-          "name": "Астана",
-          "code": "01"
-        },
-        "league": {
-          "id": 2,
-          "name": "I Лига"
-        },
-        "address": "Сауран 34",
-        "instagram": "https://www.instagram.com/shaurmafood.kz/",
-        "website": "https://shaurma-food.kz/tarhana",
         "id": 1
+      },
+      "position": {
+        "id": 3,
+        "name": "Нападающий"
       }
     },
     {
@@ -79,7 +72,8 @@
         "code": "admin",
         "desc": "Админ платформы"
       },
-      "club": null
+      "club": null,
+      "status": 1
     },
     {
       "id": 6,
@@ -90,6 +84,7 @@
         "code": "01"
       },
       "email": "admin-shaurma",
+      "status": 1,
       "password": "123",
       "phone": "+7 (777) 788 88 88",
       "address": "Сарайшық, 5",
@@ -105,6 +100,119 @@
         "name": "Shaurma Food",
         "id": 1
       }
+    },
+    {
+      "id": 7,
+      "firstname": "Жаксы-Мурат",
+      "lastname": "Жаксыбек",
+      "region": {
+        "name": "Алматы",
+        "code": "02"
+      },
+      "email": "zhako13@mail.io",
+      "password": "123",
+      "phone": "87083576952",
+      "address": "Навои 72",
+      "img": "https://sun9-10.userapi.com/impf/c622716/v622716417/2c825/uM-RH907SoY.jpg?size=960x960&quality=96&sign=b704ffb6d096fa4d0cb89e592cd26d8e&type=album",
+      "instagram": null,
+      "about": "Закончил КАЗНУ. Учился в Китае. Работаю в Алмате ",
+      "role": {
+        "id": 1,
+        "code": "player",
+        "desc": "Игрок"
+      },
+      "club": null,
+      "position": {
+        "id": 4,
+        "name": "Универсал"
+      },
+      "status": 0
+    },
+    {
+      "id": 8,
+      "firstname": "Wilfried ",
+      "lastname": "Zaha",
+      "region": {
+        "name": "Северо-Казахстанская область",
+        "code": "15"
+      },
+      "email": "zaha",
+      "password": "123",
+      "phone": "",
+      "address": "«Селхерст Парк», Лондон",
+      "img": "https://i0.wp.com/www.glusea.com/wp-content/uploads/2020/10/PRI_113533441.jpg?resize=740%2C501&ssl=1",
+      "instagram": "https://www.instagram.com/wilfriedzaha/?hl=ru",
+      "about": "Дазе́ Вильфри́д Арме́ль Заа́ — ивуарийский и английский футболист. Выступает на позиции крайнего полузащитника за английский клуб «Кристал Пэлас» и сборную Кот-д’Ивуара.",
+      "role": {
+        "id": 1,
+        "code": "player",
+        "desc": "Игрок"
+      },
+      "club": null,
+      "position": {
+        "id": 3,
+        "name": "Нападающий"
+      }
+    },
+    {
+      "id": 9,
+      "firstname": "Роберто",
+      "lastname": "Мартинес",
+      "region": null,
+      "email": "martinez",
+      "password": "123",
+      "phone": "",
+      "address": "",
+      "img": "https://kff.kz/uploads/images/2019/10/14/5da3823087475.jpg",
+      "instagram": null,
+      "about": "Робе́рто Марти́нес Монтолиу́ — испанский футболист, полузащитник и футбольный тренер. Начиная с 2016 года является главным тренером сборной Бельгии. Ранее также работал в валлийском клубе «Суонси Сити» и английских «Уигане» и «Эвертоне»",
+      "role": {
+        "id": 2,
+        "code": "coach",
+        "desc": "Тренер"
+      },
+      "club": null,
+      "position": null,
+      "status": 0,
+      "fullName": "Мартинес Роберто",
+      "images": [
+        "https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1477x464:1479x462)/origin-imgresizer.eurosport.com/2021/07/05/3167443-64904308-2560-1440.jpg",
+        "https://s4.stc.all.kpcdn.net/sports/wp-content/uploads/2021/04/roberto-martines.jpeg",
+        "https://cdnimg.rg.ru/img/content/156/73/71/90_d_850.jpg"
+      ]
+    },
+    {
+      "id": 10,
+      "firstname": "Бауыржан",
+      "lastname": "Исламхан",
+      "region": {
+        "name": "Алматы",
+        "code": "02"
+      },
+      "email": "islamkhan9",
+      "password": "123",
+      "phone": "87774556215",
+      "address": "Сыганак 10",
+      "img": "https://vesti.kz/userdata/news/news_268658/crop_b/photo_131427.jpg",
+      "instagram": "https://www.instagram.com/islamkhan_9/",
+      "about": "Бауыржа́н Ербосы́нович Исламха́н — казахстанский футболист, полузащитник клуба «Аль-Айн», бывший капитан сборной Казахстана. 6-кратный вице-чемпион Казахстана и 4-кратный обладатель Кубка страны",
+      "role": {
+        "id": 1,
+        "code": "player",
+        "desc": "Игрок"
+      },
+      "club": null,
+      "position": {
+        "id": 4,
+        "name": "Универсал"
+      },
+      "status": 0,
+      "fullName": "Исламхан Бауыржан",
+      "images": [
+        "https://vesti.kz/userdata/news/2021/news_304496/crop_b/photo_170796.jpg",
+        "https://sports.kz/upload/2020-12/500_5fe48680071bf.jpg",
+        "https://fergana.news/siteapi/media/images/383f5ec2-daaa-40db-925b-0477d98c4e8b.jpeg"
+      ]
     }
   ],
   "news": [
@@ -268,6 +376,24 @@
     {
       "id": 5,
       "name": "IV лига"
+    }
+  ],
+  "positions": [
+    {
+      "id": 1,
+      "name": "Вратарь"
+    },
+    {
+      "id": 2,
+      "name": "Защитник"
+    },
+    {
+      "id": 3,
+      "name": "Нападающий"
+    },
+    {
+      "id": 4,
+      "name": "Универсал"
     }
   ]
 }

@@ -9,39 +9,41 @@
 </div>
 
 <div class="card search_filter p-2">
-	<div class="row d-flex align-items-center">
-		<div class="col-lg-2">
-			<mat-form-field appearance="outline">
-				<mat-label>Позиция</mat-label>
-				<mat-select>
-					<mat-option *ngFor="let item of positions" [value]="item">{{ item.name }}</mat-option>
-				</mat-select>
-			</mat-form-field>
+	<form [formGroup]="filterForm">
+		<div class="row d-flex align-items-center">
+			<div class="col-lg-2">
+				<mat-form-field appearance="outline">
+					<mat-label>Позиция</mat-label>
+					<mat-select formControlName="position">
+						<mat-option *ngFor="let item of positions" [value]="item">{{ item.name }}</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-lg-2">
+				<mat-form-field appearance="outline">
+					<mat-label>Возраст</mat-label>
+					<mat-select formControlName="age">
+						<mat-option>Выберите возраст</mat-option>
+						<mat-option *ngFor="let item of ageRange" [value]="item">{{ item.range }}</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-lg-2">
+				<mat-form-field appearance="outline">
+					<mat-label>Лига</mat-label>
+					<mat-select formControlName="league">
+						<mat-option *ngFor="let item of leagues" [value]="item">{{ item.name }}</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-lg-2">
+				<button (click)="searchByFilter()" mat-raised-button color="primary">Поиск по фильтру</button>
+			</div>
+			<div class="col-lg-2">
+				<button (click)="clearFilter()" mat-raised-button color="warn">Сбросить фильтр</button>
+			</div>
 		</div>
-		<div class="col-lg-2">
-			<mat-form-field appearance="outline">
-				<mat-label>Возраст</mat-label>
-				<mat-select>
-					<mat-option [value]="null">Выберите возраст</mat-option>
-					<mat-option *ngFor="let item of ageRange" [value]="item">{{ item.range }}</mat-option>
-				</mat-select>
-			</mat-form-field>
-		</div>
-		<div class="col-lg-2">
-			<mat-form-field appearance="outline">
-				<mat-label>Лига</mat-label>
-				<mat-select>
-					<mat-option *ngFor="let item of leagues" [value]="item">{{ item.name }}</mat-option>
-				</mat-select>
-			</mat-form-field>
-		</div>
-		<div class="col-lg-2">
-			<button mat-raised-button color="primary">Поиск по фильтру</button>
-		</div>
-		<div class="col-lg-2">
-			<button mat-raised-button color="warn">Сбросить фильтр</button>
-		</div>
-	</div>
+	</form>
 </div>
 
 <section class="section free-agents" id="free-agents">
@@ -50,20 +52,28 @@
 			<div class="card">
 				<!-- Header -->
 				<div class="card-header">
-					<span class="badge bg-danger d-flex align-items-center">Недавние</span>
+					<span class="badge bg-danger d-flex align-items-center">{{item.role.desc}}</span>
 					<i class="bi bi-share"></i>
 				</div>
 				<!-- Body -->
 				<div class="card-body">
 					<div class="text-center">
-						<img src="../../../../../assets/img/custom/free-agents/{{item.img}}" alt="">
-						<h3>{{item.name}}</h3>
-						<p class="club">{{item.club}}</p>
+						<img [hidden]="!item.img" [src]="item.img" alt="profile">
+						<img [hidden]="item.img"
+							src="https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image.png" alt="">
+						<h3>{{item.firstname}} {{item.lastname}}</h3>
+						<p class="club">
+							<span *ngIf="item.position">{{item.position.name}}</span>
+							<span *ngIf="item.position == null">Тренер</span>
+						</p>
+
 					</div>
 				</div>
 				<!-- Footer -->
 				<div class="card-footer">
 					<div class="links mt-2 text-center">
+						<button routerLink="/dashboard/free-agent/{{item.id}}" mat-raised-button color="primary"
+							routerLink="/dashboard/">Подробнее</button>
 						<button *ngIf="item.status == 0" (click)="invite(item)" mat-raised-button>Пригласить на просмотр</button>
 						<button *ngIf="item.status == 1" (click)="reject(item)" mat-raised-button color="warn">Отозвать</button>
 					</div>

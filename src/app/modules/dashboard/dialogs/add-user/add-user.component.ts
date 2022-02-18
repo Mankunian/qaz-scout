@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ClubService } from 'src/app/services/club.service';
 import { NotificationService } from 'src/app/services/notification.service';
+import { PositionService } from 'src/app/services/position.service';
 import { RegionService } from 'src/app/services/region.service';
 import { RoleService } from 'src/app/services/role.service';
 import { UserService } from 'src/app/services/user.service';
@@ -17,19 +18,33 @@ export class AddUserComponent implements OnInit {
 	regionList: any;
 	createUserForm!: FormGroup;
 	rolesList: any;
+	positionList: any;
 	constructor(
 		public dialogRef: MatDialogRef<AddUserComponent>,
 		private userService: UserService,
 		private clubService: ClubService,
 		private regionService: RegionService,
 		private roleService: RoleService,
-		private notification: NotificationService
+		private notification: NotificationService,
+		private positionService: PositionService
 	) { }
 
 	ngOnInit(): void {
 		this.getClubs();
 		this.getRegions();
 		this.getRoles();
+		this.getPositions();
+		this.getFormGroup();
+	}
+
+	getPositions() {
+		this.positionService.getPositions().subscribe(response => {
+			console.log(response)
+			this.positionList = response;
+		})
+	}
+
+	getFormGroup() {
 		this.createUserForm = new FormGroup({
 			"firstname": new FormControl(null, Validators.required),
 			"lastname": new FormControl(null, Validators.required),
@@ -42,9 +57,11 @@ export class AddUserComponent implements OnInit {
 			"instagram": new FormControl(null),
 			"about": new FormControl(null),
 			"role": new FormControl(null),
-			"club": new FormControl(null)
+			"club": new FormControl(null),
+			"position": new FormControl(null)
 		})
 	}
+
 	getRoles() {
 		this.roleService.getRoles().subscribe(response => {
 			this.rolesList = response;
@@ -63,6 +80,7 @@ export class AddUserComponent implements OnInit {
 			});
 		})
 	}
+
 	getRegions() {
 		this.regionService.getRegions().subscribe(response => {
 			this.regionList = response;

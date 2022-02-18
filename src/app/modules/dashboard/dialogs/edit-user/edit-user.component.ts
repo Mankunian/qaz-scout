@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ClubService } from 'src/app/services/club.service';
 import { NotificationService } from 'src/app/services/notification.service';
+import { PositionService } from 'src/app/services/position.service';
 import { RegionService } from 'src/app/services/region.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -16,19 +17,29 @@ export class EditUserComponent implements OnInit {
 	selectedRegion!: region;
 	public updateUserForm!: FormGroup;
 	clubList: any;
-	userRoleCode: any;
+	isRole: any;
+	positionList: any;
+	isClub: any;
 	constructor(
 		public dialogRef: MatDialogRef<EditUserComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: any,
 		private regionService: RegionService,
-		private formBuilder: FormBuilder,
 		private userService: UserService,
 		private notification: NotificationService,
-		private clubService: ClubService
+		private clubService: ClubService,
+		private positionService: PositionService
 	) { }
 
 	ngOnInit(): void {
-		this.userRoleCode = this.data.role.code;
+		this.isRole = this.data.role.code;
+		this.isClub = this.data.club;
+		this.getFormGroup();
+		this.getRegions();
+		this.getClubs();
+		this.getPositions();
+	}
+
+	getFormGroup() {
 		this.updateUserForm = new FormGroup({
 			"id": new FormControl(this.data.id),
 			"firstname": new FormControl(this.data.firstname, Validators.required),
@@ -42,16 +53,25 @@ export class EditUserComponent implements OnInit {
 			"instagram": new FormControl(this.data.instagram),
 			"about": new FormControl(this.data.about),
 			"role": new FormControl(this.data.role),
-			"club": new FormControl(this.data.club)
+			"club": new FormControl(this.data.club),
+			"position": new FormControl(this.data.position),
+			"status": new FormControl(this.data.status)
 		})
-		this.getRegions();
-		this.getClubs();
 	}
+
+	getPositions() {
+		this.positionService.getPositions().subscribe(response => {
+			console.log(response)
+			this.positionList = response;
+		})
+	}
+
 	getClubs() {
 		this.clubService.getClubs().subscribe(response => {
 			this.clubList = response;
 		})
 	}
+
 	getRegions() {
 		this.regionService.getRegions().subscribe(response => {
 			this.regionList = response;
@@ -59,8 +79,8 @@ export class EditUserComponent implements OnInit {
 	}
 
 	updateUser() {
-		console.log(this.updateUserForm.value)
 		let user = this.updateUserForm.value;
+		this.data.club == null ? user.status = 0 : user.status = 1;
 		this.userService.updateUser(user).subscribe((response: any) => {
 			console.log(response);
 			this.dialogRef.close();
@@ -68,9 +88,16 @@ export class EditUserComponent implements OnInit {
 		})
 	}
 
-	public objectComparisonFunction = function (option: any, value: any): boolean {
+	public regionComparisonFunction = function (option: any, value: any): boolean {
 		console.log(option, value)
 		return option.code === value.code;
+	}
+
+	public objectComparisonFunction = function (option: any, value: any): any {
+		console.log(option, value);
+		if (value) {
+			return option.id === value.id;
+		}
 	}
 }
 

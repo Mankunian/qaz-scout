@@ -16,8 +16,10 @@ import { RolesComponent } from './components/dictionary/roles/roles.component';
 import { UsersComponent } from './components/dictionary/users/users.component';
 import { EmailComponent } from './components/email/email.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { FreeAgentDetailsComponent } from './components/free-agents/free-agent-details/free-agent-details.component';
 import { FreeAgentsComponent } from './components/free-agents/free-agents.component';
 import { HomeComponent } from './components/home/home.component';
+import { NewsDetailsComponent } from './components/news/news-details/news-details.component';
 import { NewsComponent } from './components/news/news.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { StatsComponent } from './components/stats/stats.component';
@@ -30,6 +32,7 @@ const routes: Routes = [
 
 			{ path: 'home', component: HomeComponent },
 			{ path: 'news', component: NewsComponent },
+			{ path: 'news/:id', component: NewsDetailsComponent },
 			{ path: 'stats', component: StatsComponent },
 			{ path: 'faq', component: FaqComponent },
 			{ path: 'contacts', component: ContactsComponent },
@@ -37,6 +40,7 @@ const routes: Routes = [
 			{ path: 'email', component: EmailComponent },
 			{ path: 'analytics', component: AnalyticsComponent },
 			{ path: 'free-agents', component: FreeAgentsComponent },
+			{ path: 'free-agent/:id', component: FreeAgentDetailsComponent },
 			{ path: 'training-center', component: TrainingCenterComponent },
 
 			{ path: 'club/:id/about', component: AboutClubComponent },

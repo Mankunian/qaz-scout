@@ -6,13 +6,17 @@ import { Observable } from 'rxjs';
 	providedIn: 'root'
 })
 export class NewsService {
-	NEWS_API: any = 'http://localhost:3000/news';
+	NEWS_API: any = 'http://localhost:3000/news/';
 	constructor(
 		private http: HttpClient,
 	) { }
 
 	getNews(): Observable<any> {
 		return this.http.get(this.NEWS_API + "?_sort=id&_order=desc");
+	}
+
+	getNewsById(newsId: any): Observable<any> {
+		return this.http.get(this.NEWS_API + newsId);
 	}
 
 	createNews(news: any): Observable<any> {

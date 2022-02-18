@@ -1,0 +1,50 @@
+<div class="pagetitle">
+	<div class="row">
+		<div class="col">
+			<h1>Новости</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a>Главная</a></li>
+					<li class="breadcrumb-item" routerLink="/dashboard/news">Новости</li>
+					<li class="breadcrumb-item active">{{newsDetail?.title}}</li>
+				</ol>
+			</nav>
+		</div>
+	</div>
+</div>
+
+<section class="section" id="news">
+	<div class="row">
+		<div class="col-lg-6">
+			<img [src]="newsDetail?.img" alt="img">
+			<div class="title mt-2">
+				<h4>{{newsDetail?.title}}</h4>
+			</div>
+			<div class="description">
+				{{newsDetail?.description}}
+			</div>
+		</div>
+		<!-- <div class="col-lg-6">
+			<div class="row">
+				<div class="col-lg-6" *ngFor="let item of newsList">
+					<div class="card shadow-sm">
+						<img [src]="item?.img" alt="" class="mb-2">
+
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-center mt-2 mb-2 news_item__category">
+								<span>Новости</span>
+								<div class="news-item__date">
+									{{item.createdDate}}
+								</div>
+							</div>
+							<p class="news_title mb-2">{{item.title}}</p>
+							<div class="action">
+								<button routerLink="/dashboard/news/{{item.id}}" class="btn btn-md btn-primary w-100">Подробнее</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
+	</div>
+</section>

@@ -57,6 +57,11 @@ import { PrimengModule } from 'src/app/primeng-module';
 import { EditUserComponent } from './dialogs/edit-user/edit-user.component';
 import { AddClubComponent } from './dialogs/add-club/add-club.component';
 import { EditClubComponent } from './dialogs/edit-club/edit-club.component';
+import { AddImagesComponent } from './dialogs/add-images/add-images.component';
+import { AddVideoComponent } from './dialogs/add-video/add-video.component';
+import { HomePlayerComponent } from './components/home/home-player/home-player.component';
+import { NewsDetailsComponent } from './components/news/news-details/news-details.component';
+import { FreeAgentDetailsComponent } from './components/free-agents/free-agent-details/free-agent-details.component';
 @NgModule({
 	declarations: [
 		/* Main */
@@ -104,7 +109,12 @@ import { EditClubComponent } from './dialogs/edit-club/edit-club.component';
 		ProfileComponent,
 		EditUserComponent,
   AddClubComponent,
-  EditClubComponent
+  EditClubComponent,
+  AddImagesComponent,
+  AddVideoComponent,
+  HomePlayerComponent,
+  NewsDetailsComponent,
+  FreeAgentDetailsComponent
 		/* Dialogs */
 	],
 	imports: [

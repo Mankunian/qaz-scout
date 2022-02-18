@@ -181,10 +181,10 @@
 					<span class="d-none d-md-block dropdown-toggle ps-2">{{profile?.firstname}} {{profile?.lastname}}</span>
 				</a>
 
-				<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile d-none">
+				<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
 					<li class="dropdown-header">
-						<h6>{{profile?.firstName}} {{profile?.lastName}}</h6>
-						<span>{{profile?.role.name}}</span>
+						<h6>{{profile?.firstname}} {{profile?.lastname}}</h6>
+						<span>{{profile?.role.desc}}</span>
 					</li>
 					<li>
 						<hr class="dropdown-divider">
@@ -201,17 +201,11 @@
 					</li>
 
 					<li>
-						<a class="dropdown-item d-flex align-items-center" routerLink="/profile">
-							<i class="bi bi-gear"></i>
-							<span>Настройки Аккаунта</span>
-						</a>
-					</li>
-					<li>
 						<hr class="dropdown-divider">
 					</li>
 
 					<li>
-						<a class="dropdown-item d-flex align-items-center" routerLink="/faq">
+						<a class="dropdown-item d-flex align-items-center" routerLink="/dashboard/faq">
 							<i class="bi bi-question-circle"></i>
 							<span>Нужна помощь?</span>
 						</a>

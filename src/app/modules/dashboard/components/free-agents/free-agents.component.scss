@@ -46,8 +46,8 @@
 
       p:nth-of-type(1) {
         color: rgb(35, 182, 219);
-        font-size: 13px;
-        margin-top: -5px;
+        font-size: 15px;
+        margin: 0;
       }
 
       p:nth-of-type(2) {
@@ -59,6 +59,10 @@
 
     .card-footer {
       padding: 0;
+      .links button {
+        width: 100%;
+        margin-bottom: 0.5em;
+      }
     }
   }
 }

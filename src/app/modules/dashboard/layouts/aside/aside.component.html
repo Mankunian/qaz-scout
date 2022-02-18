@@ -16,14 +16,14 @@
 			</a>
 		</li>
 		<!-- СТАТИСТИКА -->
-		<li class="nav-item" *ngIf="this.userRole == 'admin'">
+		<li class="nav-item d-none" *ngIf="this.userRole == 'admin'">
 			<a class="nav-link" routerLink="/dashboard/stats">
 				<i class="bi bi-percent"></i>
 				<span>Статистика</span>
 			</a>
 		</li>
 		<!-- АНАЛИТИКА -->
-		<li class="nav-item" *ngIf="this.userRole == 'admin' ">
+		<li class="nav-item d-none" *ngIf="this.userRole == 'admin' ">
 			<a class="nav-link" routerLink="/dashboard/analytics">
 				<i class="bi bi-graph-up"></i>
 				<span>Аналитика</span>
@@ -80,7 +80,7 @@
 		</li>
 
 		<!-- КЛУБ ДЛЯ ИГРОКА -->
-		<li class="nav-item" *ngIf="this.userRole == 'player' ">
+		<li class="nav-item" [hidden]="loggedUser.club == null">
 			<a class="nav-link collapsed" data-bs-target="#club" data-bs-toggle="collapse">
 				<i class="bi bi-shield-fill"></i><span>Клуб</span><i class="bi bi-chevron-down ms-auto"></i>
 			</a>
@@ -166,7 +166,7 @@
 		</li>
 
 		<!-- FAQ -->
-		<li class="nav-item">
+		<li class="nav-item d-none">
 			<a class="nav-link" routerLink="/dashboard/faq">
 				<i class="bi bi-patch-question-fill"></i>
 				<span>FAQ</span>
@@ -175,7 +175,7 @@
 
 
 		<!-- КОНТАКТЫ -->
-		<li class="nav-item" *ngIf="this.userRole == 'admin' || this.userRole == 'club' ">
+		<li class="nav-item d-none" *ngIf="this.userRole == 'admin' || this.userRole == 'club' ">
 			<a class="nav-link" routerLink="/dashboard/contacts">
 				<i class="bi bi-envelope"></i>
 				<span>Контакты</span>

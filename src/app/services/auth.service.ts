@@ -8,7 +8,7 @@ import { RoleService } from './role.service';
 	providedIn: 'root'
 })
 export class AuthService {
-	REGISTER_API: any = 'http://localhost:3000/register_users';
+	REGISTER_API: any = 'http://localhost:3000/users';
 	LOGIN_API: any = 'http://localhost:3000/login';
 	constructor(
 		private http: HttpClient,
