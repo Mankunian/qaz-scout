@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApplicationService } from 'src/app/services/application.service';
 import { LeagueService } from 'src/app/services/league.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { PositionService } from 'src/app/services/position.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -25,7 +27,9 @@ export class FreeAgentsComponent implements OnInit {
 		private notificationService: NotificationService,
 		private leagueService: LeagueService,
 		private userService: UserService,
-		private positionService: PositionService
+		private positionService: PositionService,
+		private tokenStorage: TokenStorageService,
+		private appService: ApplicationService
 	) { }
 
 	ngOnInit(): void {
@@ -71,7 +75,26 @@ export class FreeAgentsComponent implements OnInit {
 		})
 	}
 
-	invite(item: any) { }
+	invite(item: any) {
+		let today = new Date();
+		let author = this.tokenStorage.getUser();
+		let appDetail = {
+			"applicationTo": {
+				"id": item.id,
+				"fullname": item.firstname + ' ' + item.lastname
+			},
+			"createdDate": today,
+			"applicationFrom": {
+				"id": author.id,
+				"fullname": author.fullName,
+				"img": author.img
+			}
+		}
+		console.log(appDetail);
+		this.appService.sendApplication(appDetail).subscribe((response: any) => {
+			console.log(response)
+		})
+	}
 
 	reject(item: any) { }
 

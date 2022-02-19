@@ -6,6 +6,7 @@ import {
 	MatSnackBarHorizontalPosition,
 	MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import { ApplicationService } from 'src/app/services/application.service';
 import { IncomingAppsService } from 'src/app/services/incoming-apps.service';
 import { RoleService } from 'src/app/services/role.service';
 import { AddUserComponent } from '../../dialogs/add-user/add-user.component';
@@ -28,7 +29,7 @@ export class EmailComponent implements OnInit {
 	constructor(
 		private _snackBar: MatSnackBar,
 		public dialog: MatDialog,
-		private incomingAppService: IncomingAppsService,
+		private appService: ApplicationService,
 		private roleService: RoleService
 	) { }
 
@@ -38,7 +39,7 @@ export class EmailComponent implements OnInit {
 	}
 
 	getApps() {
-		this.incomingAppService.getApps().then(data => {
+		this.appService.getApplicationsById().then(data => {
 			this.dataSource = data;
 		})
 	}

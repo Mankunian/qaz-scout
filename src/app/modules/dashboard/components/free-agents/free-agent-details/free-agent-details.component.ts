@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
@@ -6,7 +6,8 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
 	selector: 'app-free-agent-details',
 	templateUrl: './free-agent-details.component.html',
-	styleUrls: ['./free-agent-details.component.scss']
+	styleUrls: ['./free-agent-details.component.scss'],
+	encapsulation: ViewEncapsulation.None
 })
 export class FreeAgentDetailsComponent implements OnInit {
 	profile: any;
@@ -33,7 +34,7 @@ export class FreeAgentDetailsComponent implements OnInit {
 	}
 
 	setFullName(): string {
-		return this.profile.lastname + ' ' + this.profile.firstname;
+		return this.profile.firstname + ' ' + this.profile.lastname;
 	}
 
 	ngOnInit(): void {

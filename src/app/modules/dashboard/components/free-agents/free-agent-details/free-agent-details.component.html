@@ -10,24 +10,60 @@
 
 <section class="section profile">
 	<div class="row">
-		<div class="col-lg-3">
+		<div class="col-xl-3 col-lg-4 col-md-6">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="card">
+						<div class="share_action">
+							<i class="bi bi-share-fill rounded-circle"></i>
+						</div>
+						<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+							<img [hidden]="!profile?.img" [src]="profile?.img" alt="Profile" class="rounded-circle profile">
+							<i [hidden]="profile?.img" style="font-size: 5em;" class="bi bi-person-circle"></i>
+							<h2>{{profile?.firstname}} {{profile?.lastname}} </h2>
+							<span class="verified"><i class="bi bi-shield-fill-check"></i> Проверенный игрок</span>
+							<span class="country">{{profile?.region.name}}, Казахстан</span>
+							<div class="mt-2">
+								<span class="sex mx-2">
+									<i class="bi bi-gender-male"></i> Мужской
+								</span>
+								<span class="position">
+									<i class="bi bi-lightning-charge-fill"></i>{{profile?.position.name}}
+								</span>
+							</div>
 
-			<div class="card">
-				<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+						</div>
+					</div>
+				</div>
 
-					<img [hidden]="!profile?.img" [src]="profile?.img" alt="Profile" class="rounded-circle profile">
-					<i [hidden]="profile?.img" style="font-size: 5em;" class="bi bi-person-circle"></i>
-					<h2>{{profile?.firstname}} {{profile?.lastname}}</h2>
-					<h3>{{profile?.role.desc}}</h3>
-					<div class="social-links mt-2">
-						<a *ngIf="profile?.instagram" target="_blank" [href]="profile?.instagram" class="instagram"><i
-								class="bi bi-instagram"></i></a>
+				<div class="col-xl-12">
+					<div class="card">
+						<ul class="list-group">
+							<li class="list-group-item d-flex justify-content-between align-items-center">
+								<i class="bi bi-globe"></i>
+
+								<span>Own website</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-center">
+								<i class="bi bi-instagram"></i>
+								<span>Instagram link</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-center">
+								<i class="bi bi-telegram"></i>
+								<span>Telegram link</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-center">
+								<i class="bi bi-facebook"></i>
+								<span>Facebook link</span>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="col-lg-9">
+
+		<div class="col-xl-9 col-lg-8 col-md-12 col-sm-12">
 
 			<div class="card">
 				<div class="card-body pt-3">
@@ -61,55 +97,130 @@
 					<div class="tab-content pt-2">
 						<!-- Общая информация -->
 						<div class="tab-pane fade show active profile-overview" id="profile-overview">
-							<div class="row d-flex align-items-center mb-0">
-								<div class="col">
+							<div class="row d-flex mb-0">
+								<div class="col-lg-6 col-md-12">
 									<h5 class="card-title">Описание</h5>
+									<p class="small fst-italic">{{profile?.about}}</p>
+
+									<h5 class="card-title">Детали профиля</h5>
+
+									<div class="row">
+										<div class="col-lg-3 col-md-4 label ">Полное имя</div>
+										<div class="col-lg-9 col-md-8">{{profile?.fullName}}</div>
+									</div>
+
+									<div class="row" *ngIf="profile?.role.code !== 'admin' ">
+										<div class="col-lg-3 col-md-4 label">Клуб</div>
+										<div class="col-lg-9 col-md-8">
+											<span *ngIf="profile?.club"> {{profile?.club?.name}}</span>
+											<span *ngIf="!profile?.club" class="badge bg-primary">Свободный агент</span>
+										</div>
+
+									</div>
+
+									<div class="row">
+										<div class="col-lg-3 col-md-4 label">Роль</div>
+										<div class="col-lg-9 col-md-8">{{profile?.role?.desc}}</div>
+									</div>
+
+									<div class="row">
+										<div class="col-lg-3 col-md-4 label">Регион</div>
+										<div class="col-lg-9 col-md-8">{{profile?.region?.name}}</div>
+									</div>
+
+									<div class="row">
+										<div class="col-lg-3 col-md-4 label">Телефон</div>
+										<div class="col-lg-9 col-md-8">{{profile?.phone}}</div>
+									</div>
+
+									<div class="row">
+										<div class="col-lg-3 col-md-4 label">Email</div>
+										<div class="col-lg-9 col-md-8">{{profile?.email}}</div>
+									</div>
+
+								</div>
+
+								<div class="col">
+									<h5 class="card-title">Позиция</h5>
+									<div class="football_field border position-relative">
+										<div class="gk">
+											<div class="round">
+												<input type="checkbox" id="gk" />
+												<label for="gk">GK</label>
+											</div>
+										</div>
+										<div class="lb">
+											<div class="round">
+												<input type="checkbox" id="lb" />
+												<label for="lb">LB</label>
+											</div>
+
+										</div>
+										<div class="cb">
+											<div class="round">
+												<input type="checkbox" id="cb" />
+												<label for="cb">CB</label>
+											</div>
+										</div>
+										<div class="rb">
+											<div class="round">
+												<input type="checkbox" id="rb" />
+												<label for="rb">RB</label>
+											</div>
+										</div>
+										<div class="dm">
+											<div class="round">
+												<input type="checkbox" checked id="dm" />
+												<label for="dm">DM</label>
+											</div>
+										</div>
+										<div class="cm">
+											<div class="round">
+												<input type="checkbox" checked id="cm" />
+												<label for="cm">CM</label>
+											</div>
+										</div>
+										<div class="rm">
+											<div class="round">
+												<input type="checkbox" id="rm" />
+												<label for="rm">RM</label>
+											</div>
+										</div>
+										<div class="lm">
+											<div class="round">
+												<input type="checkbox" id="lm" />
+												<label for="lm">LM</label>
+											</div>
+										</div>
+										<div class="am">
+											<div class="round">
+												<input type="checkbox" id="am" />
+												<label for="am">AM</label>
+											</div>
+										</div>
+										<div class="rw">
+											<div class="round">
+												<input type="checkbox" id="rw" />
+												<label for="rw">RW</label>
+											</div>
+										</div>
+										<div class="lw">
+											<div class="round">
+												<input type="checkbox" id="lw" />
+												<label for="lw">LW</label>
+											</div>
+										</div>
+										<div class="st">
+											<div class="round">
+												<input type="checkbox" id="st" />
+												<label for="st">ST</label>
+											</div>
+										</div>
+									</div>
 								</div>
 
 							</div>
 
-							<p class="small fst-italic">{{profile?.about}}</p>
-
-							<h5 class="card-title">Детали профиля</h5>
-
-							<div class="row">
-								<div class="col-lg-3 col-md-4 label ">Полное имя</div>
-								<div class="col-lg-9 col-md-8">{{profile?.fullName}}</div>
-							</div>
-
-							<div class="row" *ngIf="profile?.role.code !== 'admin' ">
-								<div class="col-lg-3 col-md-4 label">Клуб</div>
-								<div class="col-lg-9 col-md-8">
-									<span *ngIf="profile?.club"> {{profile?.club?.name}}</span>
-									<span *ngIf="!profile?.club" class="badge bg-primary">Свободный агент</span>
-								</div>
-
-							</div>
-
-							<div class="row">
-								<div class="col-lg-3 col-md-4 label">Роль</div>
-								<div class="col-lg-9 col-md-8">{{profile?.role?.desc}}</div>
-							</div>
-
-							<div class="row">
-								<div class="col-lg-3 col-md-4 label">Регион</div>
-								<div class="col-lg-9 col-md-8">{{profile?.region?.name}}</div>
-							</div>
-
-							<div class="row">
-								<div class="col-lg-3 col-md-4 label">Адрес</div>
-								<div class="col-lg-9 col-md-8">{{profile?.address}}</div>
-							</div>
-
-							<div class="row">
-								<div class="col-lg-3 col-md-4 label">Телефон</div>
-								<div class="col-lg-9 col-md-8">{{profile?.phone}}</div>
-							</div>
-
-							<div class="row">
-								<div class="col-lg-3 col-md-4 label">Email</div>
-								<div class="col-lg-9 col-md-8">{{profile?.email}}</div>
-							</div>
 
 						</div>
 						<!-- Общая информация -->
@@ -132,7 +243,7 @@
 						<div class="tab-pane fade pt-3" id="video">
 
 							<div class="row">
-								<div class="col-lg-6 col-md-6" *ngFor="let item of profile?.videos">
+								<div class="col-lg-4 col-md-6" *ngFor="let item of profile?.videos">
 									<div class="card">
 										<iframe height="250" [src]="safeURL" title="YouTube video player" frameborder="0"
 											allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -147,4 +258,5 @@
 			</div>
 		</div>
 	</div>
+
 </section>
