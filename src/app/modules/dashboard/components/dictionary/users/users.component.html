@@ -54,7 +54,7 @@
 									<span *ngIf="!user.club && user.role.code == 'player' || user.role.code == 'coach' "
 										class="badge bg-success">Свободный
 										агент</span>
-									<a class="text-primary">{{user?.club?.name}}</a>
+									<a routerLink="/club/{{user?.club?.id}}/about" class="text-primary">{{user?.club?.name}}</a>
 								</td>
 								<td>{{user?.region?.name}}</td>
 								<td>{{user?.phone}}</td>

@@ -10,3 +10,10 @@
 
 <app-home-club *ngIf="loggedInUser.role.code == 'club' "></app-home-club>
 <app-home-coach *ngIf="loggedInUser.role.code == 'coach' "></app-home-coach>
+
+<p>{{myDate | date:"dd/MM/yyyy HH:mm"}}</p>
+<p>{{myDate}}</p>
+
+
+
+<p>{{newDate}}</p>

@@ -20,14 +20,10 @@ export class AboutClubComponent implements OnInit {
 		this.getClubInfoById(clubId);
 	}
 
-	getClubInfoById(clubId: string | null) {
-		this.clubService.getClubInfo(clubId).subscribe(response => {
+	getClubInfoById(clubId: any) {
+		this.clubService.getClubById(clubId).subscribe(response => {
 			console.log(response);
-			response.forEach((element: any) => {
-				if (element.id == clubId) {
-					this.clubInfo = element;
-				}
-			});
+			this.clubInfo = response;
 		})
 	}
 

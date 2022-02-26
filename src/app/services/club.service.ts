@@ -10,8 +10,8 @@ export class ClubService {
 	constructor(private http: HttpClient) { }
 
 	/* Test API */
-	getClubInfo(clubId: any): Observable<any> {
-		return this.http.get('assets/json/common/club.json');
+	getClubById(clubId: any): Observable<any> {
+		return this.http.get(this.CLUB_API + clubId);
 	}
 
 	/* CREATE */
