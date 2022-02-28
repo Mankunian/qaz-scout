@@ -23,48 +23,6 @@
   ],
   "users": [
     {
-      "id": 1,
-      "firstname": "Асхат",
-      "lastname": "Райханов",
-      "region": {
-        "name": "Астана",
-        "code": "01"
-      },
-      "email": "askhat@mail.io",
-      "password": "123",
-      "phone": "+77471235999",
-      "address": "Мангилик ел 49",
-      "img": "https://sun9-70.userapi.com/impf/c836129/v836129025/5ae17/VNg6lHDvPDk.jpg?size=720x1280&quality=96&sign=eade77f9791cf939191de9afd6800cbc&type=album",
-      "instagram": null,
-      "about": "Я стоматолог",
-      "role": {
-        "id": 1,
-        "code": "player",
-        "desc": "Игрок"
-      },
-      "club": {
-        "id": 2,
-        "name": "CoffeeBoom",
-        "logo": "https://coffeeboom.kz/themes/coffeeboom/src/build/images/logo.svg",
-        "region": {
-          "name": "Алматы",
-          "code": "02"
-        },
-        "league": {
-          "id": 5,
-          "name": "IV лига"
-        },
-        "address": "Сыганак 17a",
-        "instagram": "https://instagram.com/coffeeboom2010",
-        "website": "https://coffeeboom.kz/"
-      },
-      "position": {
-        "id": 3,
-        "name": "Нападающий"
-      },
-      "status": 1
-    },
-    {
       "id": 5,
       "firstname": "Диас",
       "lastname": "Айдархан",
@@ -86,32 +44,6 @@
       },
       "club": null,
       "status": 1
-    },
-    {
-      "id": 6,
-      "firstname": "Администратор ",
-      "lastname": "Shaurma food",
-      "region": {
-        "name": "Астана",
-        "code": "01"
-      },
-      "email": "admin-shaurma",
-      "status": 1,
-      "password": "123",
-      "phone": "+7 (777) 788 88 88",
-      "address": "Сарайшық, 5",
-      "img": "https://shaurma-food.kz/images/logo-red-vector.svg",
-      "instagram": "https://www.instagram.com/shaurmafood.kz/",
-      "about": "САМЫЙ КРУПНЫЙ РЕСТОРАН В КАЗАХСТАНЕ",
-      "role": {
-        "id": 3,
-        "code": "club",
-        "desc": "Админинстратор клуба"
-      },
-      "club": {
-        "name": "Shaurma Food",
-        "id": 1
-      }
     },
     {
       "id": 7,

@@ -36,7 +36,7 @@ export class UsersComponent implements OnInit {
 		this.userService.deleteUser(userId).subscribe(response => {
 			console.log(response);
 			this.notification.showSnackBar('Пользователь успешно удален');
-			// this.getUsers();
+			this.getUsers();
 		})
 	}
 
